@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/Favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon%2032px.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon%2016px.ico">
+  <link rel="mask-icon" href="/images/Favicon.png" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Satisfy:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-flat-top.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://valpha.xyz').hostname,
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":"default"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":true,"color":"#566270","save":"auto"},
+    fancybox: true,
+    mediumzoom: false,
+    lazyload: true,
+    pangu: true,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":{"gitalk":{"order":-1}}},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="需求分析 &amp; Android Studio IDE 的配置与安装 常用控件的使用 实现一个电话拨号器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="实习Day2">
+<meta property="og:url" content="https://valpha.xyz/blog/day-2/index.html">
+<meta property="og:site_name" content="Valpha&#39;s 造物集">
+<meta property="og:description" content="需求分析 &amp; Android Studio IDE 的配置与安装 常用控件的使用 实现一个电话拨号器">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/201907030038_267.png">
+<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/201907022123_665.png">
+<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/201907022129_369.png">
+<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/201907022137_941.png">
+<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/201907030015_244.png">
+<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/201907021601_74.png">
+<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/201907030033_706.png">
+<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/201907030034_545.png">
+<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/201907021641_646.gif">
+<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/201907022048_874.png">
+<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/201907022052_167.png">
+<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/201907022056_852.png">
+<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/201907022030_439.png">
+<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/201907022204_526.png">
+<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/201907022226_403.png">
+<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/201907022229_363.gif">
+<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/201907022316_573.png">
+<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/201907022318_926.png">
+<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/201907022319_416.png">
+<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/201907022327_453.png">
+<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/201907022331_74.gif">
+<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/201907022357_548.png">
+<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/201907022357_240.png">
+<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/201907030004_636.gif">
+<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/201907030022_304.png">
+<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/201907030027_483.gif">
+<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/201907031435_161.gif">
+<meta property="article:published_time" content="2019-07-02T13:58:28.000Z">
+<meta property="article:modified_time" content="2020-01-07T06:59:30.392Z">
+<meta property="article:author" content="Valpha">
+<meta property="article:tag" content="Android">
+<meta property="article:tag" content="实习日记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog-image.pek3b.qingstor.com/201907030038_267.png">
+
+<link rel="canonical" href="https://valpha.xyz/blog/day-2/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>实习Day2 | Valpha's 造物集</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Valpha's 造物集</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">Coding & Making.</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-fw fa-sitemap"></i>站点地图</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/valpha" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://valpha.xyz/blog/day-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/Favicon.png">
+      <meta itemprop="name" content="Valpha">
+      <meta itemprop="description" content="Android | Arduino | RPi">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Valpha's 造物集">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          实习Day2
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-07-02 21:58:28" itemprop="dateCreated datePublished" datetime="2019-07-02T21:58:28+08:00">2019-07-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-01-07 14:59:30" itemprop="dateModified" datetime="2020-01-07T14:59:30+08:00">2020-01-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AE%9E%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">实习</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>需求分析 &amp; Android Studio IDE 的配置与安装</p>
+<p>常用控件的使用</p>
+<p>实现一个电话拨号器</p>
+<a id="more"></a>
+
+<h2 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h2><blockquote>
+<p>分析需求要分维度</p>
+</blockquote>
+<ol>
+<li>从状态去分析<ol>
+<li>识别输入</li>
+<li>识别输出</li>
+<li>识别状态</li>
+</ol>
+</li>
+<li>功能性级别<ol>
+<li>用户可操作的</li>
+<li>后台（系统）操作的</li>
+</ol>
+</li>
+<li>用户级别的功能分析 eg：<ol>
+<li>Play/Pause</li>
+<li>Replay</li>
+<li>Stop</li>
+</ol>
+</li>
+</ol>
+<hr>
+<p><img data-src="http://blog-image.pek3b.qingstor.com/201907030038_267.png" alt="cockpit分析"></p>
+<hr>
+<h3 id="需求分析的成果物"><a href="#需求分析的成果物" class="headerlink" title="需求分析的成果物"></a>需求分析的成果物</h3><ul>
+<li><p>软件需求</p>
+</li>
+<li><p>featurelist（功能清单）</p>
+<ul>
+<li>功能需求定义书</li>
+<li>UI（界面）、UE（体验）定义书</li>
+</ul>
+</li>
+<li><p>硬件需求</p>
+</li>
+<li><p>硬件控制式样书</p>
+<ul>
+<li>电路图</li>
+</ul>
+</li>
+</ul>
+<p><strong>核心是要学会做产品设计</strong></p>
+<h2 id="配置Android-Studio环境"><a href="#配置Android-Studio环境" class="headerlink" title="配置Android Studio环境"></a>配置Android Studio环境</h2><h3 id="Step1：安装IDE"><a href="#Step1：安装IDE" class="headerlink" title="Step1：安装IDE"></a>Step1：安装IDE</h3><p>下载、安装。</p>
+<h3 id="Step2：配置SDK"><a href="#Step2：配置SDK" class="headerlink" title="Step2：配置SDK"></a>Step2：配置SDK</h3><p>在<strong>SDK Manager</strong>中进行设置，注意要统一版本。此处选择Android Pie（API 28）</p>
+<h3 id="Step3：设置gradle"><a href="#Step3：设置gradle" class="headerlink" title="Step3：设置gradle"></a>Step3：设置gradle</h3><p>由于敏感问题，国内无法自动下载<code>gradle</code>，解决方法有以下三种：</p>
+<ul>
+<li><p>设置代理 <img data-src="http://blog-image.pek3b.qingstor.com/201907022123_665.png" alt="设置代理"></p>
+</li>
+<li><p>使用国内镜像站下载 修改项目中的<code>build.gradle</code>文件，如下</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">buildscript &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        maven &#123; url <span class="string">'http://maven.aliyun.com/nexus/content/groups/public/'</span> &#125;</span><br><span class="line">        maven&#123; url <span class="string">'http://maven.aliyun.com/nexus/content/repositories/jcenter'</span>&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    dependencies &#123;</span><br><span class="line">        classpath <span class="string">'com.android.tools.build:gradle:2.2.3'</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// <span class="doctag">NOTE:</span> Do not place your application dependencies here; they belong</span></span><br><span class="line">        <span class="comment">// in the individual module build.gradle files</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">allprojects &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        maven &#123; url <span class="string">'http://maven.aliyun.com/nexus/content/groups/public/'</span> &#125;</span><br><span class="line">        maven&#123; url <span class="string">'http://maven.aliyun.com/nexus/content/repositories/jcenter'</span>&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>即可自动下载。</p>
+</li>
+<li><p>利用本地<code>gradle</code> <img data-src="http://blog-image.pek3b.qingstor.com/201907022129_369.png" alt="本地gradle配置"></p>
+</li>
+</ul>
+<p>最佳解决方法为先设置为<strong>使用镜像站下载</strong>，下载完毕且可以进行同步后更改为<strong>使用本地gradle</strong>的方式来进行同步。</p>
+<h3 id="Step4：新建AVD虚拟设备"><a href="#Step4：新建AVD虚拟设备" class="headerlink" title="Step4：新建AVD虚拟设备"></a>Step4：新建AVD虚拟设备</h3><p>打开<strong>AVD Manager</strong>，新建虚拟设备，自定义设备。然后运行，就能看到虚拟设备。 <em>分辨率越小越省内存。</em> 存在<strong>HAXM</strong>或<strong>VT-x</strong>报错，出现这个问题的原因是需要主板开启虚拟设备加速（VT-x），在BIOS设置中开启</p>
+<h3 id="Step5：利用adb进行调试"><a href="#Step5：利用adb进行调试" class="headerlink" title="Step5：利用adb进行调试"></a>Step5：利用adb进行调试</h3><p>ADB：Android Debug Bridge <img data-src="http://blog-image.pek3b.qingstor.com/201907022137_941.png" alt="adb原理"> </p>
+<p>常用命令：</p>
+<table>
+<thead>
+<tr>
+<th>adb命令</th>
+<th>含义</th>
+<th>*参数1</th>
+<th>*参数2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>start-server</td>
+<td>启动连接</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>kill-server</td>
+<td>断开连接</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>install</td>
+<td>安装apk包</td>
+<td>*.apk</td>
+<td></td>
+</tr>
+<tr>
+<td>uninstall</td>
+<td>卸载某程序</td>
+<td>程序包名(com.xxx[公司名].xxx[项目名])</td>
+<td></td>
+</tr>
+<tr>
+<td>push</td>
+<td>上传文件</td>
+<td>待推送(push)文件</td>
+<td>目标（设备）路径</td>
+</tr>
+<tr>
+<td>pull</td>
+<td>下载文件</td>
+<td>待取回(pull)文件</td>
+<td>目标（本地）路径</td>
+</tr>
+<tr>
+<td>shell</td>
+<td>进入设备终端</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>进入设备终端后的命令（Linux命令）：</p>
+<table>
+<thead>
+<tr>
+<th>Linux命令</th>
+<th>含义</th>
+<th>参数1</th>
+<th>*参数2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>rm</td>
+<td>remove|删除</td>
+<td>某文件路径</td>
+<td></td>
+</tr>
+<tr>
+<td>ls</td>
+<td>list|列表</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>mv</td>
+<td>move|移动（重命名）</td>
+<td>原文件</td>
+<td>新文件</td>
+</tr>
+<tr>
+<td>cd</td>
+<td>change directory|切换目录</td>
+<td>路径</td>
+<td></td>
+</tr>
+<tr>
+<td>cp</td>
+<td>copy|复制</td>
+<td>源文件</td>
+<td>目标路径</td>
+</tr>
+<tr>
+<td>pm</td>
+<td>包管理</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>pm指令</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>install</td>
+<td>安装apk包</td>
+<td>*.apk</td>
+<td>P版本(9.0)只允许安装/data/local/tmp/下的apk包</td>
+</tr>
+<tr>
+<td></td>
+<td>-r</td>
+<td></td>
+<td>强制替换原包（升级更新）</td>
+</tr>
+<tr>
+<td>uninstall</td>
+<td>卸载包</td>
+<td>包名</td>
+<td></td>
+</tr>
+<tr>
+<td>list packages</td>
+<td>列出所有安装包</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>-3</td>
+<td></td>
+<td>列出所有第三方安装包</td>
+</tr>
+</tbody></table>
+<h3 id="关于Android-Studio-IDE"><a href="#关于Android-Studio-IDE" class="headerlink" title="关于Android Studio IDE"></a>关于Android Studio IDE</h3><blockquote>
+<p>工欲善其事必先利其器</p>
+</blockquote>
+<p><strong>Android Studio IDE</strong>是_JetBrain_g公司开发的IDE，该公司所有的IDE操作界面、使用逻辑都很相似，学会一款了后以后其他的IDE也都能快速上手。（比如<strong>PyCharm</strong>，学生邮箱可享一年正版！） 特点：</p>
+<ul>
+<li>可以汉化，有开源作者在更新汉化包，切换很方便</li>
+<li>集成很多小工具，如Terminal、GIT等</li>
+<li>插件众多，如时间统计wakatime、主题设置One Dark、更换操作方式为vim、Emacs等等</li>
+<li>文件管理非常方便，无论是本地文件还是设备文件，如图：</li>
+<li><img data-src="http://blog-image.pek3b.qingstor.com/201907030015_244.png" alt=""></li>
+</ul>
+<p>常用功能：</p>
+<ul>
+<li><p>APK打包、签名（下方的一个选项） <img data-src="http://blog-image.pek3b.qingstor.com/201907021601_74.png" alt="APK打包"></p>
+</li>
+<li><p>关于包名，在<code>MainActivity.java</code>和<code>AndroidManifest.xml</code>中 <img data-src="http://blog-image.pek3b.qingstor.com/201907030033_706.png" alt="Manifest中的包名"> <img data-src="http://blog-image.pek3b.qingstor.com/201907030034_545.png" alt="mainActivity中的包名"></p>
+</li>
+<li><p>adb命令，在命令行下按↑键可以很方便地调用历史命令，常用于卸载已有软件，做新机测试 示例为安装包和卸载包 <img data-src="http://blog-image.pek3b.qingstor.com/201907021641_646.gif" alt="adb命令"></p>
+</li>
+</ul>
+<h2 id="开发电话拨号器"><a href="#开发电话拨号器" class="headerlink" title="开发电话拨号器"></a>开发电话拨号器</h2><h3 id="Step1：设计UI界面"><a href="#Step1：设计UI界面" class="headerlink" title="Step1：设计UI界面"></a>Step1：设计UI界面</h3><h4 id="文件结构："><a href="#文件结构：" class="headerlink" title="文件结构："></a>文件结构：</h4><p><img data-src="http://blog-image.pek3b.qingstor.com/201907022048_874.png" alt="文件结构树"></p>
+<h4 id="manifest"><a href="#manifest" class="headerlink" title="manifest"></a>manifest</h4><p>其中<code>manifest</code>文件夹下的<code>AndroidManifest.xml</code>是安卓工程的核心配置文件，每个工程<strong>必备且唯一</strong>。 <img data-src="http://blog-image.pek3b.qingstor.com/201907022052_167.png" alt="AndroidManifest.xml"> 在图中所示的地方，标出了主要Java代码的位置。</p>
+<h4 id="MainActivity-java"><a href="#MainActivity-java" class="headerlink" title="MainActivity.java"></a>MainActivity.java</h4><p>核心逻辑代码 <code>onCreate</code>中创建了唯一的<strong>主界面</strong><code>activity_main</code> <img data-src="http://blog-image.pek3b.qingstor.com/201907022056_852.png" alt="MainActivity.java"></p>
+<h4 id="res-resource"><a href="#res-resource" class="headerlink" title="res(resource)"></a>res(resource)</h4><p>存放各种资源（图像、音频等）</p>
+<p>├─drawable 图标<br>├─layout 界面<br>├─mipmap 图标<br>└─values 各种参数</p>
+<p> 修改<code>layout</code> 下的<code>activity_main.xml</code>文件，可以设计出下图的界面（编写xml文件，或使用design图形化设计方式） <img data-src="http://blog-image.pek3b.qingstor.com/201907022030_439.png" alt="activity_main.xml"> 常用控件：</p>
+<ul>
+<li>布局layout（水平、垂直）</li>
+<li>按钮button</li>
+<li>文本text（标签、文本框）</li>
+<li>多功能部件（WebView、ImageView、VideoView等等）</li>
+<li>……</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">LinearLayout</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/linearLayout"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_marginTop</span>=<span class="string">"8dp"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:orientation</span>=<span class="string">"vertical"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_constraintTop_toTopOf</span>=<span class="string">"parent"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>垂直布局：</p>
+<ul>
+<li>id</li>
+<li>宽度：匹配页面宽度（max）</li>
+<li>高度：包裹内容（min）</li>
+<li>顶部留白：8像素</li>
+<li>方向：垂直</li>
+</ul>
+<p>实际效果：</p>
+<p> <img data-src="http://blog-image.pek3b.qingstor.com/201907022204_526.png" alt="app效果"></p>
+<h3 id="Step2：根据UI实现逻辑（逐功能测试）"><a href="#Step2：根据UI实现逻辑（逐功能测试）" class="headerlink" title="Step2：根据UI实现逻辑（逐功能测试）"></a>Step2：根据UI实现逻辑（逐功能测试）</h3><p>界面设计好了，按下按钮时应<strong>callback</strong> 在<code>MainActivity</code>类中添加以下方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">startcall</span><span class="params">(View view)</span></span>&#123;</span><br><span class="line">        Toast.makeText(<span class="keyword">this</span>, <span class="string">"Clicked"</span>, Toast.LENGTH_LONG).show();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>并在界面的<strong>按钮</strong>控件上绑定该函数</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Button</span></span></span><br><span class="line"><span class="tag">        <span class="attr">...</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:onClick</span>=<span class="string">"startcall"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:text</span>=<span class="string">"拨号"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">...</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>或者 <img data-src="http://blog-image.pek3b.qingstor.com/201907022226_403.png" alt="Design方式设计"> </p>
+<p>意思是当按键<strong>点击</strong>时，调用<code>startcall</code>方法</p>
+<h3 id="Step3：测试UI效果"><a href="#Step3：测试UI效果" class="headerlink" title="Step3：测试UI效果"></a>Step3：测试UI效果</h3><p>设置好了测试一下</p>
+<p> <img data-src="http://blog-image.pek3b.qingstor.com/201907022229_363.gif" alt="onClick"></p>
+<p> Toast弹出了</p>
+<h3 id="step4：实现拨打电话"><a href="#step4：实现拨打电话" class="headerlink" title="step4：实现拨打电话"></a>step4：实现拨打电话</h3><h4 id="继续设计逻辑"><a href="#继续设计逻辑" class="headerlink" title="继续设计逻辑"></a>继续设计逻辑</h4><p>从文本框中提取数字==&gt;数字用于拨号</p>
+<h4 id="1、从文本框中提取出数字"><a href="#1、从文本框中提取出数字" class="headerlink" title="1、从文本框中提取出数字"></a>1、从文本框中提取出数字</h4><p>设置文本框的id</p>
+<p> <img data-src="http://blog-image.pek3b.qingstor.com/201907022316_573.png" alt="editText的id"> </p>
+<p>寻找我们设置的文本框（类似于设置一个可以访问的socket？ <img data-src="http://blog-image.pek3b.qingstor.com/201907022318_926.png" alt=""> </p>
+<p>利用<code>et_number</code>可以获取文本等字符串操作 取出拨号数字 <img data-src="http://blog-image.pek3b.qingstor.com/201907022319_416.png" alt="取出拨号数字"> </p>
+<p>现在字符串<code>phonenum</code>中保存的就是我们需要拨号的号码</p>
+<h4 id="2、用系统自带的电话应用去拨号"><a href="#2、用系统自带的电话应用去拨号" class="headerlink" title="2、用系统自带的电话应用去拨号"></a>2、用系统自带的电话应用去拨号</h4><p>拨号实现方式：<strong>意图Intent</strong> <img data-src="http://blog-image.pek3b.qingstor.com/201907022327_453.png" alt="实现拨号"> 测试一下：发现会闪退 <img data-src="http://blog-image.pek3b.qingstor.com/201907022331_74.gif" alt=""> 查询logcat，发现问题出在权限上 原来是没有<strong>拨号权限</strong> <img data-src="http://blog-image.pek3b.qingstor.com/201907022357_548.png" alt="旧版解决方法"> Android 5.0之前的版本可以使用这种方式来申请权限，之后的不可以，故采用动态授权的方式。</p>
+<h5 id="法一：利用Android提供的动态获取权限API"><a href="#法一：利用Android提供的动态获取权限API" class="headerlink" title="法一：利用Android提供的动态获取权限API"></a>法一：利用Android提供的动态获取权限API</h5><p><img data-src="http://blog-image.pek3b.qingstor.com/201907022357_240.png" alt="通用鲁棒的代码"> <strong>*注意</strong>：此处包含了版本适配，单就算是旧版也是需要在<code>AndroidManifest.xml</code>中添加权限才能使用的 测试一下：</p>
+<p> <img data-src="http://blog-image.pek3b.qingstor.com/201907030004_636.gif" alt="申请权限通过"> </p>
+<p><strong>*注意</strong>：这里，第一次点击<strong>deny</strong>，是拒绝权限；第二次点<strong>allow</strong>，是同意了权限，但是并不会拨出电话。第三次点击拨号，此时有了拨号权限，所以才可以拨出电话。这就很蠢，UE需要优化。 在同级添加一个申请权限结果的反馈，利用toast做输出 <img data-src="http://blog-image.pek3b.qingstor.com/201907030022_304.png" alt="查看结果"> 测试结果：</p>
+<p> <img data-src="http://blog-image.pek3b.qingstor.com/201907030027_483.gif" alt="带申请权限结果反馈"> </p>
+<p>在反馈结果中，如果获得了权限，是可以直接执行意图的，即直接拨号，达到了最佳体验。</p>
+<h5 id="法二：利用开源框架获取权限"><a href="#法二：利用开源框架获取权限" class="headerlink" title="法二：利用开源框架获取权限"></a>法二：利用开源框架获取权限</h5><p><strong>补充</strong></p>
+<h6 id="如何使用开源框架"><a href="#如何使用开源框架" class="headerlink" title="如何使用开源框架"></a>如何使用开源框架</h6><p>在build.gradle中添加dependencies：</p>
+<p>如何使用github</p>
+<p><img data-src="http://blog-image.pek3b.qingstor.com/201907031435_161.gif" alt="动态权限申请"></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Android/" rel="tag"># Android</a>
+              <a href="/tags/%E5%AE%9E%E4%B9%A0%E6%97%A5%E8%AE%B0/" rel="tag"># 实习日记</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/blog/internship-day3/" rel="prev" title="实习Day3">
+      <i class="fa fa-chevron-left"></i> 实习Day3
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/blog/internship-day1/" rel="next" title="实习Day1">
+      实习Day1 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#需求分析"><span class="nav-text">需求分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#需求分析的成果物"><span class="nav-text">需求分析的成果物</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置Android-Studio环境"><span class="nav-text">配置Android Studio环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Step1：安装IDE"><span class="nav-text">Step1：安装IDE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step2：配置SDK"><span class="nav-text">Step2：配置SDK</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step3：设置gradle"><span class="nav-text">Step3：设置gradle</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step4：新建AVD虚拟设备"><span class="nav-text">Step4：新建AVD虚拟设备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step5：利用adb进行调试"><span class="nav-text">Step5：利用adb进行调试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于Android-Studio-IDE"><span class="nav-text">关于Android Studio IDE</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开发电话拨号器"><span class="nav-text">开发电话拨号器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Step1：设计UI界面"><span class="nav-text">Step1：设计UI界面</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#文件结构："><span class="nav-text">文件结构：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#manifest"><span class="nav-text">manifest</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MainActivity-java"><span class="nav-text">MainActivity.java</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#res-resource"><span class="nav-text">res(resource)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step2：根据UI实现逻辑（逐功能测试）"><span class="nav-text">Step2：根据UI实现逻辑（逐功能测试）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step3：测试UI效果"><span class="nav-text">Step3：测试UI效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#step4：实现拨打电话"><span class="nav-text">step4：实现拨打电话</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#继续设计逻辑"><span class="nav-text">继续设计逻辑</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1、从文本框中提取出数字"><span class="nav-text">1、从文本框中提取出数字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、用系统自带的电话应用去拨号"><span class="nav-text">2、用系统自带的电话应用去拨号</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#法一：利用Android提供的动态获取权限API"><span class="nav-text">法一：利用Android提供的动态获取权限API</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#法二：利用开源框架获取权限"><span class="nav-text">法二：利用开源框架获取权限</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#如何使用开源框架"><span class="nav-text">如何使用开源框架</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Valpha"
+      src="/images/Favicon.png">
+  <p class="site-author-name" itemprop="name">Valpha</p>
+  <div class="site-description" itemprop="description">Android | Arduino | RPi</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://whisper912.github.io/" title="https:&#x2F;&#x2F;whisper912.github.io&#x2F;" rel="noopener" target="_blank">炸毛刺猬</a>
+        </li>
+    </ul>
+  </div>
+<!-- CloudCalendar -->
+<div class="widget-wrap" style="width: 90%;margin-left: auto;margin-right: auto; opacity: 0.97;">
+	<div class="widget" id="CloudCalendar"></div>
+</div><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=280 height=52
+    src="//music.163.com/outchain/player?type=2&id=34014168&auto=0&height=32"></iframe>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Valpha</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='86, 98, 112' opacity='0.8' zIndex='-1' count='120' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.getAttribute('pjax') !== null) {
+      element.setAttribute('pjax', '');
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+  <script pjax>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+<!-- calendar widget -->
+
+    <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-calendar/calendar.min.js"></script>
+    <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-calendar/languages.min.js"></script>
+    <script>
+    $(function() {
+        $('#CloudCalendar').aCalendar('zh-CN',
+            $.extend(
+                '', {
+                    single:true,
+                    root:'/calendar/'
+                }
+            )
+        );
+    });
+    </script>
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: 'f2fb1f715466bdfa8f3e',
+      clientSecret: '0831663fd94447c22345630d1a052cc96081fc6c',
+      repo: 'valpha',
+      owner: 'valpha',
+      admin: ['valpha'],
+      id: '4591beb88dfe919755de41ae8418f766',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+    </div>
+</body>
+</html>

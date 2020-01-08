@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/Favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon%2032px.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon%2016px.ico">
+  <link rel="mask-icon" href="/images/Favicon.png" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Satisfy:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-flat-top.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://valpha.xyz').hostname,
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":"default"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":true,"color":"#566270","save":"auto"},
+    fancybox: true,
+    mediumzoom: false,
+    lazyload: true,
+    pangu: true,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":{"gitalk":{"order":-1}}},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="Intent 案例补充——短信收发器 Activity 的任务堆栈与其生命周期">
+<meta property="og:type" content="article">
+<meta property="og:title" content="实习Day13">
+<meta property="og:url" content="https://valpha.xyz/blog/day-13/index.html">
+<meta property="og:site_name" content="Valpha&#39;s 造物集">
+<meta property="og:description" content="Intent 案例补充——短信收发器 Activity 的任务堆栈与其生命周期">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/201907171612_830.png">
+<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/201907171508_519.gif">
+<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/201907171613_668.png">
+<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/201907171520_366.gif">
+<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/201907171522_813.gif">
+<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/201907171613_232.png">
+<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/201907171527_477.gif">
+<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/201907171559_810.gif">
+<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/201907171614_873.png">
+<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/201907171602_809.gif">
+<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/201907171608_896.gif">
+<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/201907171641_467.gif">
+<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/201907171644_767.png">
+<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/201907171726_379.png">
+<meta property="article:published_time" content="2019-07-17T05:27:34.000Z">
+<meta property="article:modified_time" content="2020-01-07T06:59:30.952Z">
+<meta property="article:author" content="Valpha">
+<meta property="article:tag" content="Android">
+<meta property="article:tag" content="实习日记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog-image.pek3b.qingstor.com/201907171612_830.png">
+
+<link rel="canonical" href="https://valpha.xyz/blog/day-13/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>实习Day13 | Valpha's 造物集</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Valpha's 造物集</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">Coding & Making.</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-fw fa-sitemap"></i>站点地图</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/valpha" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://valpha.xyz/blog/day-13/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/Favicon.png">
+      <meta itemprop="name" content="Valpha">
+      <meta itemprop="description" content="Android | Arduino | RPi">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Valpha's 造物集">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          实习Day13
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-07-17 13:27:34" itemprop="dateCreated datePublished" datetime="2019-07-17T13:27:34+08:00">2019-07-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-01-07 14:59:30" itemprop="dateModified" datetime="2020-01-07T14:59:30+08:00">2020-01-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AE%9E%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">实习</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><strong>Intent 案例补充——短信收发器</strong></p>
+<p><strong>Activity 的任务堆栈与其生命周期</strong></p>
+<a id="more"></a>
+
+<h3 id="短信发送器案例"><a href="#短信发送器案例" class="headerlink" title="短信发送器案例"></a>短信发送器案例</h3><h3 id="Activity的四种启动方式"><a href="#Activity的四种启动方式" class="headerlink" title="Activity的四种启动方式"></a>Activity的四种启动方式</h3><h4 id="默认堆栈模式"><a href="#默认堆栈模式" class="headerlink" title="默认堆栈模式"></a>默认堆栈模式</h4><p>每一次启动界面都会新生成一个新的Activity</p>
+<p>启动多少起就要返回多少次</p>
+<p><img data-src="http://blog-image.pek3b.qingstor.com/201907171612_830.png" alt=""></p>
+<p><img data-src="http://blog-image.pek3b.qingstor.com/201907171508_519.gif" alt="启动多个Activity"></p>
+<h4 id="SingleTop-模式"><a href="#SingleTop-模式" class="headerlink" title="SingleTop 模式"></a>SingleTop 模式</h4><p>栈顶复用模式</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;activity</span><br><span class="line">    android:name=<span class="string">".Main2Activity"</span></span><br><span class="line">    android:launchMode=<span class="string">"singleTop"</span> /&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>保持<strong>栈顶</strong>的 Activity 唯一</p>
+<p><img data-src="http://blog-image.pek3b.qingstor.com/201907171613_668.png" alt=""></p>
+<p><img data-src="http://blog-image.pek3b.qingstor.com/201907171520_366.gif" alt="栈顶 Activity 唯一性"></p>
+<p>注意，此处只保持<strong>栈顶</strong>的 Activity 唯一，并不会使栈中的 Activity 唯一</p>
+<p>如果界面存在互相调用的关系，则无法保持 Activity 的唯一性</p>
+<p> <img data-src="http://blog-image.pek3b.qingstor.com/201907171522_813.gif" alt="互相调用导致了多 Activity"></p>
+<div class="note info">
+            <p>即：SingleTop 模式可以保证同一 Activity 不会连续出现</p>
+          </div>
+
+
+
+<h4 id="SingleTask-模式"><a href="#SingleTask-模式" class="headerlink" title="SingleTask 模式"></a>SingleTask 模式</h4><p>栈内复用模式</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;activity</span><br><span class="line">    android:name=<span class="string">".Main2Activity"</span></span><br><span class="line">    android:launchMode=<span class="string">"singleTask"</span> /&gt;</span><br></pre></td></tr></table></figure>
+
+<p>如图：保证了 <strong>Activity</strong> 只能出现一次，只要在堆栈内出现了这个 <strong>Task</strong>，就不会构建新的 <strong>Activity</strong>，每一次调用为<strong>退栈</strong></p>
+<p><img data-src="http://blog-image.pek3b.qingstor.com/201907171613_232.png" alt=""></p>
+<p><img data-src="http://blog-image.pek3b.qingstor.com/201907171527_477.gif" alt="保持 Activity 永远唯一"></p>
+<div class="note warning">
+            <p>即：启动 SingleTask 的 Activity 时，操作为退栈</p><p><img data-src="http://blog-image.pek3b.qingstor.com/201907171559_810.gif" alt="在点击了启动界面2后，再点返回，发现只有一个界面1，可想而知，操作为退栈"></p>
+          </div>
+
+<h4 id="SingleInstance-模式"><a href="#SingleInstance-模式" class="headerlink" title="SingleInstance 模式"></a>SingleInstance 模式</h4><p>全局唯一模式（栈外单例模式）</p>
+<p>与 SingleTask 的区别是，这种模式的 Activity 会单独占用一个 Task 栈，具有全局唯一性</p>
+<p>而且没有退栈的操作（因为不用同一个任务栈）</p>
+<p><img data-src="http://blog-image.pek3b.qingstor.com/201907171614_873.png" alt=""></p>
+<p><img data-src="http://blog-image.pek3b.qingstor.com/201907171602_809.gif" alt="在启动界面2之前和之后都启动了若干个界面1，在返回时这前后创建的界面数叠加了"></p>
+<h3 id="Activity-的生命周期"><a href="#Activity-的生命周期" class="headerlink" title="Activity 的生命周期"></a>Activity 的生命周期</h3><p><img data-src="http://blog-image.pek3b.qingstor.com/201907171608_896.gif" alt=""></p>
+<div><div class="fold_hider"><div class="close hider_title">代码</div></div><div class="fold">
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG = <span class="string">"LifeCycle"</span>;</span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="comment">//  全局变量适合放在onCreate里面，只运行一次，除非进程被终止</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">    setContentView(R.layout.activity_main);</span><br><span class="line">    Log.d(TAG, <span class="string">"-----onCreate: "</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="comment">//  onRestart、onCreate之后一定跟着onStart</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onStart</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Log.d(TAG, <span class="string">"-----onStart: "</span>);</span><br><span class="line">    <span class="keyword">super</span>.onStart();</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="comment">//  onStart之后一定跟着onResume</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onResume</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Log.d(TAG, <span class="string">"-----onResume: "</span>);</span><br><span class="line">    <span class="keyword">super</span>.onResume();</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="comment">//  onPause时是不可操作界面的</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onPause</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Log.d(TAG, <span class="string">"-----onPause: "</span>);</span><br><span class="line">    <span class="keyword">super</span>.onPause();</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onStop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Log.d(TAG, <span class="string">"-----onStop: "</span>);</span><br><span class="line">    <span class="keyword">super</span>.onStop();</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onRestart</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Log.d(TAG, <span class="string">"-----onRestart: "</span>);</span><br><span class="line">    <span class="keyword">super</span>.onRestart();</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Log.d(TAG, <span class="string">"-----onDestroy: "</span>);</span><br><span class="line">    <span class="keyword">super</span>.onDestroy();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</div></div>
+
+
+
+<p><img data-src="http://blog-image.pek3b.qingstor.com/201907171641_467.gif" alt=""></p>
+<h3 id="Android-主题切换"><a href="#Android-主题切换" class="headerlink" title="Android 主题切换"></a>Android 主题切换</h3><p>通过修改样式文件，来更改app的显示效果</p>
+<p><img data-src="http://blog-image.pek3b.qingstor.com/201907171644_767.png" alt="样式文件在res的Value目录下"></p>
+<p>写法与网页前端的写法一致</p>
+<p>两种继承方式：</p>
+<h4 id="“-”继承"><a href="#“-”继承" class="headerlink" title="“.”继承"></a>“.”继承</h4><h4 id="“parent”属性继承"><a href="#“parent”属性继承" class="headerlink" title="“parent”属性继承"></a>“parent”属性继承</h4><h3 id="mediaPlayer音乐播放器的案例"><a href="#mediaPlayer音乐播放器的案例" class="headerlink" title="mediaPlayer音乐播放器的案例"></a>mediaPlayer音乐播放器的案例</h3><p><img data-src="http://blog-image.pek3b.qingstor.com/201907171726_379.png" alt="mediaPlayer 的生命周期"></p>
+<hr>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Android/" rel="tag"># Android</a>
+              <a href="/tags/%E5%AE%9E%E4%B9%A0%E6%97%A5%E8%AE%B0/" rel="tag"># 实习日记</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/blog/day-1415/" rel="prev" title="实习Day14-15">
+      <i class="fa fa-chevron-left"></i> 实习Day14-15
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/blog/internship-day12/" rel="next" title="实习Day12">
+      实习Day12 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#短信发送器案例"><span class="nav-text">短信发送器案例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Activity的四种启动方式"><span class="nav-text">Activity的四种启动方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#默认堆栈模式"><span class="nav-text">默认堆栈模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SingleTop-模式"><span class="nav-text">SingleTop 模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SingleTask-模式"><span class="nav-text">SingleTask 模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SingleInstance-模式"><span class="nav-text">SingleInstance 模式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Activity-的生命周期"><span class="nav-text">Activity 的生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Android-主题切换"><span class="nav-text">Android 主题切换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#“-”继承"><span class="nav-text">“.”继承</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#“parent”属性继承"><span class="nav-text">“parent”属性继承</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mediaPlayer音乐播放器的案例"><span class="nav-text">mediaPlayer音乐播放器的案例</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Valpha"
+      src="/images/Favicon.png">
+  <p class="site-author-name" itemprop="name">Valpha</p>
+  <div class="site-description" itemprop="description">Android | Arduino | RPi</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://whisper912.github.io/" title="https:&#x2F;&#x2F;whisper912.github.io&#x2F;" rel="noopener" target="_blank">炸毛刺猬</a>
+        </li>
+    </ul>
+  </div>
+<!-- CloudCalendar -->
+<div class="widget-wrap" style="width: 90%;margin-left: auto;margin-right: auto; opacity: 0.97;">
+	<div class="widget" id="CloudCalendar"></div>
+</div><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=280 height=52
+    src="//music.163.com/outchain/player?type=2&id=34014168&auto=0&height=32"></iframe>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Valpha</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='86, 98, 112' opacity='0.8' zIndex='-1' count='120' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.getAttribute('pjax') !== null) {
+      element.setAttribute('pjax', '');
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+  <script pjax>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+<!-- calendar widget -->
+
+    <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-calendar/calendar.min.js"></script>
+    <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-calendar/languages.min.js"></script>
+    <script>
+    $(function() {
+        $('#CloudCalendar').aCalendar('zh-CN',
+            $.extend(
+                '', {
+                    single:true,
+                    root:'/calendar/'
+                }
+            )
+        );
+    });
+    </script>
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: 'f2fb1f715466bdfa8f3e',
+      clientSecret: '0831663fd94447c22345630d1a052cc96081fc6c',
+      repo: 'valpha',
+      owner: 'valpha',
+      admin: ['valpha'],
+      id: '883d9adec04580ab9931afdccec4da2b',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+    </div>
+</body>
+</html>
