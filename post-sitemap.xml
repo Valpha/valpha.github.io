@@ -2,13 +2,13 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
-        <loc>https://valpha.xyz</loc>
+        <loc>https://valpha.github.io</loc>
         <changefreq>daily</changefreq>
         <priority>1</priority>
     </url>
 
     <url>
-        <loc>https://valpha.xyz/blog/android-developmenthttp-network-programming/</loc>
+        <loc>https://valpha.github.io/blog/android-developmenthttp-network-programming/</loc>
         <lastmod>2020-01-07T06:59:31.168Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -16,7 +16,7 @@
     </url>
 
     <url>
-        <loc>https://valpha.xyz/blog/android-developmentrights-management/</loc>
+        <loc>https://valpha.github.io/blog/android-developmentrights-management/</loc>
         <lastmod>2020-01-07T06:59:31.168Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -24,7 +24,7 @@
     </url>
 
     <url>
-        <loc>https://valpha.xyz/blog/internship-day1/</loc>
+        <loc>https://valpha.github.io/blog/internship-day1/</loc>
         <lastmod>2020-01-07T06:59:31.164Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -32,7 +32,7 @@
     </url>
 
     <url>
-        <loc>https://valpha.xyz/blog/internship-day4/</loc>
+        <loc>https://valpha.github.io/blog/internship-day4/</loc>
         <lastmod>2020-01-07T06:59:31.164Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -40,7 +40,7 @@
     </url>
 
     <url>
-        <loc>https://valpha.xyz/blog/day-7/</loc>
+        <loc>https://valpha.github.io/blog/day-7/</loc>
         <lastmod>2020-01-07T06:59:31.164Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -48,7 +48,7 @@
     </url>
 
     <url>
-        <loc>https://valpha.xyz/blog/day-9/</loc>
+        <loc>https://valpha.github.io/blog/day-9/</loc>
         <lastmod>2020-01-07T06:59:31.164Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -56,7 +56,7 @@
     </url>
 
     <url>
-        <loc>https://valpha.xyz/blog/android-open-source-framework/</loc>
+        <loc>https://valpha.github.io/blog/android-open-source-framework/</loc>
         <lastmod>2020-01-07T06:59:30.952Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -64,7 +64,7 @@
     </url>
 
     <url>
-        <loc>https://valpha.xyz/blog/day-13/</loc>
+        <loc>https://valpha.github.io/blog/day-13/</loc>
         <lastmod>2020-01-07T06:59:30.952Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -72,7 +72,7 @@
     </url>
 
     <url>
-        <loc>https://valpha.xyz/blog/milestone-of-blog-completion/</loc>
+        <loc>https://valpha.github.io/blog/milestone-of-blog-completion/</loc>
         <lastmod>2020-01-07T06:59:30.948Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -80,7 +80,7 @@
     </url>
 
     <url>
-        <loc>https://valpha.xyz/blog/examples-of-student-management-systems/</loc>
+        <loc>https://valpha.github.io/blog/examples-of-student-management-systems/</loc>
         <lastmod>2020-01-07T06:59:30.948Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -88,7 +88,7 @@
     </url>
 
     <url>
-        <loc>https://valpha.xyz/blog/super-nice-software-recommendationpc/</loc>
+        <loc>https://valpha.github.io/blog/super-nice-software-recommendationpc/</loc>
         <lastmod>2020-01-07T06:59:30.948Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -96,7 +96,7 @@
     </url>
 
     <url>
-        <loc>https://valpha.xyz/blog/android-developmentconfiguration-and-installation-of-studio-ide/</loc>
+        <loc>https://valpha.github.io/blog/android-developmentconfiguration-and-installation-of-studio-ide/</loc>
         <lastmod>2020-01-07T06:59:30.944Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -104,7 +104,7 @@
     </url>
 
     <url>
-        <loc>https://valpha.xyz/blog/android-studio-common-plugins/</loc>
+        <loc>https://valpha.github.io/blog/android-studio-common-plugins/</loc>
         <lastmod>2020-01-07T06:59:30.944Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -112,7 +112,7 @@
     </url>
 
     <url>
-        <loc>https://valpha.xyz/blog/use-bt-panel-and-configure-https-access/</loc>
+        <loc>https://valpha.github.io/blog/use-bt-panel-and-configure-https-access/</loc>
         <lastmod>2020-01-07T06:59:30.944Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -120,7 +120,7 @@
     </url>
 
     <url>
-        <loc>https://valpha.xyz/blog/sword-finger-offer-1/</loc>
+        <loc>https://valpha.github.io/blog/sword-finger-offer-1/</loc>
         <lastmod>2020-01-07T06:59:30.944Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -128,7 +128,7 @@
     </url>
 
     <url>
-        <loc>https://valpha.xyz/blog/android-developmentsix-layouts/</loc>
+        <loc>https://valpha.github.io/blog/android-developmentsix-layouts/</loc>
         <lastmod>2020-01-07T06:59:30.940Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -136,7 +136,7 @@
     </url>
 
     <url>
-        <loc>https://valpha.xyz/blog/sword-finger-offer-2/</loc>
+        <loc>https://valpha.github.io/blog/sword-finger-offer-2/</loc>
         <lastmod>2020-01-07T06:59:30.940Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -144,7 +144,7 @@
     </url>
 
     <url>
-        <loc>https://valpha.xyz/blog/internship-day12/</loc>
+        <loc>https://valpha.github.io/blog/internship-day12/</loc>
         <lastmod>2020-01-07T06:59:30.400Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -152,7 +152,7 @@
     </url>
 
     <url>
-        <loc>https://valpha.xyz/blog/day-1415/</loc>
+        <loc>https://valpha.github.io/blog/day-1415/</loc>
         <lastmod>2020-01-07T06:59:30.400Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -160,7 +160,7 @@
     </url>
 
     <url>
-        <loc>https://valpha.xyz/blog/day-16/</loc>
+        <loc>https://valpha.github.io/blog/day-16/</loc>
         <lastmod>2020-01-07T06:59:30.396Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -168,7 +168,7 @@
     </url>
 
     <url>
-        <loc>https://valpha.xyz/blog/internship-day3/</loc>
+        <loc>https://valpha.github.io/blog/internship-day3/</loc>
         <lastmod>2020-01-07T06:59:30.396Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -176,7 +176,7 @@
     </url>
 
     <url>
-        <loc>https://valpha.xyz/blog/internship-day8/</loc>
+        <loc>https://valpha.github.io/blog/internship-day8/</loc>
         <lastmod>2020-01-07T06:59:30.396Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -184,7 +184,7 @@
     </url>
 
     <url>
-        <loc>https://valpha.xyz/blog/the-first-class-after-january-assessment/</loc>
+        <loc>https://valpha.github.io/blog/the-first-class-after-january-assessment/</loc>
         <lastmod>2020-01-07T06:59:30.392Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -192,7 +192,7 @@
     </url>
 
     <url>
-        <loc>https://valpha.xyz/blog/internship-day10/</loc>
+        <loc>https://valpha.github.io/blog/internship-day10/</loc>
         <lastmod>2020-01-07T06:59:30.392Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -200,7 +200,7 @@
     </url>
 
     <url>
-        <loc>https://valpha.xyz/blog/day-2/</loc>
+        <loc>https://valpha.github.io/blog/day-2/</loc>
         <lastmod>2020-01-07T06:59:30.392Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -208,7 +208,7 @@
     </url>
 
     <url>
-        <loc>https://valpha.xyz/blog/day-5/</loc>
+        <loc>https://valpha.github.io/blog/day-5/</loc>
         <lastmod>2020-01-07T06:59:30.392Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -216,7 +216,7 @@
     </url>
 
     <url>
-        <loc>https://valpha.xyz/blog/blog-rebuilt-again/</loc>
+        <loc>https://valpha.github.io/blog/blog-rebuilt-again/</loc>
         <lastmod>2020-01-07T06:59:30.388Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -224,7 +224,7 @@
     </url>
 
     <url>
-        <loc>https://valpha.xyz/blog/day-6/</loc>
+        <loc>https://valpha.github.io/blog/day-6/</loc>
         <lastmod>2020-01-07T06:59:30.388Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -232,7 +232,7 @@
     </url>
 
     <url>
-        <loc>https://valpha.xyz/blog/internship-day11/</loc>
+        <loc>https://valpha.github.io/blog/internship-day11/</loc>
         <lastmod>2020-01-07T06:59:30.320Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
