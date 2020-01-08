@@ -4,6 +4,8 @@
     <title>这是一个测试用的md文件</title>
     <url>/blog/this-is-a-md-file-for-testing/</url>
     <content><![CDATA[<p>哈哈哈哈哈哈</p>
+<a id="more"></a>
+<p>sdfsdfs</p>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>建站</category>
