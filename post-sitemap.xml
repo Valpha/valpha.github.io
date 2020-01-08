@@ -192,6 +192,14 @@
     </url>
 
     <url>
+        <loc>https://valpha.github.io/blog/internship-day10/</loc>
+        <lastmod>2020-01-07T06:59:30.392Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://valpha.github.io/blog/day-2/</loc>
         <lastmod>2020-01-07T06:59:30.392Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -201,14 +209,6 @@
 
     <url>
         <loc>https://valpha.github.io/blog/day-5/</loc>
-        <lastmod>2020-01-07T06:59:30.392Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://valpha.github.io/blog/internship-day10/</loc>
         <lastmod>2020-01-07T06:59:30.392Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
