@@ -7,12 +7,47 @@
 <a id="more"></a>
 
 <p>哈哈哈哈哈哈哈</p>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        
+    </div>
+    <div class='spoiler-content'>
+        <p>折叠起来的代码块哦</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">System.out.println(<span class="string">"hexo"</span>);</span><br></pre></td></tr></table></figure>
+
+    </div>
+</div><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>建站</category>
       </categories>
       <tags>
         <tag>test</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JVM</title>
+    <url>/blog/jvm/</url>
+    <content><![CDATA[<div class="note default">
+            <h1 id="Java虚拟机内存模型"><a href="#Java虚拟机内存模型" class="headerlink" title="Java虚拟机内存模型"></a>Java虚拟机内存模型</h1>
+          </div>
+
+<a id="more"></a>
+
+<h2 id="JVM虚拟机剖析"><a href="#JVM虚拟机剖析" class="headerlink" title="JVM虚拟机剖析"></a>JVM虚拟机剖析</h2><h3 id="JVM结构"><a href="#JVM结构" class="headerlink" title="JVM结构"></a>JVM结构</h3><p><img data-src="http://blog-image.pek3b.qingstor.com/201909242027_530.png" alt="JVM结构"></p>
+<h4 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h4><p><img data-src="http://blog-image.pek3b.qingstor.com/201909242045_823.png" alt="JVM-运行时数据区-栈的模型"></p>
+<p><img data-src="http://blog-image.pek3b.qingstor.com/201909242036_85.png" alt=""></p>
+<p>每一个方法，分配一个<strong>栈帧</strong></p>
+<p>首次调用会入栈，调用结束后会出栈。</p>
+<p><code>javap -c</code>反编译java class文件，可以得到<code>JVM</code>底层代码</p>
+<p>每一个线程（<strong>栈帧</strong>）都有自己的程序计数器（标识行号）</p>
+<hr>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>Java学习</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
+        <tag>JVM</tag>
       </tags>
   </entry>
   <entry>
