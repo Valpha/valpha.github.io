@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>这是一个测试用的md文件</title>
-    <url>/blog/this-is-a-md-file-for-testing/</url>
+    <url>/blog/this-is-a-test-md-file/</url>
     <content><![CDATA[<p>都成了，等待更新了呀。</p>
 <a id="more"></a>
 
@@ -367,7 +367,7 @@ start->op1->op2->op3->end</textarea><textarea id="flowchart-1-options" style="di
   </entry>
   <entry>
     <title>Android开发——六大布局绘制</title>
-    <url>/blog/android-developmentsix-layouts/</url>
+    <url>/blog/android-developmentsix-major-layouts/</url>
     <content><![CDATA[<div class="note default">
             <h2 id="Android-六大布局绘制"><a href="#Android-六大布局绘制" class="headerlink" title="Android 六大布局绘制"></a>Android 六大布局绘制</h2>
           </div>
@@ -2465,7 +2465,7 @@ s->op1->e</textarea><textarea id="flowchart-1-options" style="display: none">{"s
   </entry>
   <entry>
     <title>实习Day4</title>
-    <url>/blog/internship-day4/</url>
+    <url>/blog/day-4/</url>
     <content><![CDATA[<p>Android 开发：<br>测试方法：白盒测试<br>调试方法：Log.d、断点单步调试<br>数据存储方法：</p>
 <ol>
 <li>SharedPreferences存储小型数据</li>
@@ -3019,7 +3019,7 @@ s->op1->e</textarea><textarea id="flowchart-1-options" style="display: none">{"s
   </entry>
   <entry>
     <title>实习Day1</title>
-    <url>/blog/internship-day1/</url>
+    <url>/blog/day-1/</url>
     <content><![CDATA[<h1 id="实习Day1"><a href="#实习Day1" class="headerlink" title="实习Day1"></a>实习Day1</h1><a id="more"></a>
 <ul>
 <li>学习部分专属名词</li>
