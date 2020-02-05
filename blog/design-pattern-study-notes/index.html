@@ -51,18 +51,24 @@
   };
 </script>
 
-  <meta name="description" content="Android | Arduino | RPi">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Valpha&#39;s 造物集">
-<meta property="og:url" content="https://valpha.github.io/archives/page/2/">
+  <meta name="description" content="设计模式——面向对象">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式学习笔记">
+<meta property="og:url" content="https://valpha.github.io/blog/design-pattern-study-notes/">
 <meta property="og:site_name" content="Valpha&#39;s 造物集">
-<meta property="og:description" content="Android | Arduino | RPi">
+<meta property="og:description" content="设计模式——面向对象">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/202002051501_926.png">
+<meta property="article:published_time" content="2020-02-05T07:00:16.000Z">
+<meta property="article:modified_time" content="2020-02-05T09:14:14.188Z">
 <meta property="article:author" content="Valpha">
-<meta property="article:tag" content="Android">
+<meta property="article:tag" content="设计模式">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="面向对象">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog-image.pek3b.qingstor.com/202002051501_926.png">
 
-<link rel="canonical" href="https://valpha.github.io/archives/page/2/">
+<link rel="canonical" href="https://valpha.github.io/blog/design-pattern-study-notes/">
 
 
 <script id="page-configurations">
@@ -70,11 +76,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false
+    isPost: true
   };
 </script>
 
-  <title>归档 | Valpha's 造物集</title>
+  <title>设计模式学习笔记 | Valpha's 造物集</title>
   
 
 
@@ -219,237 +225,155 @@
           <div class="content">
             
 
+  <div class="posts-expand">
+      
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        
-        <span class="collection-header">还行! 目前共计 32 篇日志。 继续努力。</span>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://valpha.github.io/blog/design-pattern-study-notes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/Favicon.png">
+      <meta itemprop="name" content="Valpha">
+      <meta itemprop="description" content="Android | Arduino | RPi">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Valpha's 造物集">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          设计模式学习笔记
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-02-05 15:00:16 / 修改时间：17:14:14" itemprop="dateCreated datePublished" datetime="2020-02-05T15:00:16+08:00">2020-02-05</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <h2 class="collection-header">2019</h2>
+        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+            <img src="http://blog-image.pek3b.qingstor.com/202002051501_926.png" itemprop="contentUrl">
+        </div>
+        <h2 id="设计模式——面向对象"><a href="#设计模式——面向对象" class="headerlink" title="设计模式——面向对象"></a>设计模式——面向对象</h2><a id="more"></a>
+
+<h4 id="什么是面向对象编程OOP？什么是面向对象编程语言OOPL？"><a href="#什么是面向对象编程OOP？什么是面向对象编程语言OOPL？" class="headerlink" title="什么是面向对象编程OOP？什么是面向对象编程语言OOPL？"></a>什么是面向<strong>对象编程</strong>OOP？什么是<strong>面向对象编程语言</strong>OOPL？</h4><ul>
+<li>面向对象编程（Object Oriented Programming）是一种编程范式或编程风格。它以<strong>类</strong>（Class）或<strong>对象</strong>（Object）作为组织代码的基本单元，并将<strong>封装</strong>、<strong>抽象</strong>、<strong>继承</strong>、<strong>多态</strong>四个特性，作为代码设计和实现的基石 。</li>
+<li>面向对象编程语言（Object Oriented Programming Language）是支持类或对象的语法机制，并有现成的语法机制，<strong>能方便地实现面向对象编程四大特性</strong>（封装、抽象、继承、多态）的<strong>编程语言</strong>。</li>
+</ul>
+<h4 id="四大特性分别解决了什么问题？"><a href="#四大特性分别解决了什么问题？" class="headerlink" title="四大特性分别解决了什么问题？"></a>四大特性分别解决了什么问题？</h4><ul>
+<li><p>封装：封装也叫作信息隐藏或者数据访问保护。类通过<strong>暴露有限的访问接口</strong>，授权外部<strong>仅能通过类提供的方式</strong>（或者叫函数）<strong>来访问内部信息或者数据</strong>。<br><code>Java</code>：使用<strong>访问权限控制语法（<code>private</code>、<code>public</code>）</strong>实现代码封装功能</p>
+</li>
+<li><p>抽象：抽象讲的是如何隐藏方法的具体实现，让调用者只需要关心方法提供了哪些功能，并不需要知道这些功能是如何实现的。抽象能够有小弟过滤掉不必要关注的信息。<br><code>Java</code>：接口类（<code>interface</code>）、抽象类（<code>abstract</code> ）</p>
+</li>
+<li><p>继承：继承是用来表示类之间的 is-a 关系，继承最大的一个好处就是<strong>代码复用</strong><br><code>Java</code>：单继承<code>extend</code></p>
+</li>
+<li><p>多态：多态是指，<strong>子类可以替换父类</strong>，在实际的代码运行过程中，调用<strong>子类的方法</strong>实现。多态也是很多设计模式、设计原则、编程技巧的代码实现基础，提高代码的扩展性和复用性。必须要有三个语法机制来支持多态特性。</p>
+<ul>
+<li><p>抽象：父类对象可以引用子类对象</p>
+</li>
+<li><p>继承：子类继承父类的属性、方法</p>
+</li>
+<li><p>重写：子类可以重写（<code>override</code>）父类的方法</p>
+</li>
+</ul>
+<p><code>Java</code>：利用接口类（<code>interface</code>）来实现多态特性</p>
+</li>
+</ul>
+<h4 id="接口vs抽象类的区别？-Java"><a href="#接口vs抽象类的区别？-Java" class="headerlink" title="接口vs抽象类的区别？(Java)"></a>接口vs抽象类的区别？(<code>Java</code>)</h4><h5 id="语法特性"><a href="#语法特性" class="headerlink" title="语法特性"></a><strong>语法特性</strong></h5><p>抽象类：</p>
+<ul>
+<li>不允许被实例化，只能被继承</li>
+<li>可以包含属性和方法，方法<strong>可以包含实现也可以不包含实现</strong></li>
+<li>子类继承抽象类，必须实现所有的抽象方法</li>
+</ul>
+<p>接口：</p>
+<ul>
+<li>接口不能包含属性（也就是成员变量）。</li>
+<li>接口只能声明方法，方法不能包含代码实现。</li>
+<li>类实现接口的时候，必须实现接口中声明的所有方法。</li>
+</ul>
+<h5 id="存在意义"><a href="#存在意义" class="headerlink" title="存在意义"></a>存在意义</h5><p>抽象类是对成员变量和方法的抽象，是一种 <strong>is-a</strong> 关系，是为了解决<strong>代码复用</strong>问题。</p>
+<p>接口仅仅是对方法的抽象，是一种 <strong>has-a</strong> 关系，表示具有某一组行为特性，是为了解决<strong>解耦</strong>问题，<strong>隔离接口和具体的实现</strong>，提高代码的扩展性。</p>
+<h5 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h5><p>根据<strong>is-a</strong>还是<strong>has-a</strong>的关系，以及解决<strong>代码复用问题</strong>还是<strong>其他问题</strong>来区分使用抽象类还是接口。</p>
+<h4 id="为什么要基于“接口（interface）”编程？有必要为每个类定义接口吗？"><a href="#为什么要基于“接口（interface）”编程？有必要为每个类定义接口吗？" class="headerlink" title="为什么要基于“接口（interface）”编程？有必要为每个类定义接口吗？"></a>为什么要基于“接口（interface）”编程？有必要为每个类定义接口吗？</h4><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-07-22T13:26:38+08:00"
-              content="2019-07-22">
-          07-22
-        </time>
-      </div>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag"># 设计模式</a>
+              <a href="/tags/Java/" rel="tag"># Java</a>
+              <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" rel="tag"># 面向对象</a>
+          </div>
 
-      <h3 class="post-title">
-          <a class="post-title-link" href="/blog/day-16/" itemprop="url">
-            <span itemprop="name">实习Day16</span>
-          </a>
-      </h3>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-07-20T10:15:22+08:00"
-              content="2019-07-20">
-          07-20
-        </time>
-      </div>
-
-      <h3 class="post-title">
-          <a class="post-title-link" href="/blog/day-1415/" itemprop="url">
-            <span itemprop="name">实习Day14-15</span>
-          </a>
-      </h3>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-07-17T13:27:34+08:00"
-              content="2019-07-17">
-          07-17
-        </time>
-      </div>
-
-      <h3 class="post-title">
-          <a class="post-title-link" href="/blog/day-13/" itemprop="url">
-            <span itemprop="name">实习Day13</span>
-          </a>
-      </h3>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-07-16T13:35:06+08:00"
-              content="2019-07-16">
-          07-16
-        </time>
-      </div>
-
-      <h3 class="post-title">
-          <a class="post-title-link" href="/blog/internship-day12/" itemprop="url">
-            <span itemprop="name">实习Day12</span>
-          </a>
-      </h3>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-07-15T21:58:54+08:00"
-              content="2019-07-15">
-          07-15
-        </time>
-      </div>
-
-      <h3 class="post-title">
-          <a class="post-title-link" href="/blog/internship-day11/" itemprop="url">
-            <span itemprop="name">实习Day11</span>
-          </a>
-      </h3>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-07-14T09:03:06+08:00"
-              content="2019-07-14">
-          07-14
-        </time>
-      </div>
-
-      <h3 class="post-title">
-          <a class="post-title-link" href="/blog/internship-day10/" itemprop="url">
-            <span itemprop="name">实习Day10</span>
-          </a>
-      </h3>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-07-13T10:07:44+08:00"
-              content="2019-07-13">
-          07-13
-        </time>
-      </div>
-
-      <h3 class="post-title">
-          <a class="post-title-link" href="/blog/day-9/" itemprop="url">
-            <span itemprop="name">实习Day9</span>
-          </a>
-      </h3>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-07-10T20:01:16+08:00"
-              content="2019-07-10">
-          07-10
-        </time>
-      </div>
-
-      <h3 class="post-title">
-          <a class="post-title-link" href="/blog/examples-of-student-management-systems/" itemprop="url">
-            <span itemprop="name">学生管理系统的实例</span>
-          </a>
-      </h3>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-07-10T14:05:29+08:00"
-              content="2019-07-10">
-          07-10
-        </time>
-      </div>
-
-      <h3 class="post-title">
-          <a class="post-title-link" href="/blog/internship-day8/" itemprop="url">
-            <span itemprop="name">实习Day8</span>
-          </a>
-      </h3>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-07-09T13:21:03+08:00"
-              content="2019-07-09">
-          07-09
-        </time>
-      </div>
-
-      <h3 class="post-title">
-          <a class="post-title-link" href="/blog/day-7/" itemprop="url">
-            <span itemprop="name">实习Day7</span>
-          </a>
-      </h3>
-
-    </header>
-  </article>
+        
 
 
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/blog/this-is-a-test-md-file/" rel="prev" title="这是一个测试用的md文件">
+      <i class="fa fa-chevron-left"></i> 这是一个测试用的md文件
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
   </div>
-  
-  
-  
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="page-number" href="/archives/page/4/">4</a><a class="extend next" rel="next" href="/archives/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
-
 
 
           </div>
           
+    <div class="comments" id="gitalk-container"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -496,6 +420,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#设计模式——面向对象"><span class="nav-text">设计模式——面向对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是面向对象编程OOP？什么是面向对象编程语言OOPL？"><span class="nav-text">什么是面向对象编程OOP？什么是面向对象编程语言OOPL？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四大特性分别解决了什么问题？"><span class="nav-text">四大特性分别解决了什么问题？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#接口vs抽象类的区别？-Java"><span class="nav-text">接口vs抽象类的区别？(Java)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#语法特性"><span class="nav-text">语法特性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#存在意义"><span class="nav-text">存在意义</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#应用场景"><span class="nav-text">应用场景</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么要基于“接口（interface）”编程？有必要为每个类定义接口吗？"><span class="nav-text">为什么要基于“接口（interface）”编程？有必要为每个类定义接口吗？</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -730,6 +655,25 @@ window.addEventListener('pjax:success', () => {
     </script>
 
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: 'f2fb1f715466bdfa8f3e',
+      clientSecret: '0831663fd94447c22345630d1a052cc96081fc6c',
+      repo: 'blog-comments',
+      owner: 'valpha',
+      admin: ['valpha'],
+      id: 'a5fd19bc2a1f8b6d69731ae9fb5fe0c2',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
 
     </div>
 </body>

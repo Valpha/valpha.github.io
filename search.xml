@@ -1,8 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>设计模式学习笔记</title>
+    <url>/blog/design-pattern-study-notes/</url>
+    <content><![CDATA[<h2 id="设计模式——面向对象"><a href="#设计模式——面向对象" class="headerlink" title="设计模式——面向对象"></a>设计模式——面向对象</h2><a id="more"></a>
+
+<h4 id="什么是面向对象编程OOP？什么是面向对象编程语言OOPL？"><a href="#什么是面向对象编程OOP？什么是面向对象编程语言OOPL？" class="headerlink" title="什么是面向对象编程OOP？什么是面向对象编程语言OOPL？"></a>什么是面向<strong>对象编程</strong>OOP？什么是<strong>面向对象编程语言</strong>OOPL？</h4><ul>
+<li>面向对象编程（Object Oriented Programming）是一种编程范式或编程风格。它以<strong>类</strong>（Class）或<strong>对象</strong>（Object）作为组织代码的基本单元，并将<strong>封装</strong>、<strong>抽象</strong>、<strong>继承</strong>、<strong>多态</strong>四个特性，作为代码设计和实现的基石 。</li>
+<li>面向对象编程语言（Object Oriented Programming Language）是支持类或对象的语法机制，并有现成的语法机制，<strong>能方便地实现面向对象编程四大特性</strong>（封装、抽象、继承、多态）的<strong>编程语言</strong>。</li>
+</ul>
+<h4 id="四大特性分别解决了什么问题？"><a href="#四大特性分别解决了什么问题？" class="headerlink" title="四大特性分别解决了什么问题？"></a>四大特性分别解决了什么问题？</h4><ul>
+<li><p>封装：封装也叫作信息隐藏或者数据访问保护。类通过<strong>暴露有限的访问接口</strong>，授权外部<strong>仅能通过类提供的方式</strong>（或者叫函数）<strong>来访问内部信息或者数据</strong>。<br><code>Java</code>：使用<strong>访问权限控制语法（<code>private</code>、<code>public</code>）</strong>实现代码封装功能</p>
+</li>
+<li><p>抽象：抽象讲的是如何隐藏方法的具体实现，让调用者只需要关心方法提供了哪些功能，并不需要知道这些功能是如何实现的。抽象能够有小弟过滤掉不必要关注的信息。<br><code>Java</code>：接口类（<code>interface</code>）、抽象类（<code>abstract</code> ）</p>
+</li>
+<li><p>继承：继承是用来表示类之间的 is-a 关系，继承最大的一个好处就是<strong>代码复用</strong><br><code>Java</code>：单继承<code>extend</code></p>
+</li>
+<li><p>多态：多态是指，<strong>子类可以替换父类</strong>，在实际的代码运行过程中，调用<strong>子类的方法</strong>实现。多态也是很多设计模式、设计原则、编程技巧的代码实现基础，提高代码的扩展性和复用性。必须要有三个语法机制来支持多态特性。</p>
+<ul>
+<li><p>抽象：父类对象可以引用子类对象</p>
+</li>
+<li><p>继承：子类继承父类的属性、方法</p>
+</li>
+<li><p>重写：子类可以重写（<code>override</code>）父类的方法</p>
+</li>
+</ul>
+<p><code>Java</code>：利用接口类（<code>interface</code>）来实现多态特性</p>
+</li>
+</ul>
+<h4 id="接口vs抽象类的区别？-Java"><a href="#接口vs抽象类的区别？-Java" class="headerlink" title="接口vs抽象类的区别？(Java)"></a>接口vs抽象类的区别？(<code>Java</code>)</h4><h5 id="语法特性"><a href="#语法特性" class="headerlink" title="语法特性"></a><strong>语法特性</strong></h5><p>抽象类：</p>
+<ul>
+<li>不允许被实例化，只能被继承</li>
+<li>可以包含属性和方法，方法<strong>可以包含实现也可以不包含实现</strong></li>
+<li>子类继承抽象类，必须实现所有的抽象方法</li>
+</ul>
+<p>接口：</p>
+<ul>
+<li>接口不能包含属性（也就是成员变量）。</li>
+<li>接口只能声明方法，方法不能包含代码实现。</li>
+<li>类实现接口的时候，必须实现接口中声明的所有方法。</li>
+</ul>
+<h5 id="存在意义"><a href="#存在意义" class="headerlink" title="存在意义"></a>存在意义</h5><p>抽象类是对成员变量和方法的抽象，是一种 <strong>is-a</strong> 关系，是为了解决<strong>代码复用</strong>问题。</p>
+<p>接口仅仅是对方法的抽象，是一种 <strong>has-a</strong> 关系，表示具有某一组行为特性，是为了解决<strong>解耦</strong>问题，<strong>隔离接口和具体的实现</strong>，提高代码的扩展性。</p>
+<h5 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h5><p>根据<strong>is-a</strong>还是<strong>has-a</strong>的关系，以及解决<strong>代码复用问题</strong>还是<strong>其他问题</strong>来区分使用抽象类还是接口。</p>
+<h4 id="为什么要基于“接口（interface）”编程？有必要为每个类定义接口吗？"><a href="#为什么要基于“接口（interface）”编程？有必要为每个类定义接口吗？" class="headerlink" title="为什么要基于“接口（interface）”编程？有必要为每个类定义接口吗？"></a>为什么要基于“接口（interface）”编程？有必要为每个类定义接口吗？</h4><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>设计模式</tag>
+        <tag>Java</tag>
+        <tag>面向对象</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>这是一个测试用的md文件</title>
-    <url>/blog/this-is-a-md-file-for-testing/</url>
+    <url>/blog/this-is-a-test-md-file/</url>
     <content><![CDATA[<p>都成了，等待更新了呀。</p>
 <a id="more"></a>
 
