@@ -51,35 +51,26 @@
   };
 </script>
 
-  <meta name="description" content="利用shape画图、自定义seekbar、从服务器获取数据">
+  <meta name="description" content="RecyclerView.LayoutManager 工作原理详解 Bilibili: Mastering ReyclerView Layouts">
 <meta property="og:type" content="article">
-<meta property="og:title" content="一月考核后的第一节课">
-<meta property="og:url" content="https://valpha.github.io/blog/the-first-class-after-january-assessment/">
+<meta property="og:title" content="Mastering RecyclerView">
+<meta property="og:url" content="https://valpha.github.io/blog/mastering-recyclerview/">
 <meta property="og:site_name" content="Valpha&#39;s 造物集">
-<meta property="og:description" content="利用shape画图、自定义seekbar、从服务器获取数据">
+<meta property="og:description" content="RecyclerView.LayoutManager 工作原理详解 Bilibili: Mastering ReyclerView Layouts">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/201907311407_557.png">
-<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/201907311414_138.png">
-<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/201907311418_955.png">
-<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/201907311419_571.png">
-<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/201907311423_742.png">
-<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/201907311423_284.png">
-<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/201907311428_840.png">
-<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/201907311429_710.png">
-<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/201907311428_135.png">
-<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/201907311430_394.png">
-<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/201907311431_775.png">
-<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/201907311442_740.png">
-<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/201907311442_375.png">
-<meta property="article:published_time" content="2019-07-31T06:02:12.000Z">
-<meta property="article:modified_time" content="2020-02-08T15:08:26.864Z">
+<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/202002081844_237.png">
+<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/202002081833_872.png">
+<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/202002081835_714.png">
+<meta property="og:image" content="http://blog-image.pek3b.qingstor.com/202002081840_317.png">
+<meta property="article:published_time" content="2020-02-08T10:16:06.000Z">
+<meta property="article:modified_time" content="2020-02-08T15:08:27.792Z">
 <meta property="article:author" content="Valpha">
 <meta property="article:tag" content="Android">
-<meta property="article:tag" content="实习日记">
+<meta property="article:tag" content="RecyclerView">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://blog-image.pek3b.qingstor.com/201907311407_557.png">
+<meta name="twitter:image" content="http://blog-image.pek3b.qingstor.com/202002081844_237.png">
 
-<link rel="canonical" href="https://valpha.github.io/blog/the-first-class-after-january-assessment/">
+<link rel="canonical" href="https://valpha.github.io/blog/mastering-recyclerview/">
 
 
 <script id="page-configurations">
@@ -91,7 +82,7 @@
   };
 </script>
 
-  <title>一月考核后的第一节课 | Valpha's 造物集</title>
+  <title>Mastering RecyclerView | Valpha's 造物集</title>
   
 
 
@@ -241,7 +232,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://valpha.github.io/blog/the-first-class-after-january-assessment/">
+    <link itemprop="mainEntityOfPage" href="https://valpha.github.io/blog/mastering-recyclerview/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/Favicon.png">
@@ -254,7 +245,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          一月考核后的第一节课
+          Mastering RecyclerView
         </h2>
 
         <div class="post-meta">
@@ -263,24 +254,18 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2019-07-31 14:02:12" itemprop="dateCreated datePublished" datetime="2019-07-31T14:02:12+08:00">2019-07-31</time>
+              <time title="创建时间：2020-02-08 18:16:06 / 修改时间：23:08:27" itemprop="dateCreated datePublished" datetime="2020-02-08T18:16:06+08:00">2020-02-08</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-08 23:08:26" itemprop="dateModified" datetime="2020-02-08T23:08:26+08:00">2020-02-08</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AE%9E%E4%B9%A0/" itemprop="url" rel="index">
-                    <span itemprop="name">实习</span>
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
                   </a>
                 </span>
             </span>
@@ -291,7 +276,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>125</span>
+              <span>690</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -310,36 +295,40 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><strong>利用shape画图</strong>、<strong>自定义seekbar</strong>、<strong>从服务器获取数据</strong></p>
+        <p><strong>RecyclerView.LayoutManager 工作原理详解</strong></p>
+<p><a href="https://www.bilibili.com/video/av24560930/" target="_blank" rel="noopener">Bilibili: Mastering ReyclerView Layouts</a></p>
 <a id="more"></a>
 
-<h3 id="shadow-阴影显示"><a href="#shadow-阴影显示" class="headerlink" title="shadow 阴影显示"></a><strong>shadow</strong> 阴影显示</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:textColor</span>=<span class="string">"#333"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:gravity</span>=<span class="string">"center"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:shadowColor</span>=<span class="string">"#999"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:shadowDx</span>=<span class="string">"10"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:shadowDy</span>=<span class="string">"10"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:textSize</span>=<span class="string">"50sp"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:shadowRadius</span>=<span class="string">"5"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:text</span>=<span class="string">"Hello World!"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><img data-src="http://blog-image.pek3b.qingstor.com/201907311407_557.png" alt="阴影效果"></p>
-<h3 id="shape画图"><a href="#shape画图" class="headerlink" title="shape画图"></a>shape画图</h3><ul>
-<li>画线</li>
-<li>画椭圆</li>
-<li>画矩形</li>
-<li>画圆</li>
+<h3 id="RecyclerView"><a href="#RecyclerView" class="headerlink" title="RecyclerView"></a>RecyclerView</h3><p>一个可以对视图进行回收利用的<code>ViewGroup</code></p>
+<p>通过回收机制，使得一个小屏幕上可以显示成千上万个内容（节约内存）</p>
+<p>是一套方便开发者自定义的<strong>FrameWork</strong></p>
+<p>利用<code>LayoutManager</code>来管理View的位置、动画等；使用<code>Adapter</code>来管理View的内容</p>
+<p><img data-src="http://blog-image.pek3b.qingstor.com/202002081844_237.png" alt=""></p>
+<h4 id="Scrap-Heap、Recycle-Pool？"><a href="#Scrap-Heap、Recycle-Pool？" class="headerlink" title="Scrap Heap、Recycle Pool？"></a>Scrap Heap、Recycle Pool？</h4><p>仍然存在屏幕上的View-&gt; Scrap Heap-&gt; 取出继续使用</p>
+<p>移除屏幕的View-&gt; Scrap heap-&gt; Recycle Pool-&gt; Recycler重新bind Adapter</p>
+<ul>
+<li>Scrap Heap: <code>detachAndScrapView()</code></li>
+<li>Recycle Pool: <code>removeAndRecycleView()</code></li>
 </ul>
-<p><img data-src="http://blog-image.pek3b.qingstor.com/201907311414_138.png" alt=""></p>
-<p><code>size</code> 指定尺寸</p>
-<p><img data-src="http://blog-image.pek3b.qingstor.com/201907311418_955.png" alt=""></p>
-<p><code>solid</code> 内部填充颜色</p>
-<p><img data-src="http://blog-image.pek3b.qingstor.com/201907311419_571.png" alt=""></p>
-<p><code>stroke</code> 边缘设计</p>
-<p><img data-src="http://blog-image.pek3b.qingstor.com/201907311423_742.png" alt=""></p>
-<p><img data-src="http://blog-image.pek3b.qingstor.com/201907311423_284.png" alt=""></p>
-<p><code>gradient</code> 渐变设计</p>
-<p><img data-src="http://blog-image.pek3b.qingstor.com/201907311428_840.png" alt=""></p>
-<p><img data-src="http://blog-image.pek3b.qingstor.com/201907311429_710.png" alt="三种渐变效果"></p>
-<p><img data-src="http://blog-image.pek3b.qingstor.com/201907311428_135.png" alt="type=sweep"></p>
-<p><img data-src="http://blog-image.pek3b.qingstor.com/201907311430_394.png" alt="type=radial"></p>
-<p><img data-src="http://blog-image.pek3b.qingstor.com/201907311431_775.png" alt="type=linear"></p>
-<p><code>Layer-list</code> 组合多图形</p>
-<p><img data-src="http://blog-image.pek3b.qingstor.com/201907311442_740.png" alt="设计同心圆的代码"></p>
-<p><img data-src="http://blog-image.pek3b.qingstor.com/201907311442_375.png" alt="同心圆"></p>
-<h3 id="ShapeSelector"><a href="#ShapeSelector" class="headerlink" title="ShapeSelector"></a>ShapeSelector</h3><hr>
+<h3 id="LayoutManager"><a href="#LayoutManager" class="headerlink" title="LayoutManager"></a>LayoutManager</h3><p><strong>KeyMethods:</strong></p>
+<ul>
+<li></li>
+</ul>
+<h4 id="方便实用的三个已经集成的LayoutManager"><a href="#方便实用的三个已经集成的LayoutManager" class="headerlink" title="方便实用的三个已经集成的LayoutManager"></a>方便实用的三个已经集成的LayoutManager</h4><ul>
+<li><p>LinearLayoutManager</p>
+<p>基本等同于ListView，比传统的ListView多一个横向滚动的功能</p>
+<p><img data-src="http://blog-image.pek3b.qingstor.com/202002081833_872.png" alt=""></p>
+</li>
+<li><p>GridLayoutManager</p>
+<p>目的是替代传统的GridView，但是更强大：可以设置一个SpanSize的Lookup表，如下图。</p>
+<p>可以自由设置每一行（列）的span数，来决定这一行的View数。每一行（列）的高度（宽度）是统一的，若子View尺寸不统一，很有可能造成留白的现象。</p>
+<p><img data-src="http://blog-image.pek3b.qingstor.com/202002081835_714.png" alt=""></p>
+</li>
+<li><p>StaggeredGridLayoutManager</p>
+<p>可以实现瀑布流，后面的View会自动向前（上）填充。</p>
+<p><img data-src="http://blog-image.pek3b.qingstor.com/202002081840_317.png" alt=""></p>
+</li>
+</ul>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
     </div>
 
@@ -350,7 +339,7 @@
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/Android/" rel="tag"># Android</a>
-              <a href="/tags/%E5%AE%9E%E4%B9%A0%E6%97%A5%E8%AE%B0/" rel="tag"># 实习日记</a>
+              <a href="/tags/RecyclerView/" rel="tag"># RecyclerView</a>
           </div>
 
         
@@ -359,13 +348,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/blog/day-16/" rel="prev" title="实习Day16">
-      <i class="fa fa-chevron-left"></i> 实习Day16
+    <a href="/blog/design-pattern-study-notes/" rel="prev" title="设计模式学习笔记">
+      <i class="fa fa-chevron-left"></i> 设计模式学习笔记
     </a></div>
-      <div class="post-nav-item">
-    <a href="/blog/android-developmentconfiguration-and-installation-of-studio-ide/" rel="next" title="Android开发——Android Studio IDE 的配置与安装">
-      Android开发——Android Studio IDE 的配置与安装 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -426,7 +412,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#shadow-阴影显示"><span class="nav-text">shadow 阴影显示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shape画图"><span class="nav-text">shape画图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ShapeSelector"><span class="nav-text">ShapeSelector</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#RecyclerView"><span class="nav-text">RecyclerView</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Scrap-Heap、Recycle-Pool？"><span class="nav-text">Scrap Heap、Recycle Pool？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LayoutManager"><span class="nav-text">LayoutManager</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方便实用的三个已经集成的LayoutManager"><span class="nav-text">方便实用的三个已经集成的LayoutManager</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -672,7 +658,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo: 'blog-comments',
       owner: 'valpha',
       admin: ['valpha'],
-      id: '7724edc61e07a5f6196d1bbc80ffcfbc',
+      id: '9015134175f5477f4d0facec4680c466',
         language: 'zh-CN',
       distractionFreeMode: true
     });
