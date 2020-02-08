@@ -63,7 +63,7 @@
 <meta property="og:image" content="http://blog-image.pek3b.qingstor.com/202002081835_714.png">
 <meta property="og:image" content="http://blog-image.pek3b.qingstor.com/202002081840_317.png">
 <meta property="article:published_time" content="2020-02-08T10:16:06.000Z">
-<meta property="article:modified_time" content="2020-02-08T15:08:27.792Z">
+<meta property="article:modified_time" content="2020-02-08T19:32:29.276Z">
 <meta property="article:author" content="Valpha">
 <meta property="article:tag" content="Android">
 <meta property="article:tag" content="RecyclerView">
@@ -254,10 +254,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-02-08 18:16:06 / 修改时间：23:08:27" itemprop="dateCreated datePublished" datetime="2020-02-08T18:16:06+08:00">2020-02-08</time>
+              <time title="创建时间：2020-02-08 18:16:06" itemprop="dateCreated datePublished" datetime="2020-02-08T18:16:06+08:00">2020-02-08</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-09 03:32:29" itemprop="dateModified" datetime="2020-02-09T03:32:29+08:00">2020-02-09</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -276,14 +282,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>690</span>
+              <span>2.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>4 分钟</span>
             </span>
 
         </div>
@@ -310,11 +316,7 @@
 <li>Scrap Heap: <code>detachAndScrapView()</code></li>
 <li>Recycle Pool: <code>removeAndRecycleView()</code></li>
 </ul>
-<h3 id="LayoutManager"><a href="#LayoutManager" class="headerlink" title="LayoutManager"></a>LayoutManager</h3><p><strong>KeyMethods:</strong></p>
-<ul>
-<li></li>
-</ul>
-<h4 id="方便实用的三个已经集成的LayoutManager"><a href="#方便实用的三个已经集成的LayoutManager" class="headerlink" title="方便实用的三个已经集成的LayoutManager"></a>方便实用的三个已经集成的LayoutManager</h4><ul>
+<h3 id="LayoutManager"><a href="#LayoutManager" class="headerlink" title="LayoutManager"></a>LayoutManager</h3><h4 id="方便实用的三个已经集成的LayoutManager"><a href="#方便实用的三个已经集成的LayoutManager" class="headerlink" title="方便实用的三个已经集成的LayoutManager"></a>方便实用的三个已经集成的LayoutManager</h4><ul>
 <li><p>LinearLayoutManager</p>
 <p>基本等同于ListView，比传统的ListView多一个横向滚动的功能</p>
 <p><img data-src="http://blog-image.pek3b.qingstor.com/202002081833_872.png" alt=""></p>
@@ -329,6 +331,84 @@
 <p><img data-src="http://blog-image.pek3b.qingstor.com/202002081840_317.png" alt=""></p>
 </li>
 </ul>
+<h4 id="Measure：给View做装饰：getDecoration"><a href="#Measure：给View做装饰：getDecoration" class="headerlink" title="Measure：给View做装饰：getDecoration()"></a>Measure：给View做装饰：getDecoration()</h4><ul>
+<li><code>getDecoratedTop()</code></li>
+<li><code>getDecoratedLeft()</code></li>
+<li><code>getDecoratedBottom()</code></li>
+<li><code>getDecoratedRight()</code></li>
+<li><code>getDecoratedWidth()</code></li>
+<li><code>getDecoratedHeight()</code></li>
+</ul>
+<p>对列表内的Item提供一个经过装饰后的位置坐标，用来Measure用的</p>
+<p><code>layoutDecorated()</code>对装饰后的View进行布局</p>
+<p><code>measureChild()</code>测量子View</p>
+<h4 id="“Fill”技术"><a href="#“Fill”技术" class="headerlink" title="“Fill”技术"></a>“Fill”技术</h4><blockquote>
+<p><strong>fillGaps()</strong></p>
+<p>Discover first visible position/location</p>
+<p>Find layout gaps (at the edges)</p>
+<p>Scrap everything</p>
+<p>Lay out all visible positions</p>
+</blockquote>
+<p>简单来说，就是一种“填充”的概念</p>
+<p>一个函数，封装了Layout过程中所有需要的操作</p>
+<p>最主要的步骤如下：</p>
+<ol>
+<li>找到一个可视元素的位置</li>
+<li>计算出<em>Gap（留白）<em>或</em>offset（偏移量）</em></li>
+<li>把所有的View都留给Scrap Heap（Recycle Pool）</li>
+<li>重新布局</li>
+</ol>
+<p>使用这个Fill函数的好处就是不需要考虑当前Layout所处的状态是<strong>初始化</strong>、<strong>滑动后的重新布局</strong>还是<strong>RecyclerView发生任何状态改变</strong>，只要需要重新布局的地方，全部使用这一个Fill函数，完成所需要的布局即可</p>
+<p>这个方法并不会很影响性能，因为<code>Scrap Heap</code>中并不会改变View的属性（Recycle Pool会），只有确实发生改变的View才会改变其属性（进入Recycle Pool）</p>
+<div class="note default">
+            <blockquote><p>Save as little state as possible</p></blockquote><p>尽可能少地存储状态</p>
+          </div>
+
+<p>你需要的数据（gap、offset、position等）需要重新寻找和计算出来，不要尝试去记录这些数据。会遇到各种边界的坑。</p>
+<p>Fill函数示例</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">fillGrid</span><span class="params">(<span class="keyword">int</span> direction, ...,</span></span></span><br><span class="line"><span class="function"><span class="params">                      RecyclerView.Recycler recycler,</span></span></span><br><span class="line"><span class="function"><span class="params">                      RecyclerView.State state)</span></span>&#123;</span><br><span class="line">    <span class="comment">//...Obtain the first visible item position...</span></span><br><span class="line">    <span class="comment">//第一步回收所有的View</span></span><br><span class="line">    detachAndScrapAttachedViews(recycler);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//之后遍历所有的View，找到我需要布局的View，add到ViewGroup中，然后measure、Layout等</span></span><br><span class="line">    <span class="keyword">for</span>(...)&#123;</span><br><span class="line">        <span class="keyword">int</span> nextPosition = ...;</span><br><span class="line">        View view = recycler.getViewForPosition(nextPosition);</span><br><span class="line">        addView(view);</span><br><span class="line">        </span><br><span class="line">        measureChildWithMargins(view, ...);</span><br><span class="line">        layoutDecorated(view, ...);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//Remove anything that is left behind</span></span><br><span class="line">    <span class="comment">//最后把不需要的View回收掉（真正进入Recycle Pool中）</span></span><br><span class="line">    <span class="keyword">final</span> List&lt;RecyclerView.ViewHolder&gt; scrapList = recycler.getScrapList();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i &lt; scrapList.size(); i++)&#123;</span><br><span class="line">        <span class="keyword">final</span> View removingView = scrapList.git(i);</span><br><span class="line">        recycler.recycleView(removingView);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="让自定义的LayoutManager“跑起来”"><a href="#让自定义的LayoutManager“跑起来”" class="headerlink" title="让自定义的LayoutManager“跑起来”"></a>让自定义的LayoutManager“跑起来”</h4><h5 id="1-onLayoutChildren"><a href="#1-onLayoutChildren" class="headerlink" title="1. onLayoutChildren()"></a>1. <code>onLayoutChildren()</code></h5><p>这是一个 “initial method”，当布局初始化时或RecyclerView的大小发生改变时才会调用，不会被重复调用</p>
+<p>在这里面运行一个<strong>“Fill”函数</strong></p>
+<h5 id="2-canScrollVertically-orcanScrollHorizontally"><a href="#2-canScrollVertically-orcanScrollHorizontally" class="headerlink" title="2. canScrollVertically()orcanScrollHorizontally()"></a>2. <code>canScrollVertically()</code>or<code>canScrollHorizontally()</code></h5><p>通知framework，允许水平滚动or垂直滚动（or两个都返回true，这就是一个双向滚动的View）</p>
+<h5 id="3-scrollHorizontallyBy-andscrollVerticallyBy"><a href="#3-scrollHorizontallyBy-andscrollVerticallyBy" class="headerlink" title="3. scrollHorizontallyBy()andscrollVerticallyBy()"></a>3. <code>scrollHorizontallyBy()</code>and<code>scrollVerticallyBy()</code></h5><p>真正处理滚动操作的method，会一直重复地调用</p>
+<p>方法职责：</p>
+<ul>
+<li><p>提供framework认为你的View应该滚动的距离delta。输入参数</p>
+</li>
+<li><p>处理水平（垂直）滚动操作</p>
+</li>
+<li><p>到边界时（开头、末尾）应当停止滑动。通过返回值进行判断</p>
+</li>
+</ul>
+<p>例子</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">scrollHorizontallyBy</span><span class="params">(<span class="keyword">int</span> dx, RecyclerView.Recycler recycler, RecyclerView.State state)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//dx是framework提供的用户输入信息，不代表真实的滑动距离</span></span><br><span class="line">    <span class="keyword">int</span> delta;<span class="comment">// 此处的delta才是真正的滑动距离</span></span><br><span class="line">    <span class="keyword">if</span> (dx &gt; <span class="number">0</span>) &#123; <span class="comment">// Contents are scrolling left</span></span><br><span class="line">        delta = ...;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123; <span class="comment">// Contents are scrolling right</span></span><br><span class="line">        delta = ...;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//不需要手动移动所有的view，只需计算偏移量，并且调用framework的API即可</span></span><br><span class="line">    offsetChildrenHorizontal(delta);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (dx &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        fillGrid(DIRECTION_START, ...,recycler, state );</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        fillGrid(DIRECTION_END, ...,recycler, state );</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 返回值必须是真实滑动距离的负数</span></span><br><span class="line">    <span class="keyword">return</span> -delta;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="Data-Set-Changes"><a href="#Data-Set-Changes" class="headerlink" title="Data Set Changes"></a>Data Set Changes</h4><h5 id="onAdapterCHanged"><a href="#onAdapterCHanged" class="headerlink" title="onAdapterCHanged()"></a><code>onAdapterCHanged()</code></h5><p>这个方法会在重新<code>setAdapter(adapter)</code>时调用，此时一定是一个全新的dapter和数据集，View已经全部改变了，可以直接把所有的View给remove掉，<code>removeAllViews()</code>，作为一个优化。</p>
+<h5 id="notifyDataSetChanged-gt-onLayoutChanged"><a href="#notifyDataSetChanged-gt-onLayoutChanged" class="headerlink" title="notifyDataSetChanged()-&gt;onLayoutChanged()"></a><code>notifyDataSetChanged()</code>-&gt;<code>onLayoutChanged()</code></h5><p>notifyDataSetChanged 等于触发一次 onLayoutChanged，如果“Fill”方法写得好，那么运行一次fill就会自动布局好一切。或者你需要查找并保存一下position。</p>
+<h4 id="Add-Some-Flair-添加一些额外的功能"><a href="#Add-Some-Flair-添加一些额外的功能" class="headerlink" title="Add Some Flair 添加一些额外的功能"></a>Add Some Flair 添加一些额外的功能</h4><h5 id="scrollToPosition"><a href="#scrollToPosition" class="headerlink" title="scrollToPosition()"></a><code>scrollToPosition()</code></h5><p>让RecyclerView滚动到指定位置。</p>
+<p>两步走：</p>
+<ol>
+<li>定位需要移动到的位置position</li>
+<li><code>requestLayout()</code>-&gt;<code>onLayoutChanged()</code>-&gt;<code>FILL方法</code></li>
+</ol>
+<p><code>smoothScrollToPosition()</code></p>
+<p>如果是带动画的移动效果</p>
+<ol>
+<li><p>创建一个<code>SmoothScroller</code>的帮助类</p>
+</li>
+<li><p>实现抽象的方法</p>
+</li>
+</ol>
+<p>or</p>
+<ul>
+<li>使用（继承）<code>LinearSmoothScroller</code>来进行工作</li>
+</ul>
+<p><code>LinearSmoothScroller</code>例子</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">smoothScrollToPosition</span><span class="params">(RecyclerView recyclerView, <span class="keyword">final</span> RecyclerView.State state, <span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">    LinearSmoothScroller scroller = <span class="keyword">new</span> LinearSmoothScroller(recyclerView.getContext())&#123;</span><br><span class="line">        <span class="meta">@Nullable</span></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> PointF <span class="title">computeScrollVectorForPosition</span><span class="params">(<span class="keyword">int</span> targetPosition)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">final</span> <span class="keyword">int</span> rowOffset = ...;</span><br><span class="line">            <span class="keyword">final</span> <span class="keyword">int</span> columnOffset = ...;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> PointF(columnOffset * stepWidth, rowOffset * stepHeight);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    scroller.setTargetPosition(position);</span><br><span class="line">    startSmoothScroll(scroller);</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
     </div>
 
@@ -412,7 +492,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#RecyclerView"><span class="nav-text">RecyclerView</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Scrap-Heap、Recycle-Pool？"><span class="nav-text">Scrap Heap、Recycle Pool？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LayoutManager"><span class="nav-text">LayoutManager</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方便实用的三个已经集成的LayoutManager"><span class="nav-text">方便实用的三个已经集成的LayoutManager</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#RecyclerView"><span class="nav-text">RecyclerView</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Scrap-Heap、Recycle-Pool？"><span class="nav-text">Scrap Heap、Recycle Pool？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LayoutManager"><span class="nav-text">LayoutManager</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方便实用的三个已经集成的LayoutManager"><span class="nav-text">方便实用的三个已经集成的LayoutManager</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Measure：给View做装饰：getDecoration"><span class="nav-text">Measure：给View做装饰：getDecoration()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#“Fill”技术"><span class="nav-text">“Fill”技术</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#让自定义的LayoutManager“跑起来”"><span class="nav-text">让自定义的LayoutManager“跑起来”</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-onLayoutChildren"><span class="nav-text">1. onLayoutChildren()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-canScrollVertically-orcanScrollHorizontally"><span class="nav-text">2. canScrollVertically()orcanScrollHorizontally()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-scrollHorizontallyBy-andscrollVerticallyBy"><span class="nav-text">3. scrollHorizontallyBy()andscrollVerticallyBy()</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Data-Set-Changes"><span class="nav-text">Data Set Changes</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#onAdapterCHanged"><span class="nav-text">onAdapterCHanged()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#notifyDataSetChanged-gt-onLayoutChanged"><span class="nav-text">notifyDataSetChanged()-&gt;onLayoutChanged()</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Add-Some-Flair-添加一些额外的功能"><span class="nav-text">Add Some Flair 添加一些额外的功能</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#scrollToPosition"><span class="nav-text">scrollToPosition()</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -491,12 +571,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">40k</span>
+    <span title="站点总字数">42k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:13</span>
+    <span title="站点阅读时长">1:16</span>
 </div>
 
         
