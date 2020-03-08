@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#566270">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/Favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon%2032px.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon%2016px.ico">
+  <link rel="mask-icon" href="/images/Favicon.png" color="#566270">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Satisfy:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-flat-top.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://valpha.github.io').hostname,
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":"default"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":true,"color":"#566270","save":"auto"},
+    fancybox: true,
+    mediumzoom: false,
+    lazyload: true,
+    pangu: true,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":{"gitalk":{"order":-1}}},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="我的面试经历面试岗位：华为-消费者事业群Android开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="华为面经">
+<meta property="og:url" content="https://valpha.github.io/blog/huawei-face-book/">
+<meta property="og:site_name" content="Valpha&#39;s 造物集">
+<meta property="og:description" content="我的面试经历面试岗位：华为-消费者事业群Android开发">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-03-08T14:44:00.000Z">
+<meta property="article:modified_time" content="2020-03-08T16:42:00.016Z">
+<meta property="article:author" content="Valpha">
+<meta property="article:tag" content="华为">
+<meta property="article:tag" content="面经">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://valpha.github.io/blog/huawei-face-book/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>华为面经 | Valpha's 造物集</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Valpha's 造物集</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">Coding & Making.</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-fw fa-sitemap"></i>站点地图</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/valpha" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://valpha.github.io/blog/huawei-face-book/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/Favicon.png">
+      <meta itemprop="name" content="Valpha">
+      <meta itemprop="description" content="Android | Arduino | RPi">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Valpha's 造物集">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          华为面经
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-08 22:44:00" itemprop="dateCreated datePublished" datetime="2020-03-08T22:44:00+08:00">2020-03-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-09 00:42:00" itemprop="dateModified" datetime="2020-03-09T00:42:00+08:00">2020-03-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%B1%82%E8%81%8C/" itemprop="url" rel="index">
+                    <span itemprop="name">求职</span>
+                  </a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="我的面试经历"><a href="#我的面试经历" class="headerlink" title="我的面试经历"></a>我的面试经历</h2><p><strong>面试岗位：华为-消费者事业群Android开发</strong></p>
+<a id="more"></a>
+
+<p>本人坐标大连，去年年底秋招补录过的。申请岗位是消费者bg的Android开发。距离面试刚好两个月了，趁还有些记忆写点东西记录一下备忘。</p>
+<h3 id="机试"><a href="#机试" class="headerlink" title="机试"></a>机试</h3><p>华为标准三道题。</p>
+<ul>
+<li>第一道基本功，折腾字符串和标准输出。</li>
+<li>第二道是算法题，奥特曼打怪兽，从n方阵的左上角走到右下角，然后再返回起点。有三种格点：<br>值为0，正常可通过；<br>值为1，奥特曼可通过，同时还可以消灭怪兽，消灭后值变为0且怪兽不会复活，消灭怪兽数量+1；<br>值为-1，有大石头，奥特曼无法通过。怪兽死后不会复活。<br>求奥特曼可以消灭怪兽的最大数量。</li>
+<li>解题时用回溯法，时间复杂度挺高……这道题C++给时为2s（其他题目只有1s）说明允许使用高复杂度的算法解题，于是乎不管最优解，硬刚就完事了。<br>写完算法没AC，只有66.6%的通过率，可能有些细节没考虑到。<br>第三题是日志格式化输出，给定长日志输入，按照需求把相关的报错信息输出并计算出错时长等信息。<br>也比较简单，还是折腾字符串和Map，利用好Map和List很容易解题。<h3 id="专业一面"><a href="#专业一面" class="headerlink" title="专业一面"></a>专业一面</h3>华为一面为技术面，在笔试结束后大约1周内收到了面试通知。华为是一天三面全部安排完，为了招聘的高效率吧……但是对于求职者来说还挺低效的😛<br>问了大概以下几个问题：</li>
+<li>介绍自己和相关项目（相关项目问的不深，主要还是问职责和遇见的问题和解决措施</li>
+<li>Socket相关知识点</li>
+<li>Android Binder 进程通信的原理，以及AIDL开发（简历里写了这一项，重点询问。不过我答得不是特别好，就会打了个大概，描述清楚了怎么使用而已</li>
+<li>Handler，MessageQueue、Looper相关原理</li>
+<li>JVM内存模型</li>
+<li>Java Native 使用方法以及JNI的编写方法（项目中用到过，回答的比较全</li>
+<li>是否读过Android源码（回答很套路：在读……</li>
+<li>Android内存回收（项目里没遇到，只说了自己了解的一小部分</li>
+<li>手撕代码，挺简单的一道题……基本难度那种，印象不深刻忘记了😂<br>一面挺快就结束了，一共也就40分钟左右，问的不是很深，而且我是有一些实习经历和项目经历的，估计面试官把重点问题都留给二面了。</li>
+</ul>
+<h3 id="专业二面​"><a href="#专业二面​" class="headerlink" title="专业二面​"></a>专业二面​</h3><p>二面面试官明显是个团队Leader级别的人物，气质跟第一面完全不同。<br>上来直接介绍自己和项目，并对项目一通追问。<br>项目详情：Socket内网通信，使用TCP协议，出现了丢包问题，怀疑是路由器质量差，丢包延迟问题严重。通过C/S联调以及更换路由器后，改善延时，但仍有丢包。后续发现是代码逻辑bug，缓冲区长度限制导致了阻塞。<br>大概就是这么个项目，然后这位面试官从一路追问，刨根问底问具体是什么情况导致的延迟丢包问题，从路由器问到ReceiveBuffer，最后得意地发现其实路由器质量不是根本问题，代码逻辑bug才是😐（其实我简历上没写那么多……一句话带过了而已，就这样追问了大概十分钟……<br>然后是开始提问：</p>
+<ul>
+<li>Java 里 static 修饰 类、变量、方法各有什么含义？（我Java基础差，答得不是特别好，零零星星回答的，没有逻辑</li>
+<li>Android Binder（一面问过，这次问的更深，探讨了什么是Android的DataBinding技术。这个项目经历中有用过，我结合MVVM谈了下理解</li>
+<li>Handler 和 MessageQueue相关问题（没错，也是一面问过的，都是重点啊</li>
+<li>Git 中 merge 和 rebase 的区别（我：？？？，面试官看我简历里有些熟练使用Git，然后问我这两个操作的区别……我从没准备过这种问题，谈了谈大概的用法，但是没说清楚具体的区别。最后只能说，我会用，但具体区别我说不明白😂</li>
+<li>设计模式，直接手撕代码，实现一个单例模式。（这个用的多，比较熟悉，直接写了个饿汉式出来。完了面试官询问写的是什么模式，也就顺利过了。</li>
+<li>手撕代码：输入一个字符串，输出最大回文字符串。（也是入门题目，leetcode上忘了是初级还是中级了，以前做过但是生疏了……用了挺长时间，但是没做全，有种情况没考虑到。XXXABAXX……这种写好了，但是XXABBAX……这种完全没考虑到。面试官觉得勉强过但是又不够好😂于是又给我出了一道题</li>
+<li>手撕代码：输入一个（有序）数组，然后给定一个范围，左界和右界，输出这俩的交集。（我没注意到数组是有序的，写这个算法多花了点时间去排了个序，然后再输出。题目比较简单，也就快速过了。<br>因为写代码时间比较多，二面问了一个半小时左右。面完了心力交瘁……最后面试官给我个评语：勉强给你过了，但是你基础不够好，如果来本公司上班，要自己抽时间巩固基础。所以基础还是重要哇……</li>
+</ul>
+<h3 id="主管面"><a href="#主管面" class="headerlink" title="主管面"></a>主管面</h3><p>第三面是主管面，基本就家庭啊，职业规划啊，预期城市啊啥的。<br>​也简单问了问项目，但还是对问的的解决策略和担任的职责去提问。<br>还问了为什么选择华为，以及选择这个岗位。<br>还有<strong>对待996加班的看法</strong>。面试华为的同学应该要对这个问题体现想好自己的看法<br>对了，还有成绩单。主管面会看学校成绩。<br>大概20多分钟就完事了。之后就是等通知结果了。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>本人是电子通信工程专业，本科应届生。学的知识其实和Android不是那么搭边，最后也是凭借个人兴趣和发展规划选择了Android开发这条路，对专业来说，算是半个科班生。<br>Java语言和Android也是半年前才接触的，只能说，编程这东西是相通的，理解算法和数据结构远比只学某种语言更重要；而且解决问题的逻辑也比重复机械地背代码重要。再就是要有创新精神，做技术要与时俱进，时刻关注新技术，随时更新自己的技术栈才能保证自己不落伍。<br>大公司需要的都是能干活的员工，提升自己解决问题的能力很重要，相比学校里学习的理论知识，实战项目更看重debug能力。</p>
+<p><strong>最后，这篇文章也挺长的，希望所有能看到这里的同学都能还愿<del>大家加油</del></strong></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%8D%8E%E4%B8%BA/" rel="tag"># 华为</a>
+              <a href="/tags/%E9%9D%A2%E7%BB%8F/" rel="tag"># 面经</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/blog/algorithm-study-notes-one/" rel="prev" title="算法学习笔记一">
+      <i class="fa fa-chevron-left"></i> 算法学习笔记一
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#我的面试经历"><span class="nav-text">我的面试经历</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#机试"><span class="nav-text">机试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#专业一面"><span class="nav-text">专业一面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#专业二面​"><span class="nav-text">专业二面​</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主管面"><span class="nav-text">主管面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-text">总结</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Valpha"
+      src="/images/Favicon.png">
+  <p class="site-author-name" itemprop="name">Valpha</p>
+  <div class="site-description" itemprop="description">Android | Arduino | RPi</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://whisper912.github.io/" title="https:&#x2F;&#x2F;whisper912.github.io&#x2F;" rel="noopener" target="_blank">炸毛刺猬</a>
+        </li>
+    </ul>
+  </div>
+<!-- CloudCalendar -->
+<div class="widget-wrap" style="width: 90%;margin-left: auto;margin-right: auto; opacity: 0.97;">
+	<div class="widget" id="CloudCalendar"></div>
+</div><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=280 height=52
+    src="//music.163.com/outchain/player?type=2&id=34014168&auto=0&height=32"></iframe>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Valpha</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">45k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:21</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='86, 98, 112' opacity='0.8' zIndex='-1' count='120' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.getAttribute('pjax') !== null) {
+      element.setAttribute('pjax', '');
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+  <script pjax>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+<!-- calendar widget -->
+
+    <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-calendar/calendar.min.js"></script>
+    <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-calendar/languages.min.js"></script>
+    <script>
+    $(function() {
+        $('#CloudCalendar').aCalendar('zh-CN',
+            $.extend(
+                '', {
+                    single:true,
+                    root:'/calendar/'
+                }
+            )
+        );
+    });
+    </script>
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: 'f2fb1f715466bdfa8f3e',
+      clientSecret: '0831663fd94447c22345630d1a052cc96081fc6c',
+      repo: 'blog-comments',
+      owner: 'valpha',
+      admin: ['valpha'],
+      id: 'b97db553cf504a8a97d84aef1759c071',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+    </div>
+</body>
+</html>

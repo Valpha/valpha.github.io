@@ -1,6 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>华为面经</title>
+    <url>/blog/huawei-face-book/</url>
+    <content><![CDATA[<h2 id="我的面试经历"><a href="#我的面试经历" class="headerlink" title="我的面试经历"></a>我的面试经历</h2><p><strong>面试岗位：华为-消费者事业群Android开发</strong></p>
+<a id="more"></a>
+
+<p>本人坐标大连，去年年底秋招补录过的。申请岗位是消费者bg的Android开发。距离面试刚好两个月了，趁还有些记忆写点东西记录一下备忘。</p>
+<h3 id="机试"><a href="#机试" class="headerlink" title="机试"></a>机试</h3><p>华为标准三道题。</p>
+<ul>
+<li>第一道基本功，折腾字符串和标准输出。</li>
+<li>第二道是算法题，奥特曼打怪兽，从n方阵的左上角走到右下角，然后再返回起点。有三种格点：<br>值为0，正常可通过；<br>值为1，奥特曼可通过，同时还可以消灭怪兽，消灭后值变为0且怪兽不会复活，消灭怪兽数量+1；<br>值为-1，有大石头，奥特曼无法通过。怪兽死后不会复活。<br>求奥特曼可以消灭怪兽的最大数量。</li>
+<li>解题时用回溯法，时间复杂度挺高……这道题C++给时为2s（其他题目只有1s）说明允许使用高复杂度的算法解题，于是乎不管最优解，硬刚就完事了。<br>写完算法没AC，只有66.6%的通过率，可能有些细节没考虑到。<br>第三题是日志格式化输出，给定长日志输入，按照需求把相关的报错信息输出并计算出错时长等信息。<br>也比较简单，还是折腾字符串和Map，利用好Map和List很容易解题。<h3 id="专业一面"><a href="#专业一面" class="headerlink" title="专业一面"></a>专业一面</h3>华为一面为技术面，在笔试结束后大约1周内收到了面试通知。华为是一天三面全部安排完，为了招聘的高效率吧……但是对于求职者来说还挺低效的😛<br>问了大概以下几个问题：</li>
+<li>介绍自己和相关项目（相关项目问的不深，主要还是问职责和遇见的问题和解决措施</li>
+<li>Socket相关知识点</li>
+<li>Android Binder 进程通信的原理，以及AIDL开发（简历里写了这一项，重点询问。不过我答得不是特别好，就会打了个大概，描述清楚了怎么使用而已</li>
+<li>Handler，MessageQueue、Looper相关原理</li>
+<li>JVM内存模型</li>
+<li>Java Native 使用方法以及JNI的编写方法（项目中用到过，回答的比较全</li>
+<li>是否读过Android源码（回答很套路：在读……</li>
+<li>Android内存回收（项目里没遇到，只说了自己了解的一小部分</li>
+<li>手撕代码，挺简单的一道题……基本难度那种，印象不深刻忘记了😂<br>一面挺快就结束了，一共也就40分钟左右，问的不是很深，而且我是有一些实习经历和项目经历的，估计面试官把重点问题都留给二面了。</li>
+</ul>
+<h3 id="专业二面​"><a href="#专业二面​" class="headerlink" title="专业二面​"></a>专业二面​</h3><p>二面面试官明显是个团队Leader级别的人物，气质跟第一面完全不同。<br>上来直接介绍自己和项目，并对项目一通追问。<br>项目详情：Socket内网通信，使用TCP协议，出现了丢包问题，怀疑是路由器质量差，丢包延迟问题严重。通过C/S联调以及更换路由器后，改善延时，但仍有丢包。后续发现是代码逻辑bug，缓冲区长度限制导致了阻塞。<br>大概就是这么个项目，然后这位面试官从一路追问，刨根问底问具体是什么情况导致的延迟丢包问题，从路由器问到ReceiveBuffer，最后得意地发现其实路由器质量不是根本问题，代码逻辑bug才是😐（其实我简历上没写那么多……一句话带过了而已，就这样追问了大概十分钟……<br>然后是开始提问：</p>
+<ul>
+<li>Java 里 static 修饰 类、变量、方法各有什么含义？（我Java基础差，答得不是特别好，零零星星回答的，没有逻辑</li>
+<li>Android Binder（一面问过，这次问的更深，探讨了什么是Android的DataBinding技术。这个项目经历中有用过，我结合MVVM谈了下理解</li>
+<li>Handler 和 MessageQueue相关问题（没错，也是一面问过的，都是重点啊</li>
+<li>Git 中 merge 和 rebase 的区别（我：？？？，面试官看我简历里有些熟练使用Git，然后问我这两个操作的区别……我从没准备过这种问题，谈了谈大概的用法，但是没说清楚具体的区别。最后只能说，我会用，但具体区别我说不明白😂</li>
+<li>设计模式，直接手撕代码，实现一个单例模式。（这个用的多，比较熟悉，直接写了个饿汉式出来。完了面试官询问写的是什么模式，也就顺利过了。</li>
+<li>手撕代码：输入一个字符串，输出最大回文字符串。（也是入门题目，leetcode上忘了是初级还是中级了，以前做过但是生疏了……用了挺长时间，但是没做全，有种情况没考虑到。XXXABAXX……这种写好了，但是XXABBAX……这种完全没考虑到。面试官觉得勉强过但是又不够好😂于是又给我出了一道题</li>
+<li>手撕代码：输入一个（有序）数组，然后给定一个范围，左界和右界，输出这俩的交集。（我没注意到数组是有序的，写这个算法多花了点时间去排了个序，然后再输出。题目比较简单，也就快速过了。<br>因为写代码时间比较多，二面问了一个半小时左右。面完了心力交瘁……最后面试官给我个评语：勉强给你过了，但是你基础不够好，如果来本公司上班，要自己抽时间巩固基础。所以基础还是重要哇……</li>
+</ul>
+<h3 id="主管面"><a href="#主管面" class="headerlink" title="主管面"></a>主管面</h3><p>第三面是主管面，基本就家庭啊，职业规划啊，预期城市啊啥的。<br>​也简单问了问项目，但还是对问的的解决策略和担任的职责去提问。<br>还问了为什么选择华为，以及选择这个岗位。<br>还有<strong>对待996加班的看法</strong>。面试华为的同学应该要对这个问题体现想好自己的看法<br>对了，还有成绩单。主管面会看学校成绩。<br>大概20多分钟就完事了。之后就是等通知结果了。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>本人是电子通信工程专业，本科应届生。学的知识其实和Android不是那么搭边，最后也是凭借个人兴趣和发展规划选择了Android开发这条路，对专业来说，算是半个科班生。<br>Java语言和Android也是半年前才接触的，只能说，编程这东西是相通的，理解算法和数据结构远比只学某种语言更重要；而且解决问题的逻辑也比重复机械地背代码重要。再就是要有创新精神，做技术要与时俱进，时刻关注新技术，随时更新自己的技术栈才能保证自己不落伍。<br>大公司需要的都是能干活的员工，提升自己解决问题的能力很重要，相比学校里学习的理论知识，实战项目更看重debug能力。</p>
+<p><strong>最后，这篇文章也挺长的，希望所有能看到这里的同学都能还愿<del>大家加油</del></strong></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>求职</category>
+      </categories>
+      <tags>
+        <tag>华为</tag>
+        <tag>面经</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>算法学习笔记一</title>
+    <url>/blog/algorithm-study-notes-one/</url>
+    <content><![CDATA[<h2 id="算法学习笔记（一）序章"><a href="#算法学习笔记（一）序章" class="headerlink" title="算法学习笔记（一）序章"></a>算法学习笔记（一）序章</h2><p>参考文章：<a href="https://labuladong.gitbook.io/algo/" target="_blank" rel="noopener">Labuladong的算法小抄</a></p>
+<a id="more"></a>
+
+<h3 id="入门必读"><a href="#入门必读" class="headerlink" title="入门必读"></a>入门必读</h3><h4 id="数据结构的存储方式"><a href="#数据结构的存储方式" class="headerlink" title="数据结构的存储方式"></a>数据结构的存储方式</h4><ul>
+<li><p>数组（Array）</p>
+<ul>
+<li>连续性存储，可以随机访问</li>
+<li>通过索引快速找到元素</li>
+<li>相对节约存储空间</li>
+<li>不适合插入、删除操作，较难扩容。时间复杂度O(N)</li>
+</ul>
+</li>
+<li><p>链表（Linked List）</p>
+<ul>
+<li>链式存储，不能随机访问</li>
+<li>相对消耗更多存储空间</li>
+<li>适合插入、删除操作，时间复杂度O(1)</li>
+</ul>
+</li>
+</ul>
+<h4 id="数据结构的基本操作"><a href="#数据结构的基本操作" class="headerlink" title="数据结构的基本操作"></a>数据结构的基本操作</h4><ul>
+<li><p>线性遍历（for/while迭代）</p>
+<ul>
+<li><p>数组遍历：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">traverse</span><span class="params">(<span class="keyword">int</span>[] array)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length; i++) &#123;</span><br><span class="line">        <span class="comment">//	array[i]...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>链表遍历</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ListNode</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    ListNode next;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">traverse</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (ListNode p = head; p != <span class="keyword">null</span>; p = p.next) &#123;</span><br><span class="line">        <span class="comment">//  p.val...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>非线性遍历（递归调用）</p>
+<ul>
+<li><p>链表递归</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ListNode</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    ListNode next;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">traverse</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//	head.val...</span></span><br><span class="line">   	traverse(head.next);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>二叉树的递归遍历</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    TreeNode left, right;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">traverse</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//	root.val...</span></span><br><span class="line">    <span class="comment">//	此处为前序遍历</span></span><br><span class="line">    traverse(root.left);</span><br><span class="line">    <span class="comment">//	此处为中序遍历</span></span><br><span class="line">    traverse(root.right);</span><br><span class="line">    <span class="comment">//	此处为后序遍历</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h3><p>动态规划的一般形式为求解<strong>最值</strong>。求解动态规划的<strong>核心问题是穷举</strong>。</p>
+<ol>
+<li><p>难点：<strong>存在【重叠子问题】</strong>。</p>
+<ul>
+<li>使用【备忘录】or【DP table】来优化穷举过程。</li>
+</ul>
+</li>
+<li><p>难点：<strong>具备【最优子结构】</strong></p>
+</li>
+<li><p>难点：<strong>需要更新当前的【状态转移方程】</strong></p>
+<ul>
+<li>明确【状态】-&gt; 定义dp数组/函数的含义-&gt; 明确【选择】-&gt; 明确 base case</li>
+</ul>
+</li>
+</ol>
+<h4 id="斐波那契数列-问题"><a href="#斐波那契数列-问题" class="headerlink" title="斐波那契数列 问题"></a>斐波那契数列 问题</h4><h5 id="1-暴力递归"><a href="#1-暴力递归" class="headerlink" title="1. 暴力递归"></a>1. 暴力递归</h5><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fib</span><span class="params">(<span class="keyword">int</span> N)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (N == <span class="number">1</span> || N == <span class="number">2</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> fib(N - <span class="number">1</span>) + fib(N - <span class="number">2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="http://blog-image.pek3b.qingstor.com/202003090026_707.png" alt="递归树"></p>
+<p>时间复杂度分析：</p>
+<ul>
+<li>解决每一个子问题不需要循环，只有一个加法操作<code>f(n-1)+f(n-1)</code>，时间复杂度为O(1)</li>
+<li>一共要解决二叉树结点个子问题，总数为指数，时间复杂度为O(2^n)</li>
+</ul>
+<p>总复杂度为O(2^n)，指数型。</p>
+<p>这就是<strong>重叠子问题</strong>。使用<strong>【备忘录】可以解决这个问题</strong></p>
+<h5 id="2-带备忘录的递归解法"><a href="#2-带备忘录的递归解法" class="headerlink" title="2. 带备忘录的递归解法"></a>2. 带备忘录的递归解法</h5><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fib</span><span class="params">(<span class="keyword">int</span> N)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (N &lt; <span class="number">1</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="comment">// 备忘录全初始化为 0</span></span><br><span class="line">    <span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">memo</span><span class="params">(N + <span class="number">1</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">    <span class="comment">// 初始化最简情况</span></span><br><span class="line">    <span class="keyword">return</span> helper(memo, N);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">helper</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; memo, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// base case </span></span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">1</span> || n == <span class="number">2</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="comment">// 已经计算过</span></span><br><span class="line">    <span class="keyword">if</span> (memo[n] != <span class="number">0</span>) <span class="keyword">return</span> memo[n];</span><br><span class="line">    memo[n] = helper(memo, n - <span class="number">1</span>) + </span><br><span class="line">                helper(memo, n - <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">return</span> memo[n];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="http://blog-image.pek3b.qingstor.com/202003090036_689.png" alt="【备忘录】模式下的递归树"></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Mastering RecyclerView</title>
     <url>/blog/mastering-recyclerview/</url>
     <content><![CDATA[<p><strong>RecyclerView.LayoutManager 工作原理详解</strong></p>
@@ -2236,6 +2363,12 @@ con1(no,down)->n1</textarea><textarea id="flowchart-0-options" style="display: n
         <tag>Android</tag>
         <tag>实习日记</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>模板</title>
+    <url>/blog/template/</url>
+    <content><![CDATA[<p>title</p>
+<a id="more"></a><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
   </entry>
   <entry>
     <title>实习Day6</title>
