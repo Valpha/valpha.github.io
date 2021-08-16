@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Android">
+    <meta name="description" content="Android | Arduino | RPi">
+    <meta name="author" content="Valpha">
+    
+    <title>
+        
+            Android开发——Android Studio IDE 的配置与安装 |
+        
+        Valpha&#39;s 造物集
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="https://blog-image.obs.cn-east-2.myhuaweicloud.com/logo_valpha.png">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"valpha.github.io","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"https://blog-image.obs.cn-east-2.myhuaweicloud.com/logo_valpha.png","favicon":"https://blog-image.obs.cn-east-2.myhuaweicloud.com/logo_valpha.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Less utilitarianism, more persistence for no reason."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":true},"lazyload":{"enable":false},"version":"3.4.3"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Valpha's 造物集" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="https://blog-image.obs.cn-east-2.myhuaweicloud.com/logo_valpha.png">
+                </a>
+            
+            <a class="logo-title" href="/">
+                Valpha&#39;s 造物集
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">Android开发——Android Studio IDE 的配置与安装</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="https://blog-image.obs.cn-east-2.myhuaweicloud.com/logo_valpha.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Valpha</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2019-08-04 09:14:20
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%AE%9E%E4%B9%A0/">实习</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Android/">Android</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Android%E5%BC%80%E5%8F%91/">Android开发</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>693 字</span>
+        </span>
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h2 id="Android-Studio-IDE-的配置与安装"><a href="#Android-Studio-IDE-的配置与安装" class="headerlink" title="Android Studio IDE 的配置与安装"></a>Android Studio IDE 的配置与安装</h2><span id="more"></span>
+
+<h3 id="下载、安装-Android-Studio-IDE"><a href="#下载、安装-Android-Studio-IDE" class="headerlink" title="下载、安装 Android Studio IDE"></a>下载、安装 Android Studio IDE</h3><h4 id="官网下载-Android-Studio"><a href="#官网下载-Android-Studio" class="headerlink" title="官网下载 Android Studio"></a>官网下载 Android Studio</h4><p><a class="link"   target="_blank" rel="noopener" href="https://developer.android.com/studio/index.html?hl=zh-cn" >Android Studio 官网下载<i class="fas fa-external-link-alt"></i></a></p>
+<h4 id="配置SDK"><a href="#配置SDK" class="headerlink" title="配置SDK"></a>配置SDK</h4><p>出于<strong>代码通用性</strong>和<strong>平台统一性</strong>的考虑，SDK版本一律使用<strong>最新的稳定版</strong></p>
+<p>目前版本为 <strong>Android Pie（API 28）</strong></p>
+<h4 id="设置-gradle"><a href="#设置-gradle" class="headerlink" title="设置 gradle"></a>设置 gradle</h4><p>gradle 是一个自动化构建工具，在语法上是基于Groovy语言的（<a class="link"   target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=http://www.groovy-lang.org/" >Groovy<i class="fas fa-external-link-alt"></i></a> 是一种基于JVM的敏捷开发语言，可以简单的理解为强类型语言java的弱类型版本），在项目管理上是基于Ant和Maven概念的项目自动化建构工具。</p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://www.flysnow.org/2016/04/11/android-gradle-getting-started.html" >Android Gradle 入门 | 飞雪无情的博客<i class="fas fa-external-link-alt"></i></a></p>
+<p>一般来说，国内无法直接下载 gradle 包，解决方法有三：</p>
+<ul>
+<li><p>设置代理（翻墙）<br>在 Android Studio 中设置 Proxy<br><img src="http://blog-image.pek3b.qingstor.com/201907022123_665.png" alt="设置代理"></p>
+</li>
+<li><p>使用国内镜像站下载 gradle 包<br>修改<code>build.gradle</code>文件</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">buildscript &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        maven &#123; url <span class="string">&#x27;http://maven.aliyun.com/nexus/content/groups/public/&#x27;</span> &#125;</span><br><span class="line">        maven&#123; url <span class="string">&#x27;http://maven.aliyun.com/nexus/content/repositories/jcenter&#x27;</span>&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    dependencies &#123;</span><br><span class="line">        classpath <span class="string">&#x27;com.android.tools.build:gradle:2.2.3&#x27;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// <span class="doctag">NOTE:</span> Do not place your application dependencies here; they belong</span></span><br><span class="line">        <span class="comment">// in the individual module build.gradle files</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">allprojects &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        maven &#123; url <span class="string">&#x27;http://maven.aliyun.com/nexus/content/groups/public/&#x27;</span> &#125;</span><br><span class="line">        maven&#123; url <span class="string">&#x27;http://maven.aliyun.com/nexus/content/repositories/jcenter&#x27;</span>&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>使用本地 gradle<br><img src="http://blog-image.pek3b.qingstor.com/201907022129_369.png" alt="本地gradle配置"></p>
+</li>
+</ul>
+<p>没有翻墙条件的最佳解决方案：</p>
+<ol>
+<li>新建工程、修改<code>build.gradle</code></li>
+<li>gradle 构建完成后，修改方式为使用本地 gradle 包</li>
+</ol>
+<h4 id="使用-AVD-虚拟设备"><a href="#使用-AVD-虚拟设备" class="headerlink" title="使用 AVD 虚拟设备"></a>使用 AVD 虚拟设备</h4><p>打开 <strong>AVD Manager</strong>， 新建虚拟设备，选择与测试机相匹配的配置：</p>
+<ul>
+<li>尺寸</li>
+<li>分辨率</li>
+<li>屏幕密度*</li>
+<li>API镜像版本</li>
+</ul>
+<p>出现 <strong>HAXM</strong> 或 <strong>VT-X</strong> 错误，原因是需要主板开启虚拟设备加速（VT-x），需要进入 <strong>BIOS</strong> 中设置。</p>
+<p>进入方式可以搜索自己的笔记本型号，查询进入 <strong>BIOS</strong> 的方式。</p>
+<h4 id="利用-adb-进行调试"><a href="#利用-adb-进行调试" class="headerlink" title="利用 adb 进行调试"></a>利用 adb 进行调试</h4><p>ADB：Android Debug Bridge <img src="http://blog-image.pek3b.qingstor.com/201907022137_941.png" alt="adb原理"> </p>
+<p>常用命令：</p>
+<table>
+<thead>
+<tr>
+<th>adb命令</th>
+<th>含义</th>
+<th>*参数1</th>
+<th>*参数2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>start-server</td>
+<td>启动连接</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>kill-server</td>
+<td>断开连接</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>install</td>
+<td>安装apk包</td>
+<td>*.apk</td>
+<td></td>
+</tr>
+<tr>
+<td>uninstall</td>
+<td>卸载某程序</td>
+<td>程序包名(com.xxx[公司名].xxx[项目名])</td>
+<td></td>
+</tr>
+<tr>
+<td>push</td>
+<td>上传文件</td>
+<td>待推送(push)文件</td>
+<td>目标（设备）路径</td>
+</tr>
+<tr>
+<td>pull</td>
+<td>下载文件</td>
+<td>待取回(pull)文件</td>
+<td>目标（本地）路径</td>
+</tr>
+<tr>
+<td>shell</td>
+<td>进入设备终端</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>进入设备终端后的命令（Linux命令）：</p>
+<table>
+<thead>
+<tr>
+<th>Linux命令</th>
+<th>含义</th>
+<th>参数1</th>
+<th>*参数2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>rm</td>
+<td>remove|删除</td>
+<td>某文件路径</td>
+<td></td>
+</tr>
+<tr>
+<td>ls</td>
+<td>list|列表</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>mv</td>
+<td>move|移动（重命名）</td>
+<td>原文件</td>
+<td>新文件</td>
+</tr>
+<tr>
+<td>cd</td>
+<td>change directory|切换目录</td>
+<td>路径</td>
+<td></td>
+</tr>
+<tr>
+<td>cp</td>
+<td>copy|复制</td>
+<td>源文件</td>
+<td>目标路径</td>
+</tr>
+<tr>
+<td>pm</td>
+<td>包管理</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>pm指令</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>install</td>
+<td>安装apk包</td>
+<td>*.apk</td>
+<td>P版本(9.0)只允许安装/data/local/tmp/下的apk包</td>
+</tr>
+<tr>
+<td></td>
+<td>-r</td>
+<td></td>
+<td>强制替换原包（升级更新）</td>
+</tr>
+<tr>
+<td>uninstall</td>
+<td>卸载包</td>
+<td>包名</td>
+<td></td>
+</tr>
+<tr>
+<td>list packages</td>
+<td>列出所有安装包</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>-3</td>
+<td></td>
+<td>列出所有第三方安装包</td>
+</tr>
+</tbody></table>
+<hr>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：Android开发——Android Studio IDE 的配置与安装</li>
+        <li>本文作者：Valpha</li>
+        <li>创建时间：2019-08-04 09:14:20</li>
+        <li>
+            本文链接：https://valpha.github.io/2019/08/04/Android开发——Android Studio IDE 的配置与安装/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2019/08/04/Android%E5%BC%80%E5%8F%91%E2%80%94%E2%80%94%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Android开发——权限管理</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2019/07/31/%E4%B8%80%E6%9C%88%E8%80%83%E6%A0%B8%E5%90%8E%E7%9A%84%E7%AC%AC%E4%B8%80%E8%8A%82%E8%AF%BE/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">一月考核后的第一节课</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2019</span>&nbsp;-&nbsp;
+            
+            2021&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Valpha</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.3</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Android-Studio-IDE-%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%8E%E5%AE%89%E8%A3%85"><span class="nav-text">Android Studio IDE 的配置与安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E3%80%81%E5%AE%89%E8%A3%85-Android-Studio-IDE"><span class="nav-text">下载、安装 Android Studio IDE</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%98%E7%BD%91%E4%B8%8B%E8%BD%BD-Android-Studio"><span class="nav-text">官网下载 Android Studio</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%85%8D%E7%BD%AESDK"><span class="nav-text">配置SDK</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE-gradle"><span class="nav-text">设置 gradle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-AVD-%E8%99%9A%E6%8B%9F%E8%AE%BE%E5%A4%87"><span class="nav-text">使用 AVD 虚拟设备</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%A9%E7%94%A8-adb-%E8%BF%9B%E8%A1%8C%E8%B0%83%E8%AF%95"><span class="nav-text">利用 adb 进行调试</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/dark-light-toggle.js"></script>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/code-copy.js"></script>
+
+
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/toc.js"></script>
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>

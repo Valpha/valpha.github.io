@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Android">
+    <meta name="description" content="Android | Arduino | RPi">
+    <meta name="author" content="Valpha">
+    
+    <title>
+        
+            Android开发——Http网络编程 |
+        
+        Valpha&#39;s 造物集
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="https://blog-image.obs.cn-east-2.myhuaweicloud.com/logo_valpha.png">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"valpha.github.io","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"https://blog-image.obs.cn-east-2.myhuaweicloud.com/logo_valpha.png","favicon":"https://blog-image.obs.cn-east-2.myhuaweicloud.com/logo_valpha.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Less utilitarianism, more persistence for no reason."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":true},"lazyload":{"enable":false},"version":"3.4.3"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Valpha's 造物集" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="https://blog-image.obs.cn-east-2.myhuaweicloud.com/logo_valpha.png">
+                </a>
+            
+            <a class="logo-title" href="/">
+                Valpha&#39;s 造物集
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">Android开发——Http网络编程</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="https://blog-image.obs.cn-east-2.myhuaweicloud.com/logo_valpha.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Valpha</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2019-08-07 09:36:37
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%AE%9E%E4%B9%A0/">实习</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Android/">Android</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Android%E5%BC%80%E5%8F%91/">Android开发</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>3k 字</span>
+        </span>
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h2 id="Http网络编程"><a href="#Http网络编程" class="headerlink" title="Http网络编程"></a>Http网络编程</h2><p>GET、POST、Upload、Download</p>
+<span id="more"></span>
+
+<h3 id="Http-s-协议简介"><a href="#Http-s-协议简介" class="headerlink" title="Http(s)协议简介"></a>Http(s)协议简介</h3><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>  HTTP是Hyper Text Transfer Protocol（超文本传输协议）的缩写。它的发展是万维网协会（World Wide Web Consortium）和Internet工作小组IETF（Internet Engineering Task Force）合作的结果，最终发布了一系列的RFC，RFC 1945定义了HTTP/1.0版本。其中最著名的就是RFC 2616。RFC 2616定义了今天普遍使用的一个版本–HTTP 1.1。<br>  HTTP协议是用于从WWW服务器传输超文本到本地浏览器的传送协议。它可以使浏览器更加高效，使网络传输减少。它不仅保证计算机正确快速地传输超文本文档，还确定传输文档中的哪一部分，以及哪部分内容首先显示（如文本先于图形）等。<br>  HTTP是一个应用层协议，由请求和响应构成，是一个标准的客户端服务器模型，而且HTTP是一个无状态的协议。</p>
+<h4 id="主要特点"><a href="#主要特点" class="headerlink" title="主要特点"></a>主要特点</h4><ul>
+<li><p>简单快速：客户向服务器请求服务时，只需传达请求方法和路径。请求方法常用的有GET、HEAD、POST。每种方法规定了客户端与服务器联系的类型不同。由于HTTP协议简单，使得HTTP服务器的程序规模小，因而通信速度很快。</p>
+</li>
+<li><p>灵活：HTTP允许传输任意类型的数据对象。正在传输的类型由Content-Type加以标记。</p>
+</li>
+<li><p>无连接：无连接的含义是限制每次连接只处理一个请求。服务器处理完客户端的请求，并收到客户端的应答后，即断开连接。采用这种方式可以节省传输时间。</p>
+</li>
+<li><p>无状态：HTTP协议是无状态协议。无状态是指协议对于事务处理没有记忆能力。缺少状态意味着如果后续处理需要前面的信息，则它必须重传，这样可能导致每次连接传送的数据量增大；另一方面，在服务器不需要先前信息时，它的应答就很快。</p>
+</li>
+<li><p>支持<a class="link"   target="_blank" rel="noopener" href="https://www.cnblogs.com/jingmin/p/6493216.html" >B/S及C/S模式<i class="fas fa-external-link-alt"></i></a></p>
+</li>
+</ul>
+<h4 id="HTTP协议请求消息结构"><a href="#HTTP协议请求消息结构" class="headerlink" title="HTTP协议请求消息结构"></a>HTTP协议请求消息结构</h4><p>  客户端发送一个HTTP请求到服务器的请求消息包括以下格式：请求行（request line）、请求头部（header）、空行和请求数据四个部分组成，下图给出了请求报文的一般格式。</p>
+<p><img src="http://blog-image.pek3b.qingstor.com/201908071011_833.png" alt="HTTP报文"></p>
+<p>HTTP消息体主要包含以下实质内容（空格和换行也必不可少）：</p>
+<ul>
+<li>请求方法</li>
+<li>URL：统一资源定位符</li>
+<li>HTTP请求头部</li>
+<li>HTTP请求体</li>
+</ul>
+<p><img src="http://blog-image.pek3b.qingstor.com/201908071011_756.png" alt="报文格式"></p>
+<h4 id="请求方法"><a href="#请求方法" class="headerlink" title="请求方法"></a>请求方法</h4><table>
+<thead>
+<tr>
+<th align="center">序号</th>
+<th align="center">方法</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">GET</td>
+<td align="center">请求指定的页面信息，并返回实体主体</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">HEAD</td>
+<td align="center">类似于GET请求，只不过返回的响应中没有具体的内容，用于获取报头</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">POST</td>
+<td align="center">向指定资源提交数据进行处理请求（例如提交表单或者上传文件）。数据被包含在请求体中。POST请求可能会导致新的资源的建立或已有资源的修改</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">PUT</td>
+<td align="center">从客户端向服务器传送的数据取代指定的文档的内容</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="center">DELETE</td>
+<td align="center">请求服务器删除指定的页面</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="center">CONNECT</td>
+<td align="center">HTTP/1.1协议中预留给能够将连接改为管道方式的代理服务器。</td>
+</tr>
+<tr>
+<td align="center">7</td>
+<td align="center">OPTIONS</td>
+<td align="center">允许客户端查看服务器的性能</td>
+</tr>
+<tr>
+<td align="center">8</td>
+<td align="center">TRACE</td>
+<td align="center">回显服务器收到的请求，主要用于测试或诊断。</td>
+</tr>
+</tbody></table>
+<h4 id="HTTP响应"><a href="#HTTP响应" class="headerlink" title="HTTP响应"></a>HTTP响应</h4><p>HTTP的响应同样分为：响应行、响应头和响应体。</p>
+<p><img src="http://blog-image.pek3b.qingstor.com/201908071030_706.png" alt="HTTP响应头"></p>
+<h4 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h4><p>  HTTP的状态码由三位数字组成，第一个数字定义了响应的类别，共有5种类别：</p>
+<ul>
+<li>1xx：指示信息 — 表示请求已接收，继续处理</li>
+<li>2xx：成功 — 表示请求已被成功接收、理解、接受</li>
+<li>3xx：重定向 — 要完成请求必须进行更进一步的操作</li>
+<li>4xx：客户端错误 — 请求有语法错误或请求无法实现</li>
+<li>5xx：服务器端错误 — 服务器未能实现合法的请求</li>
+</ul>
+<h4 id="常见的状态码"><a href="#常见的状态码" class="headerlink" title="常见的状态码"></a>常见的状态码</h4><ul>
+<li>200 OK：客户端请求成功</li>
+<li>400 Bad Request：客户端请求有语法错误，不能被服务器所理解</li>
+<li>401 Unauthorized：请求未经授权，这个状态代码必须和<code>WWW-Authenticate</code>报头域一起使用</li>
+<li>403 Forbidden：服务器收到请求，但是拒绝提供服务</li>
+<li>404 Not Found：请求资源不存在，不如：输入了错误的URL</li>
+<li>500 Internal Server Error：服务器发生不可预期的错误</li>
+<li>503 Server Unavailable：服务器当前不能处理客户端的请求，一段时间后可能恢复正常。</li>
+<li>更多状态码见：<a class="link"   target="_blank" rel="noopener" href="http://tools.jb51.net/table/http_status_code" >HTTP响应码大全<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+<blockquote>
+<p>参考：<a class="link"   target="_blank" rel="noopener" href="http://cloverkim.com/http-protocol.html" >HTTP协议详解|幸运四叶草<i class="fas fa-external-link-alt"></i></a></p>
+</blockquote>
+<h4 id="GET-请求和-POST-请求的区别"><a href="#GET-请求和-POST-请求的区别" class="headerlink" title="GET 请求和 POST 请求的区别"></a>GET 请求和 POST 请求的区别</h4><h5 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h5><ul>
+<li>GET请求：请求的数据会附在URL之后（就是把数据放置在HTTP协议头中），以?分隔URL和传输数据，多个参数用&amp;进行连接；如果数据是英文字母/数组，原样发送，如果是空格，则转换为+，如果是中文/其他字符，则直接把字符串用base64进行加密。</li>
+<li>POST请求：把提交的数据放置在是HTTP包的包体中。因此，GET请求的数据会在地址栏中显示出来；而POST请求，地址栏不会改变。</li>
+</ul>
+<h5 id="实际开发中传输大小存在的限制"><a href="#实际开发中传输大小存在的限制" class="headerlink" title="实际开发中传输大小存在的限制"></a>实际开发中传输大小存在的限制</h5><ul>
+<li>GET：特定浏览器和服务器对URL长度有限制，例如IE对URL长度的限制是2083字节（2K + 35）。对于其他浏览器，如FireFox等，理论上没有长度限制，其限制取决于操作系统的支持。因此对于GET请求时，传输数据就会受到URL长度的限制。</li>
+<li>POST：由于不是通过URL传值，理论上数据不受限制。但实际各个web服务器会规定对POST请求数据大小进行限制，Apache、IIS6都有各自的配置。</li>
+</ul>
+<h5 id="安全性"><a href="#安全性" class="headerlink" title="安全性"></a>安全性</h5><p>  POST的安全性要比GET的安全性高。比如：GET提交数据，用户名和密码将以明文的形式出现在URL上，因为①登录页面有可能被浏览器缓存；②其他人查看浏览器的历史记录；除此之外，使用GET提交数据还可能会造成 Cross-site request forgery 攻击。</p>
+<h3 id="Android-原生Http方法访问网络"><a href="#Android-原生Http方法访问网络" class="headerlink" title="Android 原生Http方法访问网络"></a>Android 原生Http方法访问网络</h3><h4 id="使用流程"><a href="#使用流程" class="headerlink" title="使用流程"></a>使用流程</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">start=&gt;start: 注明权限，并且在子线程中执行网络操作</span><br><span class="line">op1=&gt;operation: 建立 URL 对象</span><br><span class="line">op2=&gt;operation: 创建 Http(s)URLConnection 对象</span><br><span class="line">op3=&gt;operation: 对 Connection 对象设置各种属性</span><br><span class="line">op4=&gt;condition: 获得 ResponseCode </span><br><span class="line">ResponseCode == 200？</span><br><span class="line">op5=&gt;operation: 获得返回的文件流 (InputStream)</span><br><span class="line">OK=&gt;end: 成功</span><br><span class="line">ERROR=&gt;end: 失败</span><br><span class="line">start-&gt;op1-&gt;op2-&gt;op3-&gt;op4</span><br><span class="line">op4(yes)-&gt;op5-&gt;OK</span><br><span class="line">op4(no)-&gt;ERROR</span><br></pre></td></tr></table></figure>
+
+<h5 id="在-Manifest-中写明权限"><a href="#在-Manifest-中写明权限" class="headerlink" title="在 Manifest 中写明权限"></a>在 Manifest 中写明权限</h5><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">&quot;android.permission.INTERNET&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">&quot;android.permission.READ_EXTERNAL_STORAGE&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="新建子线程"><a href="#新建子线程" class="headerlink" title="新建子线程"></a>新建子线程</h5><p>在子线程中运行网络下载服务</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//	<span class="doctag">TODO:</span>Download files from server.</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;).start();</span><br></pre></td></tr></table></figure>
+
+<h5 id="建立URL对象"><a href="#建立URL对象" class="headerlink" title="建立URL对象"></a>建立URL对象</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">URL url = <span class="keyword">new</span> URL(<span class="string">&quot;https://valpha.xyz/testserver/noByBy.mp3&quot;</span>);</span><br><span class="line"><span class="comment">//	传入的类型为String的URL链接</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="建立-Http-s-URLConnection-对象"><a href="#建立-Http-s-URLConnection-对象" class="headerlink" title="建立 Http(s)URLConnection 对象"></a>建立 Http(s)URLConnection 对象</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">HttpsURLConnection conn = (HttpsUrlConnection) url.openConnection();</span><br><span class="line">HttpURLConnection conn = (HttpUrlConnection) url.openConnection();</span><br><span class="line"><span class="comment">//	http与https协议的类是不同的，需要分别使用</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>在Android 9.0中（API 28），系统默认不支持非HTTPS的协议，想要使用不安全的HTTP协议需要在<code>Manifest</code>中设置</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;application</span><br><span class="line">	android:usesCleartextTraffic=<span class="string">&quot;true&quot;</span></span><br><span class="line">	...</span><br><span class="line">&lt;/application&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="设置-Connection-参数属性（即-Request-的属性）"><a href="#设置-Connection-参数属性（即-Request-的属性）" class="headerlink" title="设置 Connection 参数属性（即 Request 的属性）"></a>设置 Connection 参数属性（即 Request 的属性）</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//	设置使用&quot;GET&quot;请求</span></span><br><span class="line">conn.setRequestMethod(<span class="string">&quot;GET&quot;</span>);</span><br><span class="line"><span class="comment">//	设置超时时间为5000ms</span></span><br><span class="line">conn.setReadTimeout(<span class="number">5000</span>);</span><br><span class="line"><span class="comment">//	设置请求附加属性(key,value)</span></span><br><span class="line">connection.setRequestProperty(<span class="string">&quot;username&quot;</span>,<span class="string">&quot;zhangsan&quot;</span>);</span><br><span class="line">connection.setRequestProperty(<span class="string">&quot;password&quot;</span>,<span class="string">&quot;123456&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h5 id="获得-ResponseCode（即发送请求）"><a href="#获得-ResponseCode（即发送请求）" class="headerlink" title="获得 ResponseCode（即发送请求）"></a>获得 ResponseCode（即发送请求）</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> code = connection.getResponseCode();</span><br><span class="line"><span class="keyword">if</span> (<span class="number">200</span> == code)&#123;</span><br><span class="line">    <span class="comment">//	<span class="doctag">TODO:</span> Anything you want to do like download files</span></span><br><span class="line">    saveFileToLocal(connection.getInputStream());</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">//	Wrong code. Request failed. </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="从网络流中下载文件"><a href="#从网络流中下载文件" class="headerlink" title="从网络流中下载文件"></a>从网络流中下载文件</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">saveFileToLocal</span><span class="params">(InputStream in)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    <span class="comment">//	实例化一个文件对象</span></span><br><span class="line">    File file = <span class="keyword">new</span> File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), <span class="string">&quot;file.name&quot;</span>);</span><br><span class="line">    <span class="comment">//	打开写入文件的流</span></span><br><span class="line">    FileOutputStream fileOutputStream = <span class="keyword">new</span> FileOutputStream(file);</span><br><span class="line">    <span class="comment">//	当前获取到的长度</span></span><br><span class="line">    <span class="keyword">int</span> length = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">//	缓存区大小</span></span><br><span class="line">    <span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">    <span class="comment">//	从网络流中读取数据流至缓存区，length为实际读取到的长度</span></span><br><span class="line">    <span class="keyword">while</span>((length = in.read(buffer, <span class="number">0</span>, <span class="number">1024</span>)) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="comment">//	将缓存区中的数据流写入本地文件</span></span><br><span class="line">        <span class="comment">//	重要！此处必须设定长度为读取到的实际长度</span></span><br><span class="line">        <span class="comment">//	否则会写入非常多的空区域</span></span><br><span class="line">        fileOutputStream.write(buffer, <span class="number">0</span>, length);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//	本地文件写入完毕后需要关闭本地文件流（真正写入本地文件）</span></span><br><span class="line">    fileOutputStream.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>在将数据从缓存写入本地文件中时，必须指定写入长度，不然会默认写入全部缓冲区大小，而缓冲区大小固定长度为1024，会导致文件错误！</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fileOutputStream.write(buffer, <span class="number">0</span>, length);</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p> 使用官方的 <strong>HttpURLConnection</strong> 较为繁琐，需要先新建 <strong>URL</strong> 对象，然后通过 <strong>URL</strong> 实例打开 <strong>Connection</strong> ，再对 <strong>Connection</strong> 设置<code>Request</code>属性，再获取<code>RequestCode</code>和<code>RequestBody</code>，然后通过<strong>流处理</strong>，将<strong>网络数据流</strong>写入<strong>本地文件</strong>。</p>
+<p>Coding 时需要保持逻辑清晰，条理清楚，不然很容易写错。接下来介绍使用开源框架访问 Http 的方法。</p>
+<h3 id="使用开源框架访问-HTTP"><a href="#使用开源框架访问-HTTP" class="headerlink" title="使用开源框架访问 HTTP"></a>使用开源框架访问 HTTP</h3><h4 id="开源框架——OkHttp"><a href="#开源框架——OkHttp" class="headerlink" title="开源框架——OkHttp"></a>开源框架——OkHttp</h4><p>OkHttp 是一个优秀的网络请求框架，不仅可以手动创建子线程发送同步请求，也可以自动发送异步请求。通过构建者模式生成统一的请求对象，不用区分Http还是Https，效率高且方便快捷。</p>
+<p><a class="link"   target="_blank" rel="noopener" href="http://square.github.io/okhttp/" >okhttp | Github.com<i class="fas fa-external-link-alt"></i></a></p>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>在<code>build.gradle</code>中写入依赖</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">implementation(<span class="string">&quot;com.squareup.okhttp3:okhttp:3.4.1&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">start=&gt;start: 创建 OkHttpClient 对象</span><br><span class="line">end=&gt;end: 成功</span><br><span class="line">op1=&gt;operation: 利用 Request.Builder() </span><br><span class="line">创建一个 Request 对象</span><br><span class="line">op2=&gt;operation: 使用 Client 调用 newCall(Request) 方法</span><br><span class="line">返回一个 Response 对象</span><br><span class="line">op3=&gt;operation: 对 Response 对象进行操作</span><br><span class="line">start-&gt;op1-&gt;op2-&gt;op3-&gt;end</span><br></pre></td></tr></table></figure>
+
+<h5 id="创建-OkHttpClient-对象"><a href="#创建-OkHttpClient-对象" class="headerlink" title="创建 OkHttpClient 对象"></a>创建 <strong>OkHttpClient</strong> 对象</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">OkHttpClient client = <span class="keyword">new</span> OkHttpClient();</span><br></pre></td></tr></table></figure>
+
+<p>或</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">OkHttpClient client = <span class="keyword">new</span> OkHttpClient.Builder()</span><br><span class="line">    .connectTimeout(<span class="number">5</span>, TimeUnit.SECONDS)</span><br><span class="line">    .build();</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="创建-Request-对象"><a href="#创建-Request-对象" class="headerlink" title="创建 Request 对象"></a>创建 <strong>Request</strong> 对象</h5><blockquote>
+<p> 构造者模式：将需要构建的属性通过<code>.XXX(“XXX”)</code>设置，最后<code>.build()</code>生成 <strong>Request</strong> 对象</p>
+</blockquote>
+<ul>
+<li><strong>GET</strong> 方法</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Request request = <span class="keyword">new</span> Request.Builder()</span><br><span class="line">    .url(<span class="string">&quot;https://valpha.xyz/testserver/loginget.php?username=zhangsan&amp;password=123456&quot;</span>)</span><br><span class="line">    .build();</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>POST</strong> 方法</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">RequestBody requestBody = <span class="keyword">new</span> FormBody.Builder()</span><br><span class="line">        .add(<span class="string">&quot;username&quot;</span>, <span class="string">&quot;zhangsan&quot;</span>)</span><br><span class="line">        .add(<span class="string">&quot;password&quot;</span>, <span class="string">&quot;123456&quot;</span>)</span><br><span class="line">        .build();</span><br><span class="line"></span><br><span class="line">Request request = <span class="keyword">new</span> Request.Builder()</span><br><span class="line">        .url(<span class="string">&quot;https://valpha.xyz/testserver/loginpost.php&quot;</span>)</span><br><span class="line">        .post(requestBody)</span><br><span class="line">        .build();</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>POST</strong> 上传文件 </li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);</span><br><span class="line">File file = <span class="keyword">new</span> File(path, <span class="string">&quot;vimHotKeys.png&quot;</span>);</span><br><span class="line"></span><br><span class="line">RequestBody body = <span class="keyword">new</span> MultipartBody.Builder()</span><br><span class="line">        .addFormDataPart(<span class="string">&quot;file&quot;</span>, <span class="string">&quot;vimHotKeys.png&quot;</span>, RequestBody.create(MediaType.parse(<span class="string">&quot;image/png&quot;</span>), file))</span><br><span class="line">        .build();</span><br><span class="line"></span><br><span class="line"><span class="keyword">final</span> Request request = <span class="keyword">new</span> Request.Builder()</span><br><span class="line">        .url(<span class="string">&quot;https://valpha.xyz/testserver/upload_file.php&quot;</span>)</span><br><span class="line">        .post(body)</span><br><span class="line">        .build();</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>下载文件</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">OkHttpClient client = <span class="keyword">new</span> OkHttpClient.Builder()</span><br><span class="line">        .connectTimeout(<span class="number">10</span>, TimeUnit.SECONDS)</span><br><span class="line">        .readTimeout(<span class="number">20</span>, TimeUnit.SECONDS)</span><br><span class="line">        .writeTimeout(<span class="number">120</span>, TimeUnit.SECONDS)</span><br><span class="line">        .build();</span><br><span class="line"></span><br><span class="line">Request request = <span class="keyword">new</span> Request.Builder()</span><br><span class="line">        .url(<span class="string">&quot;https://valpha.xyz/testserver/noByBy.mp3&quot;</span>)</span><br><span class="line">        .build();</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="Client-发起连接请求，并获取-Response-对象加载结果"><a href="#Client-发起连接请求，并获取-Response-对象加载结果" class="headerlink" title="Client 发起连接请求，并获取 Response 对象加载结果"></a><strong>Client</strong> 发起连接请求，并获取 <strong>Response</strong> 对象加载结果</h5><p>发起连接分为两种：<strong>同步请求</strong>和<strong>异步请求</strong></p>
+<ul>
+<li>同步请求<code>client.newCall(request).execute();</code>，需要自己写在子线程中运行。并对<strong>Response</strong>自行处理 <strong>Response</strong> </li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            ...</span><br><span class="line">            Response response = client.newCall(request).execute();</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> (response.isSuccessful()) &#123;</span><br><span class="line">                <span class="comment">//	<span class="doctag">TODO:</span>Do something with response.body()</span></span><br><span class="line">                ResponseBody responseBody = response.body();</span><br><span class="line">                ...</span><br><span class="line">            &#125;</span><br><span class="line">            ...</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;).start();</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>异步请求<code>client.newCall(request).enqueue();</code>，自动调用子线程，不需要手动写入子线程中，但需要实现一个 <strong>Callback</strong> 对象</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Callback responseCallback = <span class="keyword">new</span> Callback() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onFailure</span><span class="params">(Call call, IOException e)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// <span class="doctag">TODO:</span>Do something when requestCall failed </span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResponse</span><span class="params">(Call call, Response response)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="comment">// <span class="doctag">TODO:</span>Do something with response.body()</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">client.newCall(request).enqueue(responseCallback);</span><br></pre></td></tr></table></figure>
+
+<p>回调结果中，可以使用<code>response.isSuccessful</code> 来判断是否成功（等价于 <code>responseCode == 200</code>）<br>成功后使用<code>response.body()</code>来获取返回的报文本体</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ResponseBody responseBody = response.body();</span><br><span class="line">InputStream in = responseBody.byteStream();</span><br><span class="line"><span class="comment">// 使用网络流下载文件</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：Android开发——Http网络编程</li>
+        <li>本文作者：Valpha</li>
+        <li>创建时间：2019-08-07 09:36:37</li>
+        <li>
+            本文链接：https://valpha.github.io/2019/08/07/Android开发——Http网络编程/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2019/09/24/JVM/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">JVM</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2019/08/05/Android%E6%8A%80%E5%B7%A7%E2%80%94%E2%80%94Android%20%E5%BC%80%E6%BA%90%E6%A1%86%E6%9E%B6/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Android 开源框架</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2019</span>&nbsp;-&nbsp;
+            
+            2021&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Valpha</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.3</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Http%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B"><span class="nav-text">Http网络编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Http-s-%E5%8D%8F%E8%AE%AE%E7%AE%80%E4%BB%8B"><span class="nav-text">Http(s)协议简介</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BB%E8%A6%81%E7%89%B9%E7%82%B9"><span class="nav-text">主要特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP%E5%8D%8F%E8%AE%AE%E8%AF%B7%E6%B1%82%E6%B6%88%E6%81%AF%E7%BB%93%E6%9E%84"><span class="nav-text">HTTP协议请求消息结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E6%B1%82%E6%96%B9%E6%B3%95"><span class="nav-text">请求方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP%E5%93%8D%E5%BA%94"><span class="nav-text">HTTP响应</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%8A%B6%E6%80%81%E7%A0%81"><span class="nav-text">状态码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E7%8A%B6%E6%80%81%E7%A0%81"><span class="nav-text">常见的状态码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GET-%E8%AF%B7%E6%B1%82%E5%92%8C-POST-%E8%AF%B7%E6%B1%82%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">GET 请求和 POST 请求的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8C%BA%E5%88%AB"><span class="nav-text">区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%9E%E9%99%85%E5%BC%80%E5%8F%91%E4%B8%AD%E4%BC%A0%E8%BE%93%E5%A4%A7%E5%B0%8F%E5%AD%98%E5%9C%A8%E7%9A%84%E9%99%90%E5%88%B6"><span class="nav-text">实际开发中传输大小存在的限制</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%89%E5%85%A8%E6%80%A7"><span class="nav-text">安全性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Android-%E5%8E%9F%E7%94%9FHttp%E6%96%B9%E6%B3%95%E8%AE%BF%E9%97%AE%E7%BD%91%E7%BB%9C"><span class="nav-text">Android 原生Http方法访问网络</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%B5%81%E7%A8%8B"><span class="nav-text">使用流程</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9C%A8-Manifest-%E4%B8%AD%E5%86%99%E6%98%8E%E6%9D%83%E9%99%90"><span class="nav-text">在 Manifest 中写明权限</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%96%B0%E5%BB%BA%E5%AD%90%E7%BA%BF%E7%A8%8B"><span class="nav-text">新建子线程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8BURL%E5%AF%B9%E8%B1%A1"><span class="nav-text">建立URL对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B-Http-s-URLConnection-%E5%AF%B9%E8%B1%A1"><span class="nav-text">建立 Http(s)URLConnection 对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE-Connection-%E5%8F%82%E6%95%B0%E5%B1%9E%E6%80%A7%EF%BC%88%E5%8D%B3-Request-%E7%9A%84%E5%B1%9E%E6%80%A7%EF%BC%89"><span class="nav-text">设置 Connection 参数属性（即 Request 的属性）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%8E%B7%E5%BE%97-ResponseCode%EF%BC%88%E5%8D%B3%E5%8F%91%E9%80%81%E8%AF%B7%E6%B1%82%EF%BC%89"><span class="nav-text">获得 ResponseCode（即发送请求）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BB%8E%E7%BD%91%E7%BB%9C%E6%B5%81%E4%B8%AD%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6"><span class="nav-text">从网络流中下载文件</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%BC%80%E6%BA%90%E6%A1%86%E6%9E%B6%E8%AE%BF%E9%97%AE-HTTP"><span class="nav-text">使用开源框架访问 HTTP</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%80%E6%BA%90%E6%A1%86%E6%9E%B6%E2%80%94%E2%80%94OkHttp"><span class="nav-text">开源框架——OkHttp</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-text">安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA-OkHttpClient-%E5%AF%B9%E8%B1%A1"><span class="nav-text">创建 OkHttpClient 对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA-Request-%E5%AF%B9%E8%B1%A1"><span class="nav-text">创建 Request 对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Client-%E5%8F%91%E8%B5%B7%E8%BF%9E%E6%8E%A5%E8%AF%B7%E6%B1%82%EF%BC%8C%E5%B9%B6%E8%8E%B7%E5%8F%96-Response-%E5%AF%B9%E8%B1%A1%E5%8A%A0%E8%BD%BD%E7%BB%93%E6%9E%9C"><span class="nav-text">Client 发起连接请求，并获取 Response 对象加载结果</span></a></li></ol></li></ol></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/dark-light-toggle.js"></script>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/code-copy.js"></script>
+
+
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/toc.js"></script>
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>

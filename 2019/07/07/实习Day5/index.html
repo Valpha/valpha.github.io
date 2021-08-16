@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Android">
+    <meta name="description" content="Android | Arduino | RPi">
+    <meta name="author" content="Valpha">
+    
+    <title>
+        
+            实习Day5 |
+        
+        Valpha&#39;s 造物集
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="https://blog-image.obs.cn-east-2.myhuaweicloud.com/logo_valpha.png">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"valpha.github.io","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"https://blog-image.obs.cn-east-2.myhuaweicloud.com/logo_valpha.png","favicon":"https://blog-image.obs.cn-east-2.myhuaweicloud.com/logo_valpha.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Less utilitarianism, more persistence for no reason."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":true},"lazyload":{"enable":false},"version":"3.4.3"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Valpha's 造物集" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="https://blog-image.obs.cn-east-2.myhuaweicloud.com/logo_valpha.png">
+                </a>
+            
+            <a class="logo-title" href="/">
+                Valpha&#39;s 造物集
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">实习Day5</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="https://blog-image.obs.cn-east-2.myhuaweicloud.com/logo_valpha.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Valpha</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2019-07-07 09:12:03
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%AE%9E%E4%B9%A0/">实习</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Android/">Android</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E5%AE%9E%E4%B9%A0%E6%97%A5%E8%AE%B0/">实习日记</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>704 字</span>
+        </span>
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <p>工欲善其事，必先利其器。今日学习的是常用的工具。</p>
+<p>实用工具、UML、设计模式、系统框架 ……</p>
+<span id="more"></span>
+
+<hr>
+<h2 id="核心指标"><a href="#核心指标" class="headerlink" title="核心指标"></a>核心指标</h2><ul>
+<li>变更通过率（改bug后再次提交的正确率）</li>
+<li>模块化</li>
+<li>技术积累1</li>
+<li>速度</li>
+<li>规范性</li>
+<li>质量</li>
+</ul>
+<h2 id="常用工具"><a href="#常用工具" class="headerlink" title="常用工具"></a>常用工具</h2><h3 id="WorkFlow"><a href="#WorkFlow" class="headerlink" title="WorkFlow"></a>WorkFlow</h3><table>
+<thead>
+<tr>
+<th>工具</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Redmine</td>
+<td>需求管理、任务、BUG、Q&amp;A、WIKI</td>
+</tr>
+<tr>
+<td>git</td>
+<td>提交代码、规范（提交至gerrit）</td>
+</tr>
+<tr>
+<td>gerrit</td>
+<td>由有权限的KOL来提交至公司远程库</td>
+</tr>
+</tbody></table>
+<h3 id="Redmine"><a href="#Redmine" class="headerlink" title="Redmine"></a>Redmine</h3><p>管理工作流的</p>
+<p><img src="http://blog-image.pek3b.qingstor.com/201907071010_177.png" alt="Redmine"></p>
+<h3 id="git"><a href="#git" class="headerlink" title="git"></a>git</h3><p>不多说，直接看大牛教程</p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/896043488029600" >廖雪峰的Git教程<i class="fas fa-external-link-alt"></i></a></p>
+<p>常用命令：</p>
+<table>
+<thead>
+<tr>
+<th>git指令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>clone</td>
+<td>从远端克隆一个仓库</td>
+</tr>
+<tr>
+<td>status</td>
+<td>查看当前仓库的状态</td>
+</tr>
+<tr>
+<td>add</td>
+<td>添加 untracked 文件为 tracked，加入版本控制</td>
+</tr>
+<tr>
+<td>commit</td>
+<td>提交本次更改</td>
+</tr>
+<tr>
+<td>push</td>
+<td>上传变更</td>
+</tr>
+<tr>
+<td>pull</td>
+<td>从远端获取最新的版本</td>
+</tr>
+<tr>
+<td>reset</td>
+<td>恢复到某一次版本变更</td>
+</tr>
+<tr>
+<td>log</td>
+<td>显示版本变更历史记录</td>
+</tr>
+<tr>
+<td>diff、show</td>
+<td>显示当前仓库的改动、显示本次提交的变动</td>
+</tr>
+<tr>
+<td>apply</td>
+<td>应用一个patch包，[patch:代码差异包]</td>
+</tr>
+<tr>
+<td>rm</td>
+<td>删除一个文件（代码管理，可以利用版本回溯找回）</td>
+</tr>
+<tr>
+<td>checkout</td>
+<td>切换分支</td>
+</tr>
+<tr>
+<td>merge</td>
+<td>合并分支，一般是把辅分支合并到主分支处</td>
+</tr>
+<tr>
+<td>cherry-pick</td>
+<td>选择另一条分支的某一个commit给merge</td>
+</tr>
+</tbody></table>
+<p>​    </p>
+<h3 id="GitLab"><a href="#GitLab" class="headerlink" title="GitLab"></a>GitLab</h3><p><img src="http://blog-image.pek3b.qingstor.com/201907071709_683.png" alt="GitLab说明"></p>
+<p>相当于私人Github</p>
+<p>常用方式：</p>
+<p><code>git pull</code>–&gt;<code>git add</code>/<code>git commit</code> –&gt; <code>git push</code></p>
+<p><img src="http://blog-image.pek3b.qingstor.com/201907071728_859.gif"></p>
+<p><strong>慎用</strong><code>git reset --hard</code><strong>命令！</strong>，会强制恢复到某一次提交版本。删除多余的文件，常用于<strong>重置存在错误的代码</strong></p>
+<h3 id="Jenkins"><a href="#Jenkins" class="headerlink" title="Jenkins"></a>Jenkins</h3><p><img src="http://blog-image.pek3b.qingstor.com/201907071129_188.png" alt="Jenkins"></p>
+<h2 id="系统环境"><a href="#系统环境" class="headerlink" title="系统环境"></a>系统环境</h2><h3 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a>Ubuntu</h3><p>Linux下的各种常用操作与软件</p>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>方法有三</p>
+<ul>
+<li>本地运行</li>
+<li>虚拟机（VMware、Docker）</li>
+<li>Windows inside linux</li>
+</ul>
+<p>建议虚拟机直接安装</p>
+<h4 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h4><p>修改 /etc/apt/sources.list 为下列代码，提升下载速度（阿里云镜像）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse</span><br></pre></td></tr></table></figure>
+<p>修改文件之后要执行</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br></pre></td></tr></table></figure>
+
+<p>然后再下载自己需要的软件</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install xxxx</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+<h3 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h3><p>Linux系统下的文本编辑器</p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/w3cnote/all-vim-cheatsheat.html" >菜鸟教程的快捷键<i class="fas fa-external-link-alt"></i></a></p>
+<p>上神图<img src="http://blog-image.pek3b.qingstor.com/201907071136_535.png" alt="vim快捷键"></p>
+<h3 id="apktool"><a href="#apktool" class="headerlink" title="apktool"></a>apktool</h3><p>逆向解包</p>
+<p>反编译工具。</p>
+<p>但是目前的apk都具有混淆器，使得逆向工程变得很困难。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install apktool</span><br></pre></td></tr></table></figure>
+
+<p>直接安装，建议换源后再下载安装，速度快。</p>
+<h3 id="dex2jar"><a href="#dex2jar" class="headerlink" title="dex2jar"></a>dex2jar</h3><p>需要下载可执行包，去<a class="link"   target="_blank" rel="noopener" href="https://sourceforge.net/projects/dex2jar/" >https://sourceforge.net/projects/dex2jar/<i class="fas fa-external-link-alt"></i></a></p>
+<p>下载后放入Ubuntu中执行</p>
+<p>常用的命令为</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh d2j-dex2jar.sh</span><br></pre></td></tr></table></figure>
+
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：实习Day5</li>
+        <li>本文作者：Valpha</li>
+        <li>创建时间：2019-07-07 09:12:03</li>
+        <li>
+            本文链接：https://valpha.github.io/2019/07/07/实习Day5/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2019/07/08/%E5%AE%9E%E4%B9%A0Day6/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">实习Day6</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2019/07/06/%E5%8D%9A%E5%AE%A2%E5%86%8D%E6%AC%A1%E9%87%8D%E5%BB%BA/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">博客再次重建</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2019</span>&nbsp;-&nbsp;
+            
+            2021&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Valpha</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.3</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E6%8C%87%E6%A0%87"><span class="nav-text">核心指标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7"><span class="nav-text">常用工具</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#WorkFlow"><span class="nav-text">WorkFlow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redmine"><span class="nav-text">Redmine</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git"><span class="nav-text">git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GitLab"><span class="nav-text">GitLab</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Jenkins"><span class="nav-text">Jenkins</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83"><span class="nav-text">系统环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Ubuntu"><span class="nav-text">Ubuntu</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-text">安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8D%A2%E6%BA%90"><span class="nav-text">换源</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vim"><span class="nav-text">vim</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#apktool"><span class="nav-text">apktool</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dex2jar"><span class="nav-text">dex2jar</span></a></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/dark-light-toggle.js"></script>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/code-copy.js"></script>
+
+
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/toc.js"></script>
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>

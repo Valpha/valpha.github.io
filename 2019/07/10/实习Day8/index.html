@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Android">
+    <meta name="description" content="Android | Arduino | RPi">
+    <meta name="author" content="Valpha">
+    
+    <title>
+        
+            实习Day8 |
+        
+        Valpha&#39;s 造物集
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="https://blog-image.obs.cn-east-2.myhuaweicloud.com/logo_valpha.png">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"valpha.github.io","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"https://blog-image.obs.cn-east-2.myhuaweicloud.com/logo_valpha.png","favicon":"https://blog-image.obs.cn-east-2.myhuaweicloud.com/logo_valpha.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Less utilitarianism, more persistence for no reason."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":true},"lazyload":{"enable":false},"version":"3.4.3"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Valpha's 造物集" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="https://blog-image.obs.cn-east-2.myhuaweicloud.com/logo_valpha.png">
+                </a>
+            
+            <a class="logo-title" href="/">
+                Valpha&#39;s 造物集
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">实习Day8</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="https://blog-image.obs.cn-east-2.myhuaweicloud.com/logo_valpha.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Valpha</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2019-07-10 14:05:29
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%AE%9E%E4%B9%A0/">实习</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Android/">Android</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E5%AE%9E%E4%B9%A0%E6%97%A5%E8%AE%B0/">实习日记</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>1.7k 字</span>
+        </span>
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="Android网络编程、Handler、Android线程定义"><a href="#Android网络编程、Handler、Android线程定义" class="headerlink" title="Android网络编程、Handler、Android线程定义"></a>Android网络编程、<strong>Handler</strong>、Android线程定义</h1><span id="more"></span>
+
+<h3 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h3><h4 id="网络请求"><a href="#网络请求" class="headerlink" title="网络请求"></a>网络请求</h4><p><code>GET</code>——&gt;请求获取资源——&gt;得到网页源码（包含响应代码）——&gt;浏览器解析源码生成网页</p>
+<p>常见HTTP响应代码</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th></th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>200</td>
+<td>OK</td>
+<td>成功</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+<td>拒绝访问</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+<td>找不到页面</td>
+</tr>
+<tr>
+<td>502</td>
+<td>Bad Gateway</td>
+<td>网关拒绝相应</td>
+</tr>
+<tr>
+<td>504</td>
+<td>Gateway Timeout</td>
+<td>网关超时</td>
+</tr>
+</tbody></table>
+<h4 id="网页源码"><a href="#网页源码" class="headerlink" title="网页源码"></a>网页源码</h4><p><img src="http://blog-image.pek3b.qingstor.com/201907140038_236.png" alt="浏览器的开发者工具"></p>
+<p>要学会使用开发者工具去查看网页的<strong>源码</strong></p>
+<h3 id="Android中的网络请求"><a href="#Android中的网络请求" class="headerlink" title="Android中的网络请求"></a>Android中的网络请求</h3><h4 id="权限申请"><a href="#权限申请" class="headerlink" title="权限申请"></a>权限申请</h4><p>访问网络需要申请权限</p>
+<p>在<code>Manifest</code>中写入使用权限</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">&quot;android.permission.INTERNET&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这是低级别的权限申请，只需要在配置清单里说明即可，不需要动态申请</p>
+<h4 id="UI设计"><a href="#UI设计" class="headerlink" title="UI设计"></a>UI设计</h4><p><img src="http://blog-image.pek3b.qingstor.com/201907140051_637.png" alt="访问网络源码+WebView显示"></p>
+<h4 id="绑定按键监听"><a href="#绑定按键监听" class="headerlink" title="绑定按键监听"></a>绑定按键监听</h4><p>初始化控件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initView</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        et_webaddr = findViewById(R.id.et_url);</span><br><span class="line">        tv_webcode = findViewById(R.id.tv_code);</span><br><span class="line">        wv_web = (WebView)findViewById(R.id.wv_web);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>按键监听</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">reqWeb</span><span class="params">(View view)</span> </span>&#123;</span><br><span class="line">        webaddr = et_webaddr.getText().toString().trim();</span><br><span class="line">        <span class="keyword">if</span> (webaddr == <span class="keyword">null</span>) &#123;</span><br><span class="line">            Toast.makeText(<span class="keyword">this</span>, <span class="string">&quot;请求网址为空！&quot;</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            requestweb(webaddr);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="网络请求标准写法"><a href="#网络请求标准写法" class="headerlink" title="网络请求标准写法"></a>网络请求标准写法</h4><h5 id="使用web-addr字符串生成网络资源定位符-URL对象"><a href="#使用web-addr字符串生成网络资源定位符-URL对象" class="headerlink" title="使用web_addr字符串生成网络资源定位符 URL对象"></a>使用web_addr字符串生成网络资源定位符 URL对象</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">URL url = <span class="keyword">new</span> URL(webaddr);</span><br></pre></td></tr></table></figure>
+
+<h5 id="使用url获取网络连接请求对象"><a href="#使用url获取网络连接请求对象" class="headerlink" title="使用url获取网络连接请求对象"></a>使用url获取网络连接请求对象</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">HttpsURLConnection conn = (HttpsUrlConnection) url.openConnection();</span><br><span class="line">HttpURLConnection conn = (HttpUrlConnection) url.openConnection();</span><br><span class="line"><span class="comment">//	http与https协议的类是不同的，需要分别使用</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>在Android 9.0中（API 28），系统默认不支持非HTTPS的协议，想要使用不安全的HTTP协议需要在<code>Manifest</code>中设置</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;application</span><br><span class="line">	android:usesCleartextTraffic=<span class="string">&quot;true&quot;</span></span><br><span class="line">	...</span><br><span class="line">&lt;/application&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="设置请求方法和请求超时时间等参数"><a href="#设置请求方法和请求超时时间等参数" class="headerlink" title="设置请求方法和请求超时时间等参数"></a>设置请求方法和请求超时时间等参数</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conn.seteRequestMethod(<span class="string">&quot;GET&quot;</span>);</span><br><span class="line">conn.setReadTimeout(<span class="number">5000</span>);</span><br></pre></td></tr></table></figure>
+
+<h5 id="获得返回状态码"><a href="#获得返回状态码" class="headerlink" title="获得返回状态码"></a>获得返回状态码</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> code = conn.getResponseCode();</span><br></pre></td></tr></table></figure>
+
+<h5 id="如果请求成功-code-200-则获取返回的数据"><a href="#如果请求成功-code-200-则获取返回的数据" class="headerlink" title="如果请求成功(code==200)则获取返回的数据"></a>如果请求成功(code==200)则获取返回的数据</h5><h5 id="从返回的流文件中取出字符串"><a href="#从返回的流文件中取出字符串" class="headerlink" title="从返回的流文件中取出字符串"></a>从返回的流文件中取出字符串</h5><h5 id="显示到TextView上"><a href="#显示到TextView上" class="headerlink" title="显示到TextView上"></a>显示到<code>TextView</code>上</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="number">200</span>==code) &#123;</span><br><span class="line">    InputStream inputStream = conn.getInputStream();</span><br><span class="line">    String webcode = inputStream.toString();</span><br><span class="line">    tv_webcode.setText(webcode);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h4 id="坑一：网络请求需要放到主线程中进行！"><a href="#坑一：网络请求需要放到主线程中进行！" class="headerlink" title="坑一：网络请求需要放到主线程中进行！"></a>坑一：网络请求需要放到主线程中进行！</h4><p>在Android 4.0 以后，为了不影响主线程运行（前台不会被卡死），所有耗时的动作必须放在主线程中执行。</p>
+<p><strong>解决：</strong>创建子线程</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">requestweb</span><span class="params">(<span class="keyword">final</span> String webaddr)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;...&#125;).start();</span><br></pre></td></tr></table></figure>
+
+<p>这里，先新建一个 <code>Thread</code>类，并直接使用<code>.start()</code>方法启动子线程</p>
+<p>在<code>Thread</code>中，创建一个<strong>匿名可运行类</strong><code>Runnable()&#123;...&#125;</code>，并重写其<code>run()</code>方法</p>
+<p>以上，可以视为Android中<strong>使用线程</strong>的方法。</p>
+<h4 id="坑二：字节流太大且分块，不可直接转换成字符串"><a href="#坑二：字节流太大且分块，不可直接转换成字符串" class="headerlink" title="坑二：字节流太大且分块，不可直接转换成字符串"></a>坑二：字节流太大且分块，不可直接转换成字符串</h4><p>流文件的大小不固定，很有可能大到撑爆内存，流的读写均需要缓存，需要循环读取（或写入）固定长度的字节。</p>
+<p><strong>解决：</strong>使用标准写法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">init=&gt;start: 新建一个1KB的缓冲区</span><br><span class="line">op1=&gt;operation: 将输入流的数据取出（最大取1024字节）</span><br><span class="line">并存入buffer，返回取出的真实大小</span><br><span class="line">con1=&gt;condition: 返回值是否大于0？</span><br><span class="line">y1=&gt;operation: 将buffer写入输出流（重新拼接）</span><br><span class="line">n1=&gt;end: 停止循环，将baos作为输出流转为字符串</span><br><span class="line">init-&gt;op1-&gt;con1</span><br><span class="line">con1(yes)-&gt;y1(right)-&gt;op1</span><br><span class="line">con1(no,down)-&gt;n1</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ByteArrayOutputStream baos = <span class="keyword">new</span> ByteArrayOutputStream(inputS);</span><br></pre></td></tr></table></figure>
+
+<p>使用输出流做缓冲，分批分块地取数据</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">byte</span>[] readbuf = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line"><span class="keyword">int</span> len;</span><br><span class="line"><span class="keyword">while</span> ((len = inputStream.read(readbuf, <span class="number">0</span>, <span class="number">1024</span>)) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    baos.write(readbuf);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h4 id="坑三：更新UI的操作，需要放到主线程中操作"><a href="#坑三：更新UI的操作，需要放到主线程中操作" class="headerlink" title="坑三：更新UI的操作，需要放到主线程中操作"></a>坑三：更新UI的操作，需要放到主线程中操作</h4><p>UI界面是用户级的接口，为了防止其他应用后台更改UI，Android规定，只允许在主线程中更新UI界面。</p>
+<p><strong>解决：</strong>在主线程中更新UI</p>
+<p><strong>关键：</strong>线程间的通信使用 <strong>handler</strong>，通知主线程更新UI</p>
+<h3 id="重点！利用Handler进行线程通信"><a href="#重点！利用Handler进行线程通信" class="headerlink" title="重点！利用Handler进行线程通信"></a>重点！利用Handler进行线程通信</h3><h4 id="使用继承"><a href="#使用继承" class="headerlink" title="使用继承"></a>使用继承</h4><p>创建自己的<code>MyHandler</code>类，继承自<code>Handler</code></p>
+<p>在这里实现了接收到数据后的动作（更新UI）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">MyHandler</span> <span class="keyword">extends</span> <span class="title">Handler</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleMessage</span><span class="params">(Message msg)</span> </span>&#123;</span><br><span class="line">        String webcode = (String) msg.obj;</span><br><span class="line">        <span class="keyword">switch</span> (msg.what)&#123;</span><br><span class="line">            <span class="keyword">case</span> REQUEST_OK:</span><br><span class="line">                tv_webcode.setText(webcode);</span><br><span class="line">                wv_web.loadData(webcode,<span class="string">&quot;text/html&quot;</span>, <span class="string">&quot;UTF-8&quot;</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> REQUEST_ERR:</span><br><span class="line">                tv_webcode.setText(<span class="string">&quot;解析错误！&quot;</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">super</span>.handleMessage(msg);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在<code>onCreate</code>时创建 <em>myhandler</em> 类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">    setContentView(R.layout.activity_main);</span><br><span class="line">    initView();</span><br><span class="line">    myHandler = <span class="keyword">new</span> MyHandler();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>消息发送方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Message msg = myHandler.obtainMessage();</span><br><span class="line">msg.obj = webcodes;</span><br><span class="line"><span class="comment">//	obj 可以为任意的对象，作为数据存储的容器</span></span><br><span class="line">msg.what = REQ_RESULT_OK;</span><br><span class="line"><span class="comment">//	what 为一整形数，用于标识当前数据</span></span><br><span class="line">myHandler.sendMessage(msg);</span><br></pre></td></tr></table></figure>
+
+<h4 id="关于内存泄漏"><a href="#关于内存泄漏" class="headerlink" title="关于内存泄漏"></a>关于内存泄漏</h4><h5 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h5><p>继承<code>onDestroy</code>方法，添加一项，使<code>myHandler</code>清空，防止内存泄漏</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//为了防止内存泄露，在界面销毁的时候，需要把myHandler未进行完成的事宜全部停止</span></span><br><span class="line">        myHandler.removeCallbacksAndMessages(<span class="keyword">null</span>);</span><br><span class="line">        <span class="keyword">super</span>.onDestroy();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h5><p>在Java 中，非静态的内部类和匿名内部类都会隐式地持有其外部类的引用，静态的内部类不会持有外部类的引用。</p>
+<p>将MyHandler声明为静态变量，并在Handler种添加一个Activity的弱引用</p>
+<p><img src="http://blog-image.pek3b.qingstor.com/201907142048_803.png"></p>
+<h3 id="苦尽甘来-——使用匿名线程来更新UI"><a href="#苦尽甘来-——使用匿名线程来更新UI" class="headerlink" title="苦尽甘来 ——使用匿名线程来更新UI"></a>苦尽甘来 ——使用匿名线程来更新UI</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">runOnUiThread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        tv_webcode.setText(webcode);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>最极致的Coding体验。仅仅更新控件使用这个，而需要做出逻辑判断时，使用Handler。</p>
+<blockquote>
+<p>🐘大象无形，大哗希声🐕</p>
+</blockquote>
+<h3 id="网络图片加载器"><a href="#网络图片加载器" class="headerlink" title="网络图片加载器"></a>网络图片加载器</h3><p>网络下载图片与网络源码没有特别多的区别</p>
+<p>核心区别在于获取的对象不同</p>
+<ul>
+<li>使用 ImageView 显示</li>
+<li>使用<code>BitmapFactory</code>将文件或流转为图片</li>
+<li>可以使用缓存机制</li>
+</ul>
+<h4 id="BitmapFactory转换为图片"><a href="#BitmapFactory转换为图片" class="headerlink" title="BitmapFactory转换为图片"></a><code>BitmapFactory</code>转换为图片</h4><h4 id="使用缓存"><a href="#使用缓存" class="headerlink" title="使用缓存"></a>使用缓存</h4><p><code>Utils</code>工具类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">cacheFile</span><span class="params">(InputStream in, File pathname, String filename)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    File file = <span class="keyword">new</span> File(pathname, filename);</span><br><span class="line">    FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(file);</span><br><span class="line">    <span class="keyword">byte</span>[] readbuf = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">    <span class="keyword">int</span> len;</span><br><span class="line">    <span class="keyword">while</span> ((len = in.read(readbuf, <span class="number">0</span>,<span class="number">1024</span>))&gt;<span class="number">0</span>)&#123;</span><br><span class="line">        fos.write(readbuf, <span class="number">0</span>, len);</span><br><span class="line">    &#125;</span><br><span class="line">    fos.close();</span><br><span class="line"><span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>判断是否存在缓存</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (cachefile.exists()&amp;&amp;cachefile.length() &gt;<span class="number">0</span>) &#123;</span><br><span class="line">    Bitmap bitmap = BitmapFactory.decodeFile(cachefile.getAbsolutePath());</span><br><span class="line">    iv_image.setImageBitmap(bitmap);</span><br><span class="line">    Log.d(TAG, <span class="string">&quot;loadWebPic: 使用了缓存文件&quot;</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    Log.d(TAG, <span class="string">&quot;loadWebPic: 使用了网络下载文件&quot;</span>);</span><br><span class="line">    <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                URL url = <span class="keyword">new</span> URL(urltext);</span><br><span class="line">                <span class="keyword">if</span> (url.getProtocol().toLowerCase() == <span class="string">&quot;https&quot;</span>) &#123;</span><br><span class="line">                    HttpsURLConnection conn = (HttpsURLConnection) url.openConnection();</span><br><span class="line">                    conn.setRequestMethod(<span class="string">&quot;GET&quot;</span>);</span><br><span class="line">                    conn.setReadTimeout(<span class="number">5000</span>);</span><br><span class="line">                    <span class="keyword">int</span> code = conn.getResponseCode();</span><br><span class="line">                    <span class="keyword">if</span> (<span class="number">200</span> == code) &#123;</span><br><span class="line">                        InputStream in = conn.getInputStream();</span><br><span class="line">                        Log.d(TAG, <span class="string">&quot;loadWebPic: &quot;</span>+filename);</span><br><span class="line">                        WebCacheUtils.cacheFile(in, getCacheDir(), filename);</span><br><span class="line">                        Log.d(TAG, <span class="string">&quot;loadWebPic: &quot;</span>+filename);</span><br><span class="line">                        File cachefile = <span class="keyword">new</span> File(getCacheDir(), filename);</span><br><span class="line">                        bitmap = BitmapFactory.decodeFile(cachefile.getAbsolutePath());</span><br><span class="line">                        runOnUiThread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">                            <span class="meta">@Override</span></span><br><span class="line">                            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                                iv_image.setImageBitmap(bitmap);</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">else</span>&#123;</span><br><span class="line">                    HttpURLConnection conn = (HttpURLConnection) url.openConnection();</span><br><span class="line">                    conn.setRequestMethod(<span class="string">&quot;GET&quot;</span>);</span><br><span class="line">                    conn.setReadTimeout(<span class="number">5000</span>);</span><br><span class="line">                    <span class="keyword">int</span> code = conn.getResponseCode();</span><br><span class="line">                    <span class="keyword">if</span> (<span class="number">200</span> == code) &#123;</span><br><span class="line">                        InputStream in = conn.getInputStream();</span><br><span class="line">                        Log.d(TAG, <span class="string">&quot;loadWebPic: &quot;</span>+filename);</span><br><span class="line">                        WebCacheUtils.cacheFile(in, getCacheDir(), filename);</span><br><span class="line">                        Log.d(TAG, <span class="string">&quot;loadWebPic: &quot;</span>+filename);</span><br><span class="line">                        File cachefile = <span class="keyword">new</span> File(getCacheDir(), filename);</span><br><span class="line">                        bitmap = BitmapFactory.decodeFile(cachefile.getAbsolutePath());</span><br><span class="line">                        runOnUiThread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">                            <span class="meta">@Override</span></span><br><span class="line">                            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                                iv_image.setImageBitmap(bitmap);</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;).start();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="BASE64编码"><a href="#BASE64编码" class="headerlink" title="BASE64编码"></a>BASE64编码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Base64.encodeToString(urltext.substring(urltext.length()-<span class="number">10</span>).getBytes(), Base64.DEFAULT);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="AsyncTask-进行同步操作"><a href="#AsyncTask-进行同步操作" class="headerlink" title="AsyncTask 进行同步操作"></a>AsyncTask 进行同步操作</h3><hr>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：实习Day8</li>
+        <li>本文作者：Valpha</li>
+        <li>创建时间：2019-07-10 14:05:29</li>
+        <li>
+            本文链接：https://valpha.github.io/2019/07/10/实习Day8/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2019/07/10/%E5%AD%A6%E7%94%9F%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%AE%9E%E4%BE%8B/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">学生管理系统的实例</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2019/07/09/%E5%AE%9E%E4%B9%A0Day7/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">实习Day7</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2019</span>&nbsp;-&nbsp;
+            
+            2021&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Valpha</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.3</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Android%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E3%80%81Handler%E3%80%81Android%E7%BA%BF%E7%A8%8B%E5%AE%9A%E4%B9%89"><span class="nav-text">Android网络编程、Handler、Android线程定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP%E5%8D%8F%E8%AE%AE"><span class="nav-text">HTTP协议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82"><span class="nav-text">网络请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BD%91%E9%A1%B5%E6%BA%90%E7%A0%81"><span class="nav-text">网页源码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Android%E4%B8%AD%E7%9A%84%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82"><span class="nav-text">Android中的网络请求</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9D%83%E9%99%90%E7%94%B3%E8%AF%B7"><span class="nav-text">权限申请</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UI%E8%AE%BE%E8%AE%A1"><span class="nav-text">UI设计</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%91%E5%AE%9A%E6%8C%89%E9%94%AE%E7%9B%91%E5%90%AC"><span class="nav-text">绑定按键监听</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E6%A0%87%E5%87%86%E5%86%99%E6%B3%95"><span class="nav-text">网络请求标准写法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8web-addr%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%94%9F%E6%88%90%E7%BD%91%E7%BB%9C%E8%B5%84%E6%BA%90%E5%AE%9A%E4%BD%8D%E7%AC%A6-URL%E5%AF%B9%E8%B1%A1"><span class="nav-text">使用web_addr字符串生成网络资源定位符 URL对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8url%E8%8E%B7%E5%8F%96%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E8%AF%B7%E6%B1%82%E5%AF%B9%E8%B1%A1"><span class="nav-text">使用url获取网络连接请求对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E8%AF%B7%E6%B1%82%E6%96%B9%E6%B3%95%E5%92%8C%E8%AF%B7%E6%B1%82%E8%B6%85%E6%97%B6%E6%97%B6%E9%97%B4%E7%AD%89%E5%8F%82%E6%95%B0"><span class="nav-text">设置请求方法和请求超时时间等参数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%8E%B7%E5%BE%97%E8%BF%94%E5%9B%9E%E7%8A%B6%E6%80%81%E7%A0%81"><span class="nav-text">获得返回状态码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E8%AF%B7%E6%B1%82%E6%88%90%E5%8A%9F-code-200-%E5%88%99%E8%8E%B7%E5%8F%96%E8%BF%94%E5%9B%9E%E7%9A%84%E6%95%B0%E6%8D%AE"><span class="nav-text">如果请求成功(code&#x3D;&#x3D;200)则获取返回的数据</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BB%8E%E8%BF%94%E5%9B%9E%E7%9A%84%E6%B5%81%E6%96%87%E4%BB%B6%E4%B8%AD%E5%8F%96%E5%87%BA%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-text">从返回的流文件中取出字符串</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%98%BE%E7%A4%BA%E5%88%B0TextView%E4%B8%8A"><span class="nav-text">显示到TextView上</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9D%91%E4%B8%80%EF%BC%9A%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E9%9C%80%E8%A6%81%E6%94%BE%E5%88%B0%E4%B8%BB%E7%BA%BF%E7%A8%8B%E4%B8%AD%E8%BF%9B%E8%A1%8C%EF%BC%81"><span class="nav-text">坑一：网络请求需要放到主线程中进行！</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9D%91%E4%BA%8C%EF%BC%9A%E5%AD%97%E8%8A%82%E6%B5%81%E5%A4%AA%E5%A4%A7%E4%B8%94%E5%88%86%E5%9D%97%EF%BC%8C%E4%B8%8D%E5%8F%AF%E7%9B%B4%E6%8E%A5%E8%BD%AC%E6%8D%A2%E6%88%90%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-text">坑二：字节流太大且分块，不可直接转换成字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9D%91%E4%B8%89%EF%BC%9A%E6%9B%B4%E6%96%B0UI%E7%9A%84%E6%93%8D%E4%BD%9C%EF%BC%8C%E9%9C%80%E8%A6%81%E6%94%BE%E5%88%B0%E4%B8%BB%E7%BA%BF%E7%A8%8B%E4%B8%AD%E6%93%8D%E4%BD%9C"><span class="nav-text">坑三：更新UI的操作，需要放到主线程中操作</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E7%82%B9%EF%BC%81%E5%88%A9%E7%94%A8Handler%E8%BF%9B%E8%A1%8C%E7%BA%BF%E7%A8%8B%E9%80%9A%E4%BF%A1"><span class="nav-text">重点！利用Handler进行线程通信</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E7%BB%A7%E6%89%BF"><span class="nav-text">使用继承</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F"><span class="nav-text">关于内存泄漏</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80"><span class="nav-text">方法一</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C"><span class="nav-text">方法二</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8B%A6%E5%B0%BD%E7%94%98%E6%9D%A5-%E2%80%94%E2%80%94%E4%BD%BF%E7%94%A8%E5%8C%BF%E5%90%8D%E7%BA%BF%E7%A8%8B%E6%9D%A5%E6%9B%B4%E6%96%B0UI"><span class="nav-text">苦尽甘来 ——使用匿名线程来更新UI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E5%9B%BE%E7%89%87%E5%8A%A0%E8%BD%BD%E5%99%A8"><span class="nav-text">网络图片加载器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#BitmapFactory%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%9B%BE%E7%89%87"><span class="nav-text">BitmapFactory转换为图片</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E7%BC%93%E5%AD%98"><span class="nav-text">使用缓存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BASE64%E7%BC%96%E7%A0%81"><span class="nav-text">BASE64编码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AsyncTask-%E8%BF%9B%E8%A1%8C%E5%90%8C%E6%AD%A5%E6%93%8D%E4%BD%9C"><span class="nav-text">AsyncTask 进行同步操作</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/dark-light-toggle.js"></script>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/code-copy.js"></script>
+
+
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/toc.js"></script>
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>

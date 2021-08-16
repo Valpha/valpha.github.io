@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Android">
+    <meta name="description" content="Android | Arduino | RPi">
+    <meta name="author" content="Valpha">
+    
+    <title>
+        
+            华为面经 |
+        
+        Valpha&#39;s 造物集
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="https://blog-image.obs.cn-east-2.myhuaweicloud.com/logo_valpha.png">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"valpha.github.io","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"https://blog-image.obs.cn-east-2.myhuaweicloud.com/logo_valpha.png","favicon":"https://blog-image.obs.cn-east-2.myhuaweicloud.com/logo_valpha.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Less utilitarianism, more persistence for no reason."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":true},"lazyload":{"enable":false},"version":"3.4.3"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Valpha's 造物集" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="https://blog-image.obs.cn-east-2.myhuaweicloud.com/logo_valpha.png">
+                </a>
+            
+            <a class="logo-title" href="/">
+                Valpha&#39;s 造物集
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">华为面经</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="https://blog-image.obs.cn-east-2.myhuaweicloud.com/logo_valpha.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Valpha</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2020-03-08 22:44:00
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E6%B1%82%E8%81%8C/">求职</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E5%8D%8E%E4%B8%BA/">华为</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E9%9D%A2%E7%BB%8F/">面经</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>1.8k 字</span>
+        </span>
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h2 id="我的面试经历"><a href="#我的面试经历" class="headerlink" title="我的面试经历"></a>我的面试经历</h2><p><strong>面试岗位：华为-消费者事业群Android开发</strong></p>
+<span id="more"></span>
+
+<p>本人坐标大连，去年年底秋招补录过的。申请岗位是消费者bg的Android开发。距离面试刚好两个月了，趁还有些记忆写点东西记录一下备忘。</p>
+<h3 id="机试"><a href="#机试" class="headerlink" title="机试"></a>机试</h3><p>华为标准三道题。</p>
+<ul>
+<li>第一道基本功，折腾字符串和标准输出。</li>
+<li>第二道是算法题，奥特曼打怪兽，从n方阵的左上角走到右下角，然后再返回起点。有三种格点：<br>值为0，正常可通过；<br>值为1，奥特曼可通过，同时还可以消灭怪兽，消灭后值变为0且怪兽不会复活，消灭怪兽数量+1；<br>值为-1，有大石头，奥特曼无法通过。怪兽死后不会复活。<br>求奥特曼可以消灭怪兽的最大数量。</li>
+<li>解题时用回溯法，时间复杂度挺高……这道题C++给时为2s（其他题目只有1s）说明允许使用高复杂度的算法解题，于是乎不管最优解，硬刚就完事了。<br>写完算法没AC，只有66.6%的通过率，可能有些细节没考虑到。<br>第三题是日志格式化输出，给定长日志输入，按照需求把相关的报错信息输出并计算出错时长等信息。<br>也比较简单，还是折腾字符串和Map，利用好Map和List很容易解题。<h3 id="专业一面"><a href="#专业一面" class="headerlink" title="专业一面"></a>专业一面</h3>华为一面为技术面，在笔试结束后大约1周内收到了面试通知。华为是一天三面全部安排完，为了招聘的高效率吧……但是对于求职者来说还挺低效的😛<br>问了大概以下几个问题：</li>
+<li>介绍自己和相关项目（相关项目问的不深，主要还是问职责和遇见的问题和解决措施</li>
+<li>Socket相关知识点</li>
+<li>Android Binder 进程通信的原理，以及AIDL开发（简历里写了这一项，重点询问。不过我答得不是特别好，就会打了个大概，描述清楚了怎么使用而已</li>
+<li>Handler，MessageQueue、Looper相关原理</li>
+<li>JVM内存模型</li>
+<li>Java Native 使用方法以及JNI的编写方法（项目中用到过，回答的比较全</li>
+<li>是否读过Android源码（回答很套路：在读……</li>
+<li>Android内存回收（项目里没遇到，只说了自己了解的一小部分</li>
+<li>手撕代码，挺简单的一道题……基本难度那种，印象不深刻忘记了😂<br>一面挺快就结束了，一共也就40分钟左右，问的不是很深，而且我是有一些实习经历和项目经历的，估计面试官把重点问题都留给二面了。</li>
+</ul>
+<h3 id="专业二面​"><a href="#专业二面​" class="headerlink" title="专业二面​"></a>专业二面​</h3><p>二面面试官明显是个团队Leader级别的人物，气质跟第一面完全不同。<br>上来直接介绍自己和项目，并对项目一通追问。<br>项目详情：Socket内网通信，使用TCP协议，出现了丢包问题，怀疑是路由器质量差，丢包延迟问题严重。通过C/S联调以及更换路由器后，改善延时，但仍有丢包。后续发现是代码逻辑bug，缓冲区长度限制导致了阻塞。<br>大概就是这么个项目，然后这位面试官从一路追问，刨根问底问具体是什么情况导致的延迟丢包问题，从路由器问到ReceiveBuffer，最后得意地发现其实路由器质量不是根本问题，代码逻辑bug才是😐（其实我简历上没写那么多……一句话带过了而已，就这样追问了大概十分钟……<br>然后是开始提问：</p>
+<ul>
+<li>Java 里 static 修饰 类、变量、方法各有什么含义？（我Java基础差，答得不是特别好，零零星星回答的，没有逻辑</li>
+<li>Android Binder（一面问过，这次问的更深，探讨了什么是Android的DataBinding技术。这个项目经历中有用过，我结合MVVM谈了下理解</li>
+<li>Handler 和 MessageQueue相关问题（没错，也是一面问过的，都是重点啊</li>
+<li>Git 中 merge 和 rebase 的区别（我：？？？，面试官看我简历里有些熟练使用Git，然后问我这两个操作的区别……我从没准备过这种问题，谈了谈大概的用法，但是没说清楚具体的区别。最后只能说，我会用，但具体区别我说不明白😂</li>
+<li>设计模式，直接手撕代码，实现一个单例模式。（这个用的多，比较熟悉，直接写了个饿汉式出来。完了面试官询问写的是什么模式，也就顺利过了。</li>
+<li>手撕代码：输入一个字符串，输出最大回文字符串。（也是入门题目，leetcode上忘了是初级还是中级了，以前做过但是生疏了……用了挺长时间，但是没做全，有种情况没考虑到。XXXABAXX……这种写好了，但是XXABBAX……这种完全没考虑到。面试官觉得勉强过但是又不够好😂于是又给我出了一道题</li>
+<li>手撕代码：输入一个（有序）数组，然后给定一个范围，左界和右界，输出这俩的交集。（我没注意到数组是有序的，写这个算法多花了点时间去排了个序，然后再输出。题目比较简单，也就快速过了。<br>因为写代码时间比较多，二面问了一个半小时左右。面完了心力交瘁……最后面试官给我个评语：勉强给你过了，但是你基础不够好，如果来本公司上班，要自己抽时间巩固基础。所以基础还是重要哇……</li>
+</ul>
+<h3 id="主管面"><a href="#主管面" class="headerlink" title="主管面"></a>主管面</h3><p>第三面是主管面，基本就家庭啊，职业规划啊，预期城市啊啥的。<br>​也简单问了问项目，但还是对问的的解决策略和担任的职责去提问。<br>还问了为什么选择华为，以及选择这个岗位。<br>还有<strong>对待996加班的看法</strong>。面试华为的同学应该要对这个问题体现想好自己的看法<br>对了，还有成绩单。主管面会看学校成绩。<br>大概20多分钟就完事了。之后就是等通知结果了。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>本人是电子通信工程专业，本科应届生。学的知识其实和Android不是那么搭边，最后也是凭借个人兴趣和发展规划选择了Android开发这条路，对专业来说，算是半个科班生。<br>Java语言和Android也是半年前才接触的，只能说，编程这东西是相通的，理解算法和数据结构远比只学某种语言更重要；而且解决问题的逻辑也比重复机械地背代码重要。再就是要有创新精神，做技术要与时俱进，时刻关注新技术，随时更新自己的技术栈才能保证自己不落伍。<br>大公司需要的都是能干活的员工，提升自己解决问题的能力很重要，相比学校里学习的理论知识，实战项目更看重debug能力。</p>
+<p><strong>最后，这篇文章也挺长的，希望所有能看到这里的同学都能还愿<del>大家加油</del></strong></p>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：华为面经</li>
+        <li>本文作者：Valpha</li>
+        <li>创建时间：2020-03-08 22:44:00</li>
+        <li>
+            本文链接：https://valpha.github.io/2020/03/08/华为面经/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2020/03/08/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B8%80/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">算法学习笔记一</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2019</span>&nbsp;-&nbsp;
+            
+            2021&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Valpha</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.3</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E7%9A%84%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86"><span class="nav-text">我的面试经历</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%BA%E8%AF%95"><span class="nav-text">机试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%93%E4%B8%9A%E4%B8%80%E9%9D%A2"><span class="nav-text">专业一面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%93%E4%B8%9A%E4%BA%8C%E9%9D%A2%E2%80%8B"><span class="nav-text">专业二面​</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BB%E7%AE%A1%E9%9D%A2"><span class="nav-text">主管面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-text">总结</span></a></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/dark-light-toggle.js"></script>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/code-copy.js"></script>
+
+
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/toc.js"></script>
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>

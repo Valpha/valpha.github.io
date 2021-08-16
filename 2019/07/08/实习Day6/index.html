@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Android">
+    <meta name="description" content="Android | Arduino | RPi">
+    <meta name="author" content="Valpha">
+    
+    <title>
+        
+            实习Day6 |
+        
+        Valpha&#39;s 造物集
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="https://blog-image.obs.cn-east-2.myhuaweicloud.com/logo_valpha.png">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"valpha.github.io","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"https://blog-image.obs.cn-east-2.myhuaweicloud.com/logo_valpha.png","favicon":"https://blog-image.obs.cn-east-2.myhuaweicloud.com/logo_valpha.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Less utilitarianism, more persistence for no reason."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":true},"lazyload":{"enable":false},"version":"3.4.3"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Valpha's 造物集" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="https://blog-image.obs.cn-east-2.myhuaweicloud.com/logo_valpha.png">
+                </a>
+            
+            <a class="logo-title" href="/">
+                Valpha&#39;s 造物集
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">实习Day6</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="https://blog-image.obs.cn-east-2.myhuaweicloud.com/logo_valpha.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Valpha</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2019-07-08 13:24:33
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%AE%9E%E4%B9%A0/">实习</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Android/">Android</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E5%AE%9E%E4%B9%A0%E6%97%A5%E8%AE%B0/">实习日记</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>2.4k 字</span>
+        </span>
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <p>Android开发：</p>
+<p><strong>利用SQLite存储数据</strong></p>
+<span id="more"></span>
+
+<h3 id="SQLite存储数据"><a href="#SQLite存储数据" class="headerlink" title="SQLite存储数据"></a>SQLite存储数据</h3><h4 id="在设备终端使用SQL语句创建和访问数据库"><a href="#在设备终端使用SQL语句创建和访问数据库" class="headerlink" title="在设备终端使用SQL语句创建和访问数据库"></a>在设备终端使用SQL语句创建和访问数据库</h4><h5 id="数据库结构"><a href="#数据库结构" class="headerlink" title="数据库结构"></a>数据库结构</h5><p><strong>主键</strong>、其余键值、键值类型……</p>
+<h5 id="数据库操作——增删改查"><a href="#数据库操作——增删改查" class="headerlink" title="数据库操作——增删改查"></a>数据库操作——增删改查</h5><table>
+<thead>
+<tr>
+<th>操作</th>
+<th>指令</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>insert</td>
+<td>增加</td>
+<td></td>
+</tr>
+<tr>
+<td>delete</td>
+<td>删除</td>
+<td></td>
+</tr>
+<tr>
+<td>update</td>
+<td>修改</td>
+<td></td>
+</tr>
+<tr>
+<td>query (select)</td>
+<td>查找</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>​    </p>
+<h5 id="使用-adb-shell-进入设备终端，并新建数据库文件"><a href="#使用-adb-shell-进入设备终端，并新建数据库文件" class="headerlink" title="使用 adb shell 进入设备终端，并新建数据库文件"></a>使用 adb shell 进入设备终端，并新建数据库文件</h5><p><code>touch studentinfo.db</code></p>
+<p><img src="http://blog-image.pek3b.qingstor.com/201907081403_608.gif" alt="同时新建了studentinfo.db的数据库"></p>
+<h5 id="打开数据库，并执行SQL命令"><a href="#打开数据库，并执行SQL命令" class="headerlink" title="打开数据库，并执行SQL命令"></a>打开数据库，并执行SQL命令</h5><p><code>squlite3 studentinfo.db</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">create table student(id integer primary key, name text, stnumber integer);</span><br><span class="line">create table student(id integer primary key, name text, stnumber integer);</span><br></pre></td></tr></table></figure>
+
+<p>创建—表单—[学生名]—([name] [数据类型] [主键], [name] [数据类型], ….)</p>
+<p><img src="http://blog-image.pek3b.qingstor.com/201907081422_9.gif" alt="SQLite数据库指令"></p>
+<h5 id="退出SQL"><a href="#退出SQL" class="headerlink" title="退出SQL"></a>退出SQL</h5><p><img src="http://blog-image.pek3b.qingstor.com/201907081425_28.gif" alt="退出SQL"></p>
+<h5 id="insert"><a href="#insert" class="headerlink" title="insert"></a>insert</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">insert into student (name, stnumber) values(&#x27;zhangsan&#x27;, 10101);</span><br><span class="line">insert into student (name, stnumber) values(&#x27;lisi&#x27;, 12345);</span><br><span class="line">insert into student (name, stnumber) values(&#x27;zhangsan&#x27;, 10102);</span><br><span class="line">insert into student (name, stnumber) values(&#x27;zhangsan&#x27;, 10103);</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://blog-image.pek3b.qingstor.com/201907081437_866.gif" alt="插入"></p>
+<h5 id="select-query"><a href="#select-query" class="headerlink" title="select (query)"></a>select (query)</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select * from student;</span><br><span class="line">select stnumber, name from student where stnumber&gt;10102;</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://blog-image.pek3b.qingstor.com/201907081437_73.gif" alt="查询"></p>
+<h5 id="delete"><a href="#delete" class="headerlink" title="delete"></a>delete</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">delete from student where stnumber &gt; 10102;</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://blog-image.pek3b.qingstor.com/201907081439_547.gif" alt="删除"></p>
+<h5 id="update"><a href="#update" class="headerlink" title="update"></a>update</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update student set name=&#x27;lisi&#x27; where stnumber&gt;=10102;</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://blog-image.pek3b.qingstor.com/201907081446_183.gif" alt="更新"></p>
+<hr>
+<h3 id="简单数据库的实现"><a href="#简单数据库的实现" class="headerlink" title="简单数据库的实现"></a>简单数据库的实现</h3><h4 id="Android源码中创建和使用数据库"><a href="#Android源码中创建和使用数据库" class="headerlink" title="Android源码中创建和使用数据库"></a>Android源码中创建和使用数据库</h4><h5 id="创建契约类"><a href="#创建契约类" class="headerlink" title="创建契约类"></a>创建契约类</h5><p>用来保存要操作的表字段内容等</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.sqlitedemo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.provider.BaseColumns;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StudentinfoContract</span> </span>&#123;</span><br><span class="line">    <span class="comment">//  固定写法，对应好对应数据库的table和table对应的字段名</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">StudentEntry</span> <span class="keyword">implements</span> <span class="title">BaseColumns</span> </span>&#123;</span><br><span class="line">        <span class="comment">//  继承自BaseColumns，可以自动实现主键，所以不需要再次创建主键(._ID)</span></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">static</span> String TABLE_NAME = <span class="string">&quot;student&quot;</span>;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">static</span> String COLUMN_NAME_NAME = <span class="string">&quot;name&quot;</span>;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">static</span> String COLUMN_NAME_STNUMBER = <span class="string">&quot;stnumber&quot;</span>;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="http://blog-image.pek3b.qingstor.com/201907081511_779.png" alt="创建契约类"></p>
+<h5 id="编写SQLDBOpenHelper类"><a href="#编写SQLDBOpenHelper类" class="headerlink" title="编写SQLDBOpenHelper类"></a>编写SQLDBOpenHelper类</h5><p>利用Helper来进行数据库的操作，自定义了新建数据库和更新数据库两种方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.sqlitedemo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.content.Context;</span><br><span class="line"><span class="keyword">import</span> android.database.sqlite.SQLiteDatabase;</span><br><span class="line"><span class="keyword">import</span> android.database.sqlite.SQLiteOpenHelper;</span><br><span class="line"><span class="keyword">import</span> android.util.Log;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StudentinfoDbHelper</span> <span class="keyword">extends</span> <span class="title">SQLiteOpenHelper</span> </span>&#123;</span><br><span class="line">    <span class="comment">//定义一些常量</span></span><br><span class="line">    <span class="comment">//  数据库名</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String DATABASE_NAME = <span class="string">&quot;studentinfo.db&quot;</span>;</span><br><span class="line">    <span class="comment">//  数据库版本</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DATABASE_VERSION = <span class="number">1</span>;</span><br><span class="line">    <span class="comment">//  创建表的SQL指令代码：create table student(id integer primary key, name text, stnumber integer);</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String CREATE_STUDENT_TABLESQL = <span class="string">&quot;create table &quot;</span></span><br><span class="line">            + StudentinfoContract.StudentEntry.TABLE_NAME +<span class="string">&quot; (&quot;</span></span><br><span class="line">            + StudentinfoContract.StudentEntry._ID +<span class="string">&quot; integer primary key, &quot;</span></span><br><span class="line">            + StudentinfoContract.StudentEntry.COLUMN_NAME_NAME +<span class="string">&quot; text, &quot;</span></span><br><span class="line">            + StudentinfoContract.StudentEntry.COLUMN_NAME_STNUMBER +<span class="string">&quot; integer);&quot;</span>;</span><br><span class="line">    <span class="comment">//  删除表的SQL指令代码：drop table student;</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String DROP_STUDENT_TABLESQL = <span class="string">&quot;drop table&quot;</span></span><br><span class="line">            + StudentinfoContract.StudentEntry.TABLE_NAME + <span class="string">&quot;;&quot;</span>;</span><br><span class="line">    <span class="comment">//  TAG标签</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG = <span class="string">&quot;DBHelper&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//创建DBHelper</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">StudentinfoDbHelper</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(context, DATABASE_NAME, <span class="keyword">null</span>, DATABASE_VERSION);</span><br><span class="line">        Log.d(TAG, <span class="string">&quot;StudentinfoDbHelper: Entry DBHelper&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//创建数据库的SQL语句！</span></span><br><span class="line">    <span class="comment">//只在找不到数据库时才执行onCreate</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(SQLiteDatabase db)</span></span>&#123;</span><br><span class="line">        Log.d(TAG, <span class="string">&quot;onCreate: &quot;</span>+CREATE_STUDENT_TABLESQL);</span><br><span class="line">        db.execSQL(CREATE_STUDENT_TABLESQL);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onUpgrade</span><span class="params">(SQLiteDatabase db, <span class="keyword">int</span> oldVersion, <span class="keyword">int</span> newVersion)</span></span>&#123;</span><br><span class="line">        Log.d(TAG, <span class="string">&quot;onUpgrade: &quot;</span>+ DROP_STUDENT_TABLESQL);</span><br><span class="line">        db.execSQL(DROP_STUDENT_TABLESQL);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="http://blog-image.pek3b.qingstor.com/201907081558_826.png" alt="DBHelper类"></p>
+<h5 id="在主Activity中调用数据库"><a href="#在主Activity中调用数据库" class="headerlink" title="在主Activity中调用数据库"></a>在主<code>Activity</code>中调用数据库</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> StudentinfoDbHelper m_dbHelper;</span><br><span class="line">    <span class="keyword">private</span> SQLiteDatabase db;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">        <span class="comment">//  创建一个DBHelper对象</span></span><br><span class="line">        m_dbHelper = <span class="keyword">new</span> StudentinfoDbHelper(<span class="keyword">this</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//  使用DBHelper对象打开数据库</span></span><br><span class="line">        db = m_dbHelper.getWritableDatabase();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//  关闭数据库</span></span><br><span class="line">        db.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="测试使用表单"><a href="#测试使用表单" class="headerlink" title="测试使用表单"></a>测试使用表单</h5><p><img src="http://blog-image.pek3b.qingstor.com/201907081614_732.png" alt="databases文件夹"></p>
+<p><img src="http://blog-image.pek3b.qingstor.com/201907081548_713.gif" alt="验证创建的表单"></p>
+<p>可以看到自动创建了新的表，而且文件目录下也多了<code>databases</code>的文件夹</p>
+<h4 id="封装类-Utils"><a href="#封装类-Utils" class="headerlink" title="封装类(Utils)"></a>封装类(Utils)</h4><p>将常用的 <strong>增删查补</strong>方法封装到一个<code>java</code>类中，取名为 <code>*-utils.java</code></p>
+<h5 id="将学生信息打包成类"><a href="#将学生信息打包成类" class="headerlink" title="将学生信息打包成类"></a>将学生信息打包成类</h5><p>新建一个<code>class</code>文件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> _id;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> stunumber;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用<strong>代码生成</strong>功能，自动生成<strong>构造函数</strong>以及<strong>getter</strong>和<strong>setter</strong></p>
+<p><img src="http://blog-image.pek3b.qingstor.com/201907081919_782.gif" alt="生成对象类"></p>
+<h5 id="利用封装类来进行SQL操作"><a href="#利用封装类来进行SQL操作" class="headerlink" title="利用封装类来进行SQL操作"></a>利用封装类来进行SQL操作</h5><h6 id="Utils类初始化"><a href="#Utils类初始化" class="headerlink" title="Utils类初始化"></a>Utils类初始化</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">s=&gt;start: 程序初始化</span><br><span class="line">op1=&gt;operation: 选择工具类的上下文（调用DBHelper）</span><br><span class="line">e=&gt;end: 进入程序界面，等到操作指令</span><br><span class="line">s-&gt;op1-&gt;e</span><br></pre></td></tr></table></figure>
+
+<p>想要调用<strong>工具类</strong>，需要先指定<strong>上下文</strong>，这里在<code>MainActivity</code>程序初始化的时候进行调用函数</p>
+<p><img src="http://blog-image.pek3b.qingstor.com/201907081934_88.png" alt="MainActivity.java中初始化"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> Context m_ctx = <span class="keyword">null</span>;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> StudentinfoDbHelper m_dbHelper = <span class="keyword">null</span>;</span><br><span class="line"><span class="comment">//  设置上下文，并创建一个DBHelper对象，已创建过的则不必重新创建</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">setContext</span><span class="params">(Context ctx)</span></span>&#123;</span><br><span class="line">    m_ctx = ctx;</span><br><span class="line">    <span class="keyword">if</span> (m_dbHelper==<span class="keyword">null</span>)&#123;</span><br><span class="line">        m_dbHelper = <span class="keyword">new</span> StudentinfoDbHelper(m_ctx);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="http://blog-image.pek3b.qingstor.com/201907082018_369.png" alt="Utils类的第一个方法——设置上下文、创建DBHelper"></p>
+<h6 id="在工具类中写入方法（以插入新数据为例）"><a href="#在工具类中写入方法（以插入新数据为例）" class="headerlink" title="在工具类中写入方法（以插入新数据为例）"></a>在工具类中写入方法（以插入新数据为例）</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">s=&gt;start: 触发函数</span><br><span class="line">e=&gt;end: 程序结束</span><br><span class="line">op1=&gt;operation: 执行相对应的 DBHelper 指令</span><br><span class="line">s-&gt;op1-&gt;e</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  按照学生姓名和学号添加至数据库</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">insertStudent</span><span class="params">(Student stu)</span></span>&#123;</span><br><span class="line">        <span class="comment">//  判断DBHelper是否存在，不存在则报错</span></span><br><span class="line">        <span class="keyword">assert</span>(m_dbHelper != <span class="keyword">null</span>);</span><br><span class="line">        <span class="comment">//  使用SQLiteDatabase类型来进行写入操作</span></span><br><span class="line">        <span class="comment">//  在StudentinfoDbHelper中我们重新定义过onCreate和update方法</span></span><br><span class="line">        <span class="comment">//  所以执行.getWritableDatabase()命令时会自动执行我们的onCreate()方法，按照我们的要求去新建数据库</span></span><br><span class="line">        SQLiteDatabase db = m_dbHelper.getWritableDatabase();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//添加数据库</span></span><br><span class="line">        <span class="comment">//  需要指定一个ContentValues类型，用values.put()来写入数据</span></span><br><span class="line">        ContentValues values = <span class="keyword">new</span> ContentValues();</span><br><span class="line">        values.put(StudentinfoContract.StudentEntry.COLUMN_NAME_NAME, stu.getName());</span><br><span class="line">        values.put(StudentinfoContract.StudentEntry.COLUMN_NAME_STNUMBER, stu.getStunumber());</span><br><span class="line">        <span class="comment">//  写入数据库</span></span><br><span class="line">        db.insert(StudentinfoContract.StudentEntry.TABLE_NAME,</span><br><span class="line">                <span class="keyword">null</span>, values);</span><br><span class="line">        db.close();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="http://blog-image.pek3b.qingstor.com/201907081955_573.png" alt="Utils中的实现"></p>
+<h6 id="在主程序中调用工具类的方法"><a href="#在主程序中调用工具类的方法" class="headerlink" title="在主程序中调用工具类的方法"></a>在主程序中调用工具类的方法</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insertStudent</span><span class="params">(View view)</span> </span>&#123;</span><br><span class="line">    String name  = et_name.getText().toString().trim();</span><br><span class="line">    String stunum = et_stunumber.getText().toString().trim();</span><br><span class="line">    Student stu = <span class="keyword">new</span> Student(<span class="number">0</span>, name, Integer.valueOf(stunum));</span><br><span class="line">    StudentinfoDbUtils.insertStudent(stu);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="http://blog-image.pek3b.qingstor.com/201907081956_247.png" alt="MainActivity中调用"></p>
+<p><img src="http://blog-image.pek3b.qingstor.com/201907081738_38.png" alt="游标的动作"></p>
+<h6 id="工具类实现删除和更新（修改）"><a href="#工具类实现删除和更新（修改）" class="headerlink" title="工具类实现删除和更新（修改）"></a>工具类实现删除和更新（修改）</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  按照学号删除学生</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">deleteStudent</span><span class="params">(<span class="keyword">int</span> stunum)</span></span>&#123;</span><br><span class="line">        <span class="keyword">assert</span> (m_dbHelper!=<span class="keyword">null</span>);</span><br><span class="line">        SQLiteDatabase db = m_dbHelper.getWritableDatabase();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//where 语句的条件</span></span><br><span class="line">        String whereClause = StudentinfoContract.StudentEntry.COLUMN_NAME_STNUMBER+<span class="string">&quot; = ?&quot;</span>;</span><br><span class="line">        <span class="comment">//where 语句的值</span></span><br><span class="line">        String[] whereArgs = <span class="keyword">new</span> String[] &#123;String.valueOf(stunum)&#125;;</span><br><span class="line">        <span class="comment">//  返回值为删除的数量</span></span><br><span class="line">        <span class="keyword">int</span> deletecount = db.delete(StudentinfoContract.StudentEntry.TABLE_NAME,</span><br><span class="line">                whereClause, whereArgs);</span><br><span class="line">        db.close();</span><br><span class="line">        <span class="keyword">return</span> deletecount;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//  根据学号更新姓名</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">updateStudent</span><span class="params">(<span class="keyword">int</span> stunum, String newname)</span></span>&#123;</span><br><span class="line">        <span class="keyword">assert</span>(m_dbHelper != <span class="keyword">null</span>);</span><br><span class="line">        SQLiteDatabase db = m_dbHelper.getWritableDatabase();</span><br><span class="line">        <span class="comment">//  待更新的条目</span></span><br><span class="line">        ContentValues values = <span class="keyword">new</span> ContentValues();</span><br><span class="line">        values.put(StudentinfoContract.StudentEntry.COLUMN_NAME_NAME, newname);</span><br><span class="line">        <span class="comment">//  哪些是需要更新的条目</span></span><br><span class="line">        String whereClause = StudentinfoContract.StudentEntry.COLUMN_NAME_STNUMBER+<span class="string">&quot; = ?&quot;</span>;</span><br><span class="line">        String[] whereArgs = <span class="keyword">new</span> String[]&#123;String.valueOf(stunum)&#125;;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> updatecount = db.update(StudentinfoContract.StudentEntry.TABLE_NAME,</span><br><span class="line">                values, whereClause, whereArgs);</span><br><span class="line">        db.close();</span><br><span class="line">        <span class="keyword">return</span> updatecount;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deleteStudent</span><span class="params">(View view)</span> </span>&#123;</span><br><span class="line">        String name  = et_name.getText().toString().trim();</span><br><span class="line">        <span class="keyword">int</span> count = StudentinfoDbUtils.deleteStudent(name);</span><br><span class="line">        <span class="keyword">if</span> (count &lt;= <span class="number">0</span>)&#123;</span><br><span class="line">            Toast.makeText(<span class="keyword">this</span>, <span class="string">&quot;没有您要删除学生&quot;</span>, Toast.LENGTH_LONG).show();</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            Toast.makeText(<span class="keyword">this</span>, <span class="string">&quot;成功删除了&quot;</span>+count+<span class="string">&quot;条学生信息&quot;</span>, Toast.LENGTH_LONG).show();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">updateStudent</span><span class="params">(View view)</span> </span>&#123;</span><br><span class="line">        String name  = et_name.getText().toString().trim();</span><br><span class="line">        String stunum = et_stunumber.getText().toString().trim();</span><br><span class="line">        <span class="keyword">int</span> count = StudentinfoDbUtils.updateStudent(Integer.valueOf(stunum), name);</span><br><span class="line">        <span class="keyword">if</span> (count &lt;= <span class="number">0</span>)&#123;</span><br><span class="line">            Toast.makeText(<span class="keyword">this</span>, <span class="string">&quot;没有您要更新学生&quot;</span>, Toast.LENGTH_LONG).show();</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            Toast.makeText(<span class="keyword">this</span>, <span class="string">&quot;成功更新了&quot;</span>+count+<span class="string">&quot;条学生信息&quot;</span>, Toast.LENGTH_LONG).show();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="查找方法的实现"><a href="#查找方法的实现" class="headerlink" title="查找方法的实现"></a>查找方法的实现</h6><p>面对对象编程的特点，是将一切对象作为编程的重点，这里我们把<strong>学生</strong>作为了对象，那么它应该自己具有自己的属性（值），返回的也是<strong>学生</strong>，即返回的是由<strong>学生</strong>组成的列表。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  按照学号查找</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;Student&gt; <span class="title">queryStudent</span><span class="params">(<span class="keyword">int</span> stunum)</span></span>&#123;</span><br><span class="line">    <span class="keyword">assert</span>(m_dbHelper != <span class="keyword">null</span>);</span><br><span class="line">    SQLiteDatabase db = m_dbHelper.getWritableDatabase();</span><br><span class="line">    String TAG = <span class="string">&quot;query&quot;</span>;</span><br><span class="line">    String[] columns = <span class="keyword">new</span> String[]&#123;</span><br><span class="line">            StudentinfoContract.StudentEntry.COLUMN_NAME_NAME,      <span class="comment">//  第0列</span></span><br><span class="line">            StudentinfoContract.StudentEntry.COLUMN_NAME_STNUMBER,  <span class="comment">//  第1列</span></span><br><span class="line">            StudentinfoContract.StudentEntry._ID</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="comment">//  按照学号匹配进行查询的条件阐述</span></span><br><span class="line">    String selection = StudentinfoContract.StudentEntry.COLUMN_NAME_STNUMBER+<span class="string">&quot; = ?&quot;</span>;</span><br><span class="line">    String[] selectionArgs = <span class="keyword">new</span> String[]&#123;String.valueOf(stunum)&#125;;</span><br><span class="line">    Cursor cursor = db.query(StudentinfoContract.StudentEntry.TABLE_NAME,</span><br><span class="line">            columns,        <span class="comment">//  如果给null，则查询所有类</span></span><br><span class="line">            selection,      <span class="comment">//  如果射程null，则查询所有信息</span></span><br><span class="line">            selectionArgs,</span><br><span class="line">            <span class="keyword">null</span>,</span><br><span class="line">            <span class="keyword">null</span>,</span><br><span class="line">            <span class="keyword">null</span>);</span><br><span class="line">    <span class="comment">//  创建一个以学生为元素的列表</span></span><br><span class="line">    ArrayList&lt;Student&gt; stulist = <span class="keyword">new</span> ArrayList&lt;Student&gt;();</span><br><span class="line">    <span class="comment">//  利用查询到的指针来访问数据</span></span><br><span class="line">    <span class="keyword">if</span> (cursor != <span class="keyword">null</span> &amp;&amp; cursor.getCount() &gt; <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="comment">//  使用cursor遍历</span></span><br><span class="line">        <span class="keyword">while</span>(cursor.moveToNext())&#123;</span><br><span class="line">            <span class="comment">//  使用游标查询字段，并取出使用</span></span><br><span class="line">            <span class="comment">//  创建一个学生列表</span></span><br><span class="line">            <span class="comment">//  与columns查询列的下标一致</span></span><br><span class="line">            String tmpname = cursor.getString(<span class="number">0</span>);</span><br><span class="line">            <span class="keyword">int</span> tmpstunum = cursor.getInt(<span class="number">1</span>);</span><br><span class="line">            <span class="keyword">int</span> id = cursor.getInt(<span class="number">2</span>);</span><br><span class="line">            <span class="comment">//  官方写法，易读性高</span></span><br><span class="line">            <span class="comment">//cursor.getString(cursor.getColumnIndex(StudentinfoContract.StudentEntry.COLUMN_NAME_NAME));</span></span><br><span class="line">            <span class="comment">//  创建一个学生对象，用来存储获取的数据</span></span><br><span class="line">            Student student = <span class="keyword">new</span> Student(id, tmpname, tmpstunum);</span><br><span class="line">            <span class="comment">//  将获取的学生数据存储到待返回的列表中</span></span><br><span class="line">            stulist.add(student);</span><br><span class="line">            Log.d(TAG, tmpname+<span class="string">&quot;---&quot;</span>+tmpstunum+<span class="string">&quot;---&quot;</span>+id);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//	关闭数据库</span></span><br><span class="line">    db.close();</span><br><span class="line">    <span class="keyword">return</span> stulist;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">queryStudent</span><span class="params">(View view)</span> </span>&#123;</span><br><span class="line">    String stunum = et_stunumber.getText().toString().trim();</span><br><span class="line">    <span class="comment">//从数据库中查询出来了学生对象的列表</span></span><br><span class="line">    List&lt;Student&gt; list = StudentinfoDbUtils.queryStudent(Integer.valueOf(stunum));</span><br><span class="line">    <span class="comment">//	遍历list,打印学生信息</span></span><br><span class="line">    <span class="comment">//	Java语言的循环写法</span></span><br><span class="line">    <span class="comment">//	for(Student stu: list)&#123;</span></span><br><span class="line">    <span class="comment">//		Log.d(TAG, stu.get_id()+&quot;---&quot;+stu.getName()+&quot;---&quot;+stu.getStunumber());</span></span><br><span class="line">    <span class="comment">//	&#125;</span></span><br><span class="line">    <span class="comment">//	C语言的写法</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span> ; i&lt;list.size(); i++)&#123;</span><br><span class="line">        Student stu = list.get(i);</span><br><span class="line">        Log.d(TAG, stu.get_id()+<span class="string">&quot;---&quot;</span>+stu.getName()+<span class="string">&quot;---&quot;</span>+stu.getStunumber());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="效果测试"><a href="#效果测试" class="headerlink" title="效果测试"></a>效果测试</h5><p>四个按钮的功能在Utils类里有说明：</p>
+<p>其中删除按钮对应的是第二个——按照姓名删除学生</p>
+<p><img src="http://blog-image.pek3b.qingstor.com/201907082238_520.png" alt="Utils类中的方法"></p>
+<p><img src="http://blog-image.pek3b.qingstor.com/201907082233_498.gif" alt="增删改查"></p>
+<p>左侧显示的为当前表中的所有记录</p>
+<p>下方为logcat，用于显示查询query的查询信息。</p>
+<h4 id=""><a href="#" class="headerlink" title=""></a></h4><h3 id="事务的概念和实验"><a href="#事务的概念和实验" class="headerlink" title="事务的概念和实验"></a>事务的概念和实验</h3><h4 id="数据库事务的概念"><a href="#数据库事务的概念" class="headerlink" title="数据库事务的概念"></a>数据库事务的概念</h4><blockquote>
+<p>1、为数据库操作提供了一个从失败中恢复到正常状态的方法，同时提供了数据库即使在异常状态下仍能保持一致性的方法。<br>2、当多个应用程序在并发访问数据库时，可以在这些应用程序之间提供一个隔离方法，以防止彼此的操作互相干扰。</p>
+</blockquote>
+<h4 id="数据库事务的特性"><a href="#数据库事务的特性" class="headerlink" title="数据库事务的特性"></a>数据库事务的特性</h4><p>具有以下四个属性<strong>ACID</strong></p>
+<blockquote>
+<p><strong>原子性（Atomicity）</strong>：事务作为一个整体被执行，包含在其中的对数据库的操作要么全部被执行，要么都不执行。<br><strong>一致性（Consistency）</strong>：事务应确保数据库的状态从一个一致状态转变为另一个一致状态。一致状态的含义是数据库中的数据应满足完整性约束。<br><strong>隔离性（Isolation）</strong>：多个事务并发执行时，一个事务的执行不应影响其他事务的执行。<br><strong>持久性（Durability）</strong>：一个事务一旦提交，他对数据库的修改应该永久保存在数据库中。</p>
+</blockquote>
+<h4 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//	开启事务传送</span></span><br><span class="line">db.beginTransaction();</span><br><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">    db.insert();</span><br><span class="line">    db.xxxxx;</span><br><span class="line">    ......;</span><br><span class="line">    <span class="comment">//	设置事务成功标记</span></span><br><span class="line">    db.setTransactionSuccessful();</span><br><span class="line">&#125; <span class="keyword">finally</span>&#123;</span><br><span class="line"><span class="comment">//	结束事务</span></span><br><span class="line">db.endTransaction()   </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//	只有关闭数据库才会将缓存写入数据库</span></span><br><span class="line">db.close();</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<hr>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：实习Day6</li>
+        <li>本文作者：Valpha</li>
+        <li>创建时间：2019-07-08 13:24:33</li>
+        <li>
+            本文链接：https://valpha.github.io/2019/07/08/实习Day6/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2019/07/09/%E5%AE%9E%E4%B9%A0Day7/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">实习Day7</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2019/07/07/%E5%AE%9E%E4%B9%A0Day5/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">实习Day5</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2019</span>&nbsp;-&nbsp;
+            
+            2021&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Valpha</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.3</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#SQLite%E5%AD%98%E5%82%A8%E6%95%B0%E6%8D%AE"><span class="nav-text">SQLite存储数据</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%A8%E8%AE%BE%E5%A4%87%E7%BB%88%E7%AB%AF%E4%BD%BF%E7%94%A8SQL%E8%AF%AD%E5%8F%A5%E5%88%9B%E5%BB%BA%E5%92%8C%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-text">在设备终端使用SQL语句创建和访问数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BB%93%E6%9E%84"><span class="nav-text">数据库结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%E2%80%94%E2%80%94%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5"><span class="nav-text">数据库操作——增删改查</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-adb-shell-%E8%BF%9B%E5%85%A5%E8%AE%BE%E5%A4%87%E7%BB%88%E7%AB%AF%EF%BC%8C%E5%B9%B6%E6%96%B0%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93%E6%96%87%E4%BB%B6"><span class="nav-text">使用 adb shell 进入设备终端，并新建数据库文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%89%93%E5%BC%80%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%8C%E5%B9%B6%E6%89%A7%E8%A1%8CSQL%E5%91%BD%E4%BB%A4"><span class="nav-text">打开数据库，并执行SQL命令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%80%80%E5%87%BASQL"><span class="nav-text">退出SQL</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#insert"><span class="nav-text">insert</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#select-query"><span class="nav-text">select (query)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#delete"><span class="nav-text">delete</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#update"><span class="nav-text">update</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-text">简单数据库的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Android%E6%BA%90%E7%A0%81%E4%B8%AD%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-text">Android源码中创建和使用数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%A5%91%E7%BA%A6%E7%B1%BB"><span class="nav-text">创建契约类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BC%96%E5%86%99SQLDBOpenHelper%E7%B1%BB"><span class="nav-text">编写SQLDBOpenHelper类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9C%A8%E4%B8%BBActivity%E4%B8%AD%E8%B0%83%E7%94%A8%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-text">在主Activity中调用数据库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E4%BD%BF%E7%94%A8%E8%A1%A8%E5%8D%95"><span class="nav-text">测试使用表单</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B0%81%E8%A3%85%E7%B1%BB-Utils"><span class="nav-text">封装类(Utils)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%B0%86%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E6%89%93%E5%8C%85%E6%88%90%E7%B1%BB"><span class="nav-text">将学生信息打包成类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%A9%E7%94%A8%E5%B0%81%E8%A3%85%E7%B1%BB%E6%9D%A5%E8%BF%9B%E8%A1%8CSQL%E6%93%8D%E4%BD%9C"><span class="nav-text">利用封装类来进行SQL操作</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Utils%E7%B1%BB%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-text">Utils类初始化</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%9C%A8%E5%B7%A5%E5%85%B7%E7%B1%BB%E4%B8%AD%E5%86%99%E5%85%A5%E6%96%B9%E6%B3%95%EF%BC%88%E4%BB%A5%E6%8F%92%E5%85%A5%E6%96%B0%E6%95%B0%E6%8D%AE%E4%B8%BA%E4%BE%8B%EF%BC%89"><span class="nav-text">在工具类中写入方法（以插入新数据为例）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%9C%A8%E4%B8%BB%E7%A8%8B%E5%BA%8F%E4%B8%AD%E8%B0%83%E7%94%A8%E5%B7%A5%E5%85%B7%E7%B1%BB%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-text">在主程序中调用工具类的方法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7%E7%B1%BB%E5%AE%9E%E7%8E%B0%E5%88%A0%E9%99%A4%E5%92%8C%E6%9B%B4%E6%96%B0%EF%BC%88%E4%BF%AE%E6%94%B9%EF%BC%89"><span class="nav-text">工具类实现删除和更新（修改）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%9F%A5%E6%89%BE%E6%96%B9%E6%B3%95%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-text">查找方法的实现</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%95%88%E6%9E%9C%E6%B5%8B%E8%AF%95"><span class="nav-text">效果测试</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text"></span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1%E7%9A%84%E6%A6%82%E5%BF%B5%E5%92%8C%E5%AE%9E%E9%AA%8C"><span class="nav-text">事务的概念和实验</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BA%8B%E5%8A%A1%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-text">数据库事务的概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BA%8B%E5%8A%A1%E7%9A%84%E7%89%B9%E6%80%A7"><span class="nav-text">数据库事务的特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E4%BE%8B"><span class="nav-text">实例</span></a></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/dark-light-toggle.js"></script>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/code-copy.js"></script>
+
+
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/toc.js"></script>
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Android">
+    <meta name="description" content="Android | Arduino | RPi">
+    <meta name="author" content="Valpha">
+    
+    <title>
+        
+            实习Day12 |
+        
+        Valpha&#39;s 造物集
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="https://blog-image.obs.cn-east-2.myhuaweicloud.com/logo_valpha.png">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"valpha.github.io","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"https://blog-image.obs.cn-east-2.myhuaweicloud.com/logo_valpha.png","favicon":"https://blog-image.obs.cn-east-2.myhuaweicloud.com/logo_valpha.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Less utilitarianism, more persistence for no reason."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":true},"lazyload":{"enable":false},"version":"3.4.3"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Valpha's 造物集" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="https://blog-image.obs.cn-east-2.myhuaweicloud.com/logo_valpha.png">
+                </a>
+            
+            <a class="logo-title" href="/">
+                Valpha&#39;s 造物集
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">实习Day12</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="https://blog-image.obs.cn-east-2.myhuaweicloud.com/logo_valpha.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Valpha</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2019-07-16 13:35:06
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%AE%9E%E4%B9%A0/">实习</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Android/">Android</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E5%AE%9E%E4%B9%A0%E6%97%A5%E8%AE%B0/">实习日记</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>1.1k 字</span>
+        </span>
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h2 id="多界面切换、利用意图调用"><a href="#多界面切换、利用意图调用" class="headerlink" title="多界面切换、利用意图调用"></a><strong>多界面切换、利用意图调用</strong></h2><span id="more"></span>
+
+<h3 id="在一个APP中使用多个界面"><a href="#在一个APP中使用多个界面" class="headerlink" title="在一个APP中使用多个界面"></a>在一个APP中使用多个界面</h3><h4 id="创建新的-Activity"><a href="#创建新的-Activity" class="headerlink" title="创建新的 Activity"></a>创建新的 Activity</h4><p>在一个工程中新建一个界面</p>
+<p><img src="http://blog-image.pek3b.qingstor.com/201907161349_595.png" alt="新建一个Activity"></p>
+<p>新建界面之后会生成一个<strong>新类</strong>、<strong>新的布局</strong></p>
+<p><img src="http://blog-image.pek3b.qingstor.com/201907161352_397.png" alt="自动生成的文件"></p>
+<p>并且会改写<code>Manifest</code>文件</p>
+<p><img src="http://blog-image.pek3b.qingstor.com/201907161353_40.png" alt="新生成的Activity放置在初始的Activity之前"></p>
+<p>在启动时，默认打开最上层的界面</p>
+<p><img src="http://blog-image.pek3b.qingstor.com/201907161356_803.png" alt="没有 HelloWorld! 字样，说明是后生成的界面"></p>
+<p>而且会生成双APP，进不同的app可以打开两个不同的界面</p>
+<p><img src="http://blog-image.pek3b.qingstor.com/201907161357_632.gif" alt="双生app"></p>
+<h4 id="通过设置Manifest文件修改app名称"><a href="#通过设置Manifest文件修改app名称" class="headerlink" title="通过设置Manifest文件修改app名称"></a>通过设置<code>Manifest</code>文件修改app名称</h4><p>遵守 <strong>XML</strong>语法，有以下两种修改名称的方式</p>
+<p><img src="http://blog-image.pek3b.qingstor.com/201907161401_370.png" alt="Manifest修改label设置"></p>
+<p><img src="http://blog-image.pek3b.qingstor.com/201907161402_151.png" alt="strings.xml文件，在res目录下"></p>
+<h4 id="利用ImageAssert生成图标"><a href="#利用ImageAssert生成图标" class="headerlink" title="利用ImageAssert生成图标"></a>利用<code>ImageAssert</code>生成图标</h4><p>打开 <strong>ImageAssert</strong></p>
+<p><img src="http://blog-image.pek3b.qingstor.com/201907161408_707.png" alt="File-&gt;Image Assert"></p>
+<p><img src="http://blog-image.pek3b.qingstor.com/201907161407_894.png" alt="生成自己的图标"></p>
+<p>效果</p>
+<p><img src="http://blog-image.pek3b.qingstor.com/201907161409_413.png"></p>
+<h3 id="Intent（意图）的使用"><a href="#Intent（意图）的使用" class="headerlink" title="Intent（意图）的使用"></a>Intent（意图）的使用</h3><p>利用意图，启动多界面</p>
+<h4 id="界面准备"><a href="#界面准备" class="headerlink" title="界面准备"></a>界面准备</h4><p>绘制UI</p>
+<p><img src="http://blog-image.pek3b.qingstor.com/201907161420_653.png" alt="主界面"></p>
+<p><img src="http://blog-image.pek3b.qingstor.com/201907161420_715.png" alt="第二个界面"></p>
+<h4 id="显式意图"><a href="#显式意图" class="headerlink" title="显式意图"></a>显式意图</h4><h5 id="显式意图启动Main2界面"><a href="#显式意图启动Main2界面" class="headerlink" title="显式意图启动Main2界面"></a>显式意图启动Main2界面</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">startMain2</span><span class="params">(View view)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//  显式意图启动Main2界面</span></span><br><span class="line">    Intent intent = <span class="keyword">new</span> Intent(<span class="keyword">this</span>, Main2Activity.class);</span><br><span class="line">    startActivity(intent);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<p><img src="http://blog-image.pek3b.qingstor.com/201907161426_975.gif" alt="启动多界面"></p>
+<h5 id="显示意图启动其他app的界面"><a href="#显示意图启动其他app的界面" class="headerlink" title="显示意图启动其他app的界面"></a>显示意图启动其他app的界面</h5><p>前提是知道其它要启动的app的包名和界面，必须要精确，否则无法启动导致报错。</p>
+<p><img src="http://blog-image.pek3b.qingstor.com/201907161444_165.png"></p>
+<p><img src="http://blog-image.pek3b.qingstor.com/201907161447_168.gif" alt="启动了其他app的界面"></p>
+<h4 id="隐式意图"><a href="#隐式意图" class="headerlink" title="隐式意图"></a>隐式意图</h4><h5 id="筛选意图"><a href="#筛选意图" class="headerlink" title="筛选意图"></a>筛选意图</h5><p>在<code>Manifest</code>里面设置一下<code>activity</code>的属性——<code>intent-filter</code><strong>意图过滤器</strong>，在主程序中使用<strong>意图过滤器</strong>来筛选使用的意图</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;intent-filter&gt;</span><br><span class="line">    &lt;action android:name=<span class="string">&quot;android.intent.action.MAIN&quot;</span> /&gt;</span><br><span class="line">    &lt;category android:name=<span class="string">&quot;android.intent.category.LAUNCHER&quot;</span> /&gt;</span><br><span class="line">     </span><br><span class="line">&lt;/intent-filter&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">startMain3</span><span class="params">(View view)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//  使用隐式意图启动Activity</span></span><br><span class="line">    <span class="comment">//  需要知道所要启动的Activity的意图过滤器的Action和Category</span></span><br><span class="line">    <span class="comment">//  Data和Type不是必须的，根据意图需要完全匹配</span></span><br><span class="line">    Intent intent = <span class="keyword">new</span> Intent();</span><br><span class="line">    intent.setAction(<span class="string">&quot;com.example.action.MAIN3&quot;</span>);</span><br><span class="line">    intent.addCategory(<span class="string">&quot;android.intent.category.DEFAULT&quot;</span>);</span><br><span class="line">    startActivity(intent);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>只要<code>action</code>和<code>category</code>完全一致了，就可以匹配执行意图</p>
+<p><img src="http://blog-image.pek3b.qingstor.com/201907161549_724.gif"></p>
+<p>如果定义了<code>data</code>则需要把<code>data</code>也进行匹配</p>
+<p>常用的方式有：</p>
+<ul>
+<li>scheme</li>
+<li>mimeType</li>
+</ul>
+<p><code>scheme</code>对应数据格式，<code>mimeType</code>对应数据类型</p>
+<p>例如</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;data</span><br><span class="line">    android:mimeType=<span class="string">&quot;mydata/png&quot;</span></span><br><span class="line">    android:scheme=<span class="string">&quot;mydata&quot;</span> /&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这里是既设置了<strong>Data</strong>又设置了<strong>Type</strong>，此时调用需要使用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">intent.setDataAndType(Uri.parse(<span class="string">&quot;mydata:&quot;</span>+<span class="number">123456</span>), <span class="string">&quot;mydata/png&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>传递过来之后，使用<code>getIntent()</code>获取意图对象</p>
+<p>并使用<code>intent.getData()</code>获取通过<code>scheme</code>传递过来的数据</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Intent intent = getIntent();</span><br><span class="line">String data = intent.getintent.getData().toString();</span><br></pre></td></tr></table></figure>
+
+<h5 id="传递数据"><a href="#传递数据" class="headerlink" title="传递数据"></a>传递数据</h5><p>除了可以使用<code>scheme</code>传递小型数据外，大型的数据可以使用<code>putExtra(&lt;K&gt;,&lt;V&gt;)</code>的方式来传递键值对</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">intent.putExtra(<span class="string">&quot;name&quot;</span>, name);</span><br><span class="line">intent.putExtra(<span class="string">&quot;height&quot;</span>, height);</span><br></pre></td></tr></table></figure>
+
+<p>传送过去之后，可以使用<code>gei&lt;String&gt;Extra</code>来获得数据，<code>String</code>可以根据需求来指定</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String name = intent.getStringExtra(<span class="string">&quot;name&quot;</span>);</span><br><span class="line">Float height = intent.getFloatExtra(<span class="string">&quot;height&quot;</span>, <span class="number">0.0f</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="显式意图与隐式意图的对比"><a href="#显式意图与隐式意图的对比" class="headerlink" title="显式意图与隐式意图的对比"></a>显式意图与隐式意图的对比</h4><table>
+<thead>
+<tr>
+<th>显式意图</th>
+<th>隐式意图</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>通过<strong>包名</strong>、<strong>类名</strong>指定启动的Activity</td>
+<td>利用<strong>意图过滤器(Intent-Filter)<strong>来指定对应的</strong>Action</strong>、<strong>Category</strong>或**[Data]<strong>来启动Activity<br /><strong>Action</strong>、</strong>Category<strong>为必选，</strong>Data**为可选，但必须要一一对应</td>
+</tr>
+<tr>
+<td>一般开启自己的界面使用<strong>显式意图</strong></td>
+<td>启动外部应用使用<strong>隐式意图</strong></td>
+</tr>
+<tr>
+<td>显式意图不用设置过滤器，所以可以避免其他应用开启自己。<strong>相对安全</strong>一些</td>
+<td>自己本身需要设置过滤器，可以被外部应用所引用。</td>
+</tr>
+</tbody></table>
+<h4 id="启动意图"><a href="#启动意图" class="headerlink" title="启动意图"></a>启动意图</h4><p>无返回值的启动<strong>意图</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">startActivity(intent);</span><br></pre></td></tr></table></figure>
+
+<p>带返回值的启动意图</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">startActivityForResult(intent,requestCode);</span><br></pre></td></tr></table></figure>
+
+<p>想要带返回值，同时也必须传入一个<code>requestCode</code>，用于表示自己的请求码</p>
+<h4 id="返回码ResultCode"><a href="#返回码ResultCode" class="headerlink" title="返回码ResultCode"></a>返回码ResultCode</h4><p>返回界面时，可以通过改写<code>onBackPressed</code>函数来改变回传结果</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onBackPressed</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Intent intent = <span class="keyword">new</span> Intent();</span><br><span class="line">    intent.putExtra(<span class="string">&quot;main2&quot;</span>, <span class="string">&quot;我是界面2返回的消息&quot;</span>);</span><br><span class="line">    setResult(<span class="number">333</span>, intent);</span><br><span class="line">    <span class="keyword">super</span>.onBackPressed();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果需要实现一个返回界面的按钮，则需要使用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">finish();</span><br></pre></td></tr></table></figure>
+
+<p>可以结束当前界面，并返回上一级。作用与返回键相当。</p>
+<p>回传来的界面可以通过改写<code>onActivityResult</code>方法来进行改写</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onActivityResult</span><span class="params">(<span class="keyword">int</span> requestCode, <span class="keyword">int</span> resultCode, <span class="meta">@Nullable</span> Intent data)</span> </span>&#123;</span><br><span class="line">    Log.d(TAG, <span class="string">&quot;reqcode:&quot;</span>+requestCode+<span class="string">&quot;--&quot;</span>+<span class="string">&quot;rescode:&quot;</span>+resultCode);</span><br><span class="line">    String rststring = data.getStringExtra(<span class="string">&quot;result&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span>(resultCode == Main3Activity.RESULT_CODE_BADSTRING)&#123;</span><br><span class="line">        Toast.makeText(<span class="keyword">this</span>, rststring+<span class="string">&quot;我了个去！&quot;</span>, Toast.LENGTH_LONG).show();</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        Toast.makeText(<span class="keyword">this</span>, rststring, Toast.LENGTH_LONG).show();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(requestCode == REQ_CODE_MIAN2)&#123;</span><br><span class="line">        rststring = data.getStringExtra(<span class="string">&quot;main2&quot;</span>);</span><br><span class="line">        Toast.makeText(<span class="keyword">this</span>, <span class="string">&quot;main2返回的消息&quot;</span>+rststring, Toast.LENGTH_LONG).show();</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(requestCode == REQ_CODE_MIAN3)&#123;</span><br><span class="line">        Toast.makeText(<span class="keyword">this</span>, <span class="string">&quot;main3返回的消息&quot;</span>+rststring, Toast.LENGTH_LONG).show();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以上这些，做到了在<strong>多界面之间切换</strong>并且<strong>传递数据</strong>的功能。</p>
+<hr>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：实习Day12</li>
+        <li>本文作者：Valpha</li>
+        <li>创建时间：2019-07-16 13:35:06</li>
+        <li>
+            本文链接：https://valpha.github.io/2019/07/16/实习Day12/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2019/07/17/%E5%AE%9E%E4%B9%A0Day13/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">实习Day13</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2019/07/15/%E5%AE%9E%E4%B9%A0Day11/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">实习Day11</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2019</span>&nbsp;-&nbsp;
+            
+            2021&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Valpha</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.3</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E7%95%8C%E9%9D%A2%E5%88%87%E6%8D%A2%E3%80%81%E5%88%A9%E7%94%A8%E6%84%8F%E5%9B%BE%E8%B0%83%E7%94%A8"><span class="nav-text">多界面切换、利用意图调用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E4%B8%80%E4%B8%AAAPP%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%A4%9A%E4%B8%AA%E7%95%8C%E9%9D%A2"><span class="nav-text">在一个APP中使用多个界面</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%96%B0%E7%9A%84-Activity"><span class="nav-text">创建新的 Activity</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%9A%E8%BF%87%E8%AE%BE%E7%BD%AEManifest%E6%96%87%E4%BB%B6%E4%BF%AE%E6%94%B9app%E5%90%8D%E7%A7%B0"><span class="nav-text">通过设置Manifest文件修改app名称</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%A9%E7%94%A8ImageAssert%E7%94%9F%E6%88%90%E5%9B%BE%E6%A0%87"><span class="nav-text">利用ImageAssert生成图标</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Intent%EF%BC%88%E6%84%8F%E5%9B%BE%EF%BC%89%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-text">Intent（意图）的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%95%8C%E9%9D%A2%E5%87%86%E5%A4%87"><span class="nav-text">界面准备</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%98%BE%E5%BC%8F%E6%84%8F%E5%9B%BE"><span class="nav-text">显式意图</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%98%BE%E5%BC%8F%E6%84%8F%E5%9B%BE%E5%90%AF%E5%8A%A8Main2%E7%95%8C%E9%9D%A2"><span class="nav-text">显式意图启动Main2界面</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%98%BE%E7%A4%BA%E6%84%8F%E5%9B%BE%E5%90%AF%E5%8A%A8%E5%85%B6%E4%BB%96app%E7%9A%84%E7%95%8C%E9%9D%A2"><span class="nav-text">显示意图启动其他app的界面</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9A%90%E5%BC%8F%E6%84%8F%E5%9B%BE"><span class="nav-text">隐式意图</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AD%9B%E9%80%89%E6%84%8F%E5%9B%BE"><span class="nav-text">筛选意图</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BC%A0%E9%80%92%E6%95%B0%E6%8D%AE"><span class="nav-text">传递数据</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%98%BE%E5%BC%8F%E6%84%8F%E5%9B%BE%E4%B8%8E%E9%9A%90%E5%BC%8F%E6%84%8F%E5%9B%BE%E7%9A%84%E5%AF%B9%E6%AF%94"><span class="nav-text">显式意图与隐式意图的对比</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E6%84%8F%E5%9B%BE"><span class="nav-text">启动意图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%94%E5%9B%9E%E7%A0%81ResultCode"><span class="nav-text">返回码ResultCode</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/dark-light-toggle.js"></script>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/code-copy.js"></script>
+
+
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/toc.js"></script>
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>

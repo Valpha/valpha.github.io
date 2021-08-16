@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Android">
+    <meta name="description" content="Android | Arduino | RPi">
+    <meta name="author" content="Valpha">
+    
+    <title>
+        
+            实习Day9 |
+        
+        Valpha&#39;s 造物集
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="https://blog-image.obs.cn-east-2.myhuaweicloud.com/logo_valpha.png">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"valpha.github.io","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"https://blog-image.obs.cn-east-2.myhuaweicloud.com/logo_valpha.png","favicon":"https://blog-image.obs.cn-east-2.myhuaweicloud.com/logo_valpha.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Less utilitarianism, more persistence for no reason."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":true},"lazyload":{"enable":false},"version":"3.4.3"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Valpha's 造物集" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="https://blog-image.obs.cn-east-2.myhuaweicloud.com/logo_valpha.png">
+                </a>
+            
+            <a class="logo-title" href="/">
+                Valpha&#39;s 造物集
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">实习Day9</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="https://blog-image.obs.cn-east-2.myhuaweicloud.com/logo_valpha.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Valpha</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2019-07-13 10:07:44
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%AE%9E%E4%B9%A0/">实习</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E5%AE%9E%E4%B9%A0%E6%97%A5%E8%AE%B0/">实习日记</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/UML/">UML</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Linux/">Linux</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/git/">git</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>934 字</span>
+        </span>
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <p>UML统一建模语言、Git使用、Linux相关</p>
+<span id="more"></span>
+
+<h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><h4 id="文件权限问题"><a href="#文件权限问题" class="headerlink" title="文件权限问题"></a>文件权限问题</h4><p><img src="http://blog-image.pek3b.qingstor.com/201907131010_600.png" alt="ls -al"></p>
+<p>可得10为二进制数来表示权限：</p>
+<ul>
+<li>第1位：d为目录、l为链接</li>
+<li>第2-4位：文件（夹）持有者的 读、写、运行权限</li>
+<li>第5-7位：文件（夹）持有者所在的组的 读、写、运行权限</li>
+<li>第8-10位：文件（夹）任何人的 读、写、运行权限</li>
+</ul>
+<h5 id="更改权限"><a href="#更改权限" class="headerlink" title="更改权限"></a>更改权限</h5><p><code>chmod +* [文件名]</code></p>
+<p>其中*表示所添加的权限</p>
+<blockquote>
+<p>-rw——- (600)      只有拥有者有读写权限。<br>-rw-r–r– (644)      只有拥有者有读写权限；而属组用户和其他用户只有读权限。<br>-rwx—— (700)     只有拥有者有读、写、执行权限。<br>-rwxr-xr-x (755)    拥有者有读、写、执行权限；而属组用户和其他用户只有读、执行权限。<br>-rwx–x–x (711)    拥有者有读、写、执行权限；而属组用户和其他用户只有执行权限。<br>-rw-rw-rw- (666)   所有用户都有文件读、写权限。<br>-rwxrwxrwx (777)  所有用户都有读、写、执行权限。</p>
+</blockquote>
+<h4 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h4><p>查看可用内存<code>free -m</code></p>
+<p>或者<code>cat /proc/meminfo</code></p>
+<h3 id="Android-Studio-IDE"><a href="#Android-Studio-IDE" class="headerlink" title="Android Studio IDE"></a>Android Studio IDE</h3><h4 id="Gradle"><a href="#Gradle" class="headerlink" title="Gradle"></a>Gradle</h4><p>setting中可以包含各个模块</p>
+<ul>
+<li>app：主应用</li>
+<li>common：公共库</li>
+<li>……</li>
+</ul>
+<h3 id="UML"><a href="#UML" class="headerlink" title="UML"></a>UML</h3><ul>
+<li>用例图 (use case)</li>
+<li>类图</li>
+<li>时序图</li>
+<li>……</li>
+</ul>
+<h4 id="用例图（Use-Case）"><a href="#用例图（Use-Case）" class="headerlink" title="用例图（Use Case）"></a>用例图（Use Case）</h4><p><img src="http://blog-image.pek3b.qingstor.com/201907131408_695.png" alt="用例图"></p>
+<h5 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h5><ul>
+<li><p>参与者</p>
+</li>
+<li><p>用例</p>
+</li>
+</ul>
+<h5 id="关系："><a href="#关系：" class="headerlink" title="关系："></a>关系：</h5><ul>
+<li>包含(Include)</li>
+<li>扩展(Extend)</li>
+</ul>
+<h4 id="类图（class）"><a href="#类图（class）" class="headerlink" title="类图（class）"></a>类图（class）</h4><p><img src="http://blog-image.pek3b.qingstor.com/201907131433_807.png" alt="类图"></p>
+<h5 id="对象-1"><a href="#对象-1" class="headerlink" title="对象"></a>对象</h5><ul>
+<li>类</li>
+<li>接口</li>
+<li>成员</li>
+</ul>
+<h5 id="关系"><a href="#关系" class="headerlink" title="关系"></a>关系</h5><p>各种关系的强弱顺序： <strong>泛化 = 实现 &gt; 组合 &gt; 聚合 &gt; 关联 &gt; 依赖</strong></p>
+<ul>
+<li>泛化（Generalization）<br>是一种继承关系，表示一般与特殊的关系，它指定了子类如何特化弗雷的所有特征和行为。</li>
+<li>实现（Realization）<br>是一种类与接口的关系，表示类是接口所有特征和行为的实现。</li>
+<li>关联（Association）<br>是一种拥有的关系，它使一个类知道另一个类的属性和方法。</li>
+<li>聚合（Aggregation）<br>是整体与部分的关系，且部分可以离开整体而单独存在。</li>
+<li>组合（Composition）<br>是整体与部分的关系，但部分不能离开整体而单独存在。</li>
+<li>依赖（Dependency）<br>是一种使用的关系，即一个类的实现需要另一个类的协助，所以要尽量不使用双向的互相依赖。</li>
+</ul>
+<h4 id="时序图（sequence）"><a href="#时序图（sequence）" class="headerlink" title="时序图（sequence）"></a>时序图（sequence）</h4><h5 id="对象-2"><a href="#对象-2" class="headerlink" title="对象"></a>对象</h5><ul>
+<li>对象生命线</li>
+</ul>
+<h5 id="消息"><a href="#消息" class="headerlink" title="消息"></a>消息</h5><ul>
+<li>同步消息</li>
+<li>异步消息</li>
+<li>注释</li>
+<li>约束</li>
+<li>循环关系</li>
+</ul>
+<p><img src="http://blog-image.pek3b.qingstor.com/201907131628_397.png" alt="时序图"></p>
+<h4 id="Markdown可以画时序图！"><a href="#Markdown可以画时序图！" class="headerlink" title="Markdown可以画时序图！"></a>Markdown可以画时序图！</h4><blockquote>
+<p>participant 客户端</p>
+<p>participant 服务器</p>
+<p>participant 通行证中心</p>
+<p>Note over 客户端: 用户输入通行证的账号、密码</p>
+<p>客户端-&gt;通行证中心: 发送账号、密码</p>
+<p>Note over 通行证中心: 验证账号、密码</p>
+<p>通行证中心–&gt;&gt;客户端: 返回token</p>
+<p>客户端-&gt;服务器: 发送token</p>
+<p>服务器-&gt;通行证中心: 验证token</p>
+<p>通行证中心–&gt;&gt;服务器: 验证成功</p>
+<p>服务器–&gt;&gt;客户端: 登陆成功</p>
+</blockquote>
+<p>效果如下，但是无法绘制循环体？</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">participant 客户端</span><br><span class="line"></span><br><span class="line">participant 服务器</span><br><span class="line"></span><br><span class="line">participant 通行证中心</span><br><span class="line"></span><br><span class="line">Note over 客户端: 用户输入通行证的账号、密码</span><br><span class="line"></span><br><span class="line">客户端-&gt;通行证中心: 发送账号、密码</span><br><span class="line"></span><br><span class="line">Note over 通行证中心: 验证账号、密码</span><br><span class="line"></span><br><span class="line">通行证中心--&gt;&gt;客户端: 返回token</span><br><span class="line"></span><br><span class="line">客户端-&gt;服务器: 发送token</span><br><span class="line"></span><br><span class="line">服务器-&gt;通行证中心: 验证token</span><br><span class="line"></span><br><span class="line">通行证中心--&gt;&gt;服务器: 验证成功</span><br><span class="line"></span><br><span class="line">服务器--&gt;&gt;客户端: 登陆成功</span><br></pre></td></tr></table></figure>
+
+<h3 id="UML绘图工具"><a href="#UML绘图工具" class="headerlink" title="UML绘图工具"></a>UML绘图工具</h3><ul>
+<li>astah</li>
+<li>visual paradigm</li>
+<li>visio 等绘图工具</li>
+</ul>
+<p>前两个可以实现逆向工程，从 java 代码中生成类图、时序图✔</p>
+<p>而 visio 等工具是纯粹的画图，无法直接导入数据❌</p>
+<p>推荐使用 visual paradigm, 操作界面现代化，相对好看，缺点是软件比较大，占用资源相对高。</p>
+<hr>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：实习Day9</li>
+        <li>本文作者：Valpha</li>
+        <li>创建时间：2019-07-13 10:07:44</li>
+        <li>
+            本文链接：https://valpha.github.io/2019/07/13/实习Day9/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2019/07/14/%E5%AE%9E%E4%B9%A0Day10/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">实习Day10</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2019/07/10/%E5%AD%A6%E7%94%9F%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%AE%9E%E4%BE%8B/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">学生管理系统的实例</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2019</span>&nbsp;-&nbsp;
+            
+            2021&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Valpha</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.3</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux"><span class="nav-text">Linux</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E9%97%AE%E9%A2%98"><span class="nav-text">文件权限问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9B%B4%E6%94%B9%E6%9D%83%E9%99%90"><span class="nav-text">更改权限</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%85%E5%AD%98"><span class="nav-text">内存</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Android-Studio-IDE"><span class="nav-text">Android Studio IDE</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Gradle"><span class="nav-text">Gradle</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UML"><span class="nav-text">UML</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%A8%E4%BE%8B%E5%9B%BE%EF%BC%88Use-Case%EF%BC%89"><span class="nav-text">用例图（Use Case）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1"><span class="nav-text">对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%EF%BC%9A"><span class="nav-text">关系：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%B1%BB%E5%9B%BE%EF%BC%88class%EF%BC%89"><span class="nav-text">类图（class）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1-1"><span class="nav-text">对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB"><span class="nav-text">关系</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%97%B6%E5%BA%8F%E5%9B%BE%EF%BC%88sequence%EF%BC%89"><span class="nav-text">时序图（sequence）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1-2"><span class="nav-text">对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%B6%88%E6%81%AF"><span class="nav-text">消息</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Markdown%E5%8F%AF%E4%BB%A5%E7%94%BB%E6%97%B6%E5%BA%8F%E5%9B%BE%EF%BC%81"><span class="nav-text">Markdown可以画时序图！</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UML%E7%BB%98%E5%9B%BE%E5%B7%A5%E5%85%B7"><span class="nav-text">UML绘图工具</span></a></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/dark-light-toggle.js"></script>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/code-copy.js"></script>
+
+
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/toc.js"></script>
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>

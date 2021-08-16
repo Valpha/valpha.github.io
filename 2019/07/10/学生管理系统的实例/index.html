@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Android">
+    <meta name="description" content="Android | Arduino | RPi">
+    <meta name="author" content="Valpha">
+    
+    <title>
+        
+            学生管理系统的实例 |
+        
+        Valpha&#39;s 造物集
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="https://blog-image.obs.cn-east-2.myhuaweicloud.com/logo_valpha.png">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"valpha.github.io","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"https://blog-image.obs.cn-east-2.myhuaweicloud.com/logo_valpha.png","favicon":"https://blog-image.obs.cn-east-2.myhuaweicloud.com/logo_valpha.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Less utilitarianism, more persistence for no reason."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":true},"lazyload":{"enable":false},"version":"3.4.3"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Valpha's 造物集" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="https://blog-image.obs.cn-east-2.myhuaweicloud.com/logo_valpha.png">
+                </a>
+            
+            <a class="logo-title" href="/">
+                Valpha&#39;s 造物集
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">学生管理系统的实例</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="https://blog-image.obs.cn-east-2.myhuaweicloud.com/logo_valpha.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Valpha</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2019-07-10 20:01:16
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%AE%9E%E4%B9%A0/">实习</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Android/">Android</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>4.1k 字</span>
+        </span>
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <p>Android开发的实战——学生信息管理系统</p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://github.com/Valpha/StudentInfoDemo" >StudentInfoDemo——Github<i class="fas fa-external-link-alt"></i></a></p>
+<span id="more"></span>
+
+<h3 id="整体规划"><a href="#整体规划" class="headerlink" title="整体规划"></a>整体规划</h3><ol>
+<li>整理开发要求</li>
+<li>整理关键技术点</li>
+<li>设计UI</li>
+<li>逻辑代码实现</li>
+<li>测试</li>
+</ol>
+<h3 id="学生管理系统的要求"><a href="#学生管理系统的要求" class="headerlink" title="学生管理系统的要求"></a>学生管理系统的要求</h3><ul>
+<li>利用数据库实现对 <strong>学生</strong> { “姓名”、“学号” } 进行管理</li>
+<li>需要能实现 <strong>增加</strong>、<strong>删除</strong>、<strong>修改</strong>、<strong>查询</strong> 四个功能<ul>
+<li>输入<strong>学生</strong> { “姓名”、“学号” } 信息可以添加到数据库</li>
+<li>给出<strong>“姓名”</strong>或<strong>“学号”</strong>或<strong>“姓名”+“学号”</strong>来删除已有的数据信息</li>
+<li>给出<strong>“姓名”</strong>和<strong>“学号”</strong>信息，将符合<strong>学号</strong>的数据的姓名修改为给出的<strong>姓名</strong></li>
+<li>查询所有存在的数据信息</li>
+<li>给定筛选条件，按照指定的<strong>“姓名”</strong>或<strong>“学号”</strong>或<strong>“姓名”+“学号”</strong>来查询数据信息</li>
+</ul>
+</li>
+</ul>
+<h3 id="关键技术点"><a href="#关键技术点" class="headerlink" title="关键技术点"></a>关键技术点</h3><h4 id="操作接口"><a href="#操作接口" class="headerlink" title="操作接口"></a>操作接口</h4><ul>
+<li>两个输入文本框：{ <strong>姓名</strong>、**学号 ** }</li>
+<li>四个按钮：{ <strong>插入</strong>、<strong>删除</strong>、<strong>修改</strong>、<strong>查询</strong> }</li>
+<li>一个输出列表：( {<strong>姓名</strong>、<strong>学号</strong>}*n )</li>
+</ul>
+<h4 id="“学生”对象结构"><a href="#“学生”对象结构" class="headerlink" title="“学生”对象结构"></a>“学生”对象结构</h4><p>学生类：{ _ID、姓名、学号 }</p>
+<h4 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h4><ul>
+<li>创建数据库</li>
+<li>新建数据表单</li>
+<li>增加对象</li>
+<li>删除对象（姓名、学号、姓名&amp;学号）</li>
+<li>修改（按学号修改姓名）</li>
+<li>查询（姓名or学号）、（顺序）</li>
+</ul>
+<h5 id="Android数据库的使用"><a href="#Android数据库的使用" class="headerlink" title="Android数据库的使用"></a>Android数据库的使用</h5><ul>
+<li>DBHelper</li>
+<li>DB契约类</li>
+<li>DBUtils工具类</li>
+</ul>
+<h3 id="UI设计"><a href="#UI设计" class="headerlink" title="UI设计"></a>UI设计</h3><h4 id="主布局"><a href="#主布局" class="headerlink" title="主布局"></a>主布局</h4><ul>
+<li>垂直线性布局<ul>
+<li>两个文本框 <code>EditTest</code></li>
+<li>四个按钮 <code>Button</code></li>
+<li>查询列表 <code>ListView</code></li>
+</ul>
+</li>
+</ul>
+<p><img src="http://blog-image.pek3b.qingstor.com/201907111839_171.png" alt="主布局"></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">xmlns:android</span>=<span class="string">&quot;http://schemas.android.com/apk/res/android&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:app</span>=<span class="string">&quot;http://schemas.android.com/apk/res-auto&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:tools</span>=<span class="string">&quot;http://schemas.android.com/tools&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">&quot;match_parent&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">&quot;match_parent&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:orientation</span>=<span class="string">&quot;vertical&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">tools:context</span>=<span class="string">&quot;.MainActivity&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">EditText</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">&quot;@+id/et_name&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">&quot;match_parent&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:ems</span>=<span class="string">&quot;10&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:hint</span>=<span class="string">&quot;请输入学生姓名&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:inputType</span>=<span class="string">&quot;textPersonName&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">EditText</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">&quot;@+id/et_stunumber&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">&quot;match_parent&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:ems</span>=<span class="string">&quot;10&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:hint</span>=<span class="string">&quot;请输入学生学号&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:inputType</span>=<span class="string">&quot;number&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">LinearLayout</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">&quot;match_parent&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:orientation</span>=<span class="string">&quot;horizontal&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">Button</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:id</span>=<span class="string">&quot;@+id/bt_insert&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_width</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_height</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_weight</span>=<span class="string">&quot;1&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:onClick</span>=<span class="string">&quot;insertStudent&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:text</span>=<span class="string">&quot;Insert&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">Button</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:id</span>=<span class="string">&quot;@+id/bt_delete&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_width</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_height</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_weight</span>=<span class="string">&quot;1&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:onClick</span>=<span class="string">&quot;deleteStudent&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:text</span>=<span class="string">&quot;Delete&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">Button</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:id</span>=<span class="string">&quot;@+id/bt_update&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_width</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_height</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_weight</span>=<span class="string">&quot;1&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:onClick</span>=<span class="string">&quot;updateStudent&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:text</span>=<span class="string">&quot;Update&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">Button</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:id</span>=<span class="string">&quot;@+id/bt_query&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_width</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_height</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_weight</span>=<span class="string">&quot;1&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:onClick</span>=<span class="string">&quot;queryStudent&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:text</span>=<span class="string">&quot;Query&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">ListView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">&quot;@+id/lv_student&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">&quot;match_parent&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">&quot;match_parent&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ListView</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="ListView子布局"><a href="#ListView子布局" class="headerlink" title="ListView子布局"></a>ListView子布局</h4><ul>
+<li>水平线性布局<ul>
+<li>_id</li>
+<li>姓名</li>
+<li>学号</li>
+</ul>
+</li>
+</ul>
+<p><img src="http://blog-image.pek3b.qingstor.com/201907111840_597.png" alt="Item子布局"></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">xmlns:android</span>=<span class="string">&quot;http://schemas.android.com/apk/res/android&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">&quot;match_parent&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">&quot;match_parent&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">&quot;@+id/_id&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">&quot;0dp&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_margin</span>=<span class="string">&quot;5dp&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_weight</span>=<span class="string">&quot;1&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:gravity</span>=<span class="string">&quot;right&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:text</span>=<span class="string">&quot;id&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:textSize</span>=<span class="string">&quot;25sp&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">&quot;@+id/name&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">&quot;0dp&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_margin</span>=<span class="string">&quot;5dp&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_weight</span>=<span class="string">&quot;2&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:text</span>=<span class="string">&quot;name&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:textSize</span>=<span class="string">&quot;25sp&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">&quot;@+id/stunumber&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">&quot;0dp&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_margin</span>=<span class="string">&quot;5dp&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_weight</span>=<span class="string">&quot;3&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:text</span>=<span class="string">&quot;stunumber&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:textSize</span>=<span class="string">&quot;25sp&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="编码逻辑"><a href="#编码逻辑" class="headerlink" title="编码逻辑"></a>编码逻辑</h3><h4 id="上电初始化"><a href="#上电初始化" class="headerlink" title="上电初始化"></a>上电初始化</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">s=&gt;start: 启动程序</span><br><span class="line">op1=&gt;operation: 初始化控件</span><br><span class="line">op2=&gt;operation: 初始化 DBUtils 工具类</span><br><span class="line">e=&gt;end: 监听按键下达指令</span><br><span class="line">s-&gt;op1-&gt;op2-&gt;e</span><br></pre></td></tr></table></figure>
+
+<h4 id="数据库相关"><a href="#数据库相关" class="headerlink" title="数据库相关"></a>数据库相关</h4><h5 id="契约类"><a href="#契约类" class="headerlink" title="契约类"></a>契约类</h5><p>用于存放约定俗成的<strong>常量</strong>信息，可以理解为C语言中的宏定义</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StudentInfoContract</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">StudentEntry</span> <span class="keyword">implements</span> <span class="title">BaseColumns</span> </span>&#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">static</span> String TABLE_NAME = <span class="string">&quot;student&quot;</span>;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">static</span> String COLUMN_NAME_NAME = <span class="string">&quot;name&quot;</span>;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">static</span> String COLUMN_NAME_STNUMBER = <span class="string">&quot;stnumber&quot;</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//	数据库名和版本号也可以放在这里面</span></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">static</span> String DATABASE_NAME = <span class="string">&quot;student.db&quot;</span>;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> DATABASE_VERSION = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="DBHelper"><a href="#DBHelper" class="headerlink" title="DBHelper"></a>DBHelper</h5><p>主要修改<code>onCreate</code>函数，用于创建自己的表，同时修改一些必备的方法（构造、更新）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">s=&gt;start: 继承自SQLiteOpenHelper</span><br><span class="line">op1=&gt;operation: 完善构造函数</span><br><span class="line">op2=&gt;operation: 重写自己的 onCreate() 函数</span><br><span class="line">op3=&gt;operation: 重写 onUpgrade() 函数</span><br><span class="line">e=&gt;end: 完毕</span><br><span class="line">s-&gt;op1-&gt;op2-&gt;op3-&gt;e</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StduentInfoDBHelper</span> <span class="keyword">extends</span> <span class="title">SQLiteOpenHelper</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String CREATE_STUDENT_TABLESQL = <span class="string">&quot;create table &quot;</span></span><br><span class="line">                    + StudentInfoContract.StudentEntry.TABLE_NAME +<span class="string">&quot; (&quot;</span></span><br><span class="line">                    + StudentInfoContract.StudentEntry._ID +<span class="string">&quot; integer primary key, &quot;</span></span><br><span class="line">                    + StudentInfoContract.StudentEntry.COLUMN_NAME_NAME +<span class="string">&quot; text, &quot;</span></span><br><span class="line">                    + StudentInfoContract.StudentEntry.COLUMN_NAME_STNUMBER +<span class="string">&quot; integer);&quot;</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String DROP_STUDENT_TABLESQL = <span class="string">&quot;drop table&quot;</span></span><br><span class="line">            + StudentInfoContract.StudentEntry.TABLE_NAME + <span class="string">&quot;;&quot;</span>;</span><br><span class="line">    <span class="comment">//  构造方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">StduentInfoDBHelper</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(  context,</span><br><span class="line">                StudentInfoContract.StudentEntry.DATABASE_NAME,</span><br><span class="line">                <span class="keyword">null</span>,</span><br><span class="line">                StudentInfoContract.StudentEntry.DATABASE_VERSION);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(SQLiteDatabase db)</span> </span>&#123;</span><br><span class="line">        db.execSQL(CREATE_STUDENT_TABLESQL);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onUpgrade</span><span class="params">(SQLiteDatabase db, <span class="keyword">int</span> oldVersion, <span class="keyword">int</span> newVersion)</span> </span>&#123;</span><br><span class="line">        db.execSQL(DROP_STUDENT_TABLESQL);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h5 id="Utils工具类"><a href="#Utils工具类" class="headerlink" title="Utils工具类"></a>Utils工具类</h5><p>工具类可以理解为一个工具箱，所需要的所有的工具（方法）都继承在了这里面</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">s=&gt;start: 开始</span><br><span class="line">op1=&gt;operation: 初始化 DBHelper（设置好上下文 context）</span><br><span class="line">op2=&gt;operation: 实现自己需要的功能： 增删改查</span><br><span class="line">e=&gt;end: 结束</span><br><span class="line">s-&gt;op1-&gt;op2-&gt;e</span><br></pre></td></tr></table></figure>
+
+<h6 id="函数总览"><a href="#函数总览" class="headerlink" title="函数总览"></a>函数总览</h6><p><img src="http://blog-image.pek3b.qingstor.com/201907111702_143.png" alt="Utils类的所有方法"></p>
+<h6 id="设置上下文"><a href="#设置上下文" class="headerlink" title="设置上下文"></a>设置上下文</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> StduentInfoDBHelper m_dbHelper;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> Context m_ctx;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">setContext</span><span class="params">(Context ctx)</span></span>&#123;</span><br><span class="line">    m_ctx = ctx;</span><br><span class="line">    <span class="keyword">if</span> (m_dbHelper==<span class="keyword">null</span>)&#123;</span><br><span class="line">        m_dbHelper = <span class="keyword">new</span> StduentInfoDBHelper(m_ctx);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="按照姓名和学号添加至数据库"><a href="#按照姓名和学号添加至数据库" class="headerlink" title="按照姓名和学号添加至数据库"></a>按照姓名和学号添加至数据库</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  按照学生姓名和学号添加至数据库</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">long</span> <span class="title">insertStudent</span><span class="params">(Student stu)</span></span>&#123;</span><br><span class="line">    <span class="keyword">assert</span>(m_dbHelper != <span class="keyword">null</span>);</span><br><span class="line">    SQLiteDatabase db = m_dbHelper.getWritableDatabase();</span><br><span class="line">    ContentValues values = <span class="keyword">new</span> ContentValues();</span><br><span class="line">    values.put(StudentInfoContract.StudentEntry.COLUMN_NAME_NAME, stu.getName());</span><br><span class="line">    values.put(StudentInfoContract.StudentEntry.COLUMN_NAME_STNUMBER, stu.getStunumber());</span><br><span class="line">    <span class="keyword">long</span> insertcount = db.insert(StudentInfoContract.StudentEntry.TABLE_NAME,<span class="keyword">null</span>, values);</span><br><span class="line">    db.close();</span><br><span class="line">    <span class="comment">//	此处返回的是数据库中所有条目的数量</span></span><br><span class="line">    <span class="keyword">return</span> insertcount;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="按照姓名删除学生"><a href="#按照姓名删除学生" class="headerlink" title="按照姓名删除学生"></a>按照姓名删除学生</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  按照姓名删除学生</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">deleteStudent</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">    <span class="keyword">assert</span> (m_dbHelper!=<span class="keyword">null</span>);</span><br><span class="line">    SQLiteDatabase db = m_dbHelper.getWritableDatabase();</span><br><span class="line">    String whereClause = StudentInfoContract.StudentEntry.COLUMN_NAME_NAME+<span class="string">&quot; = ?&quot;</span>;</span><br><span class="line">    String[] whereArgs = <span class="keyword">new</span> String[] &#123;name&#125;;</span><br><span class="line">    <span class="keyword">int</span> deletecount = db.delete(StudentInfoContract.StudentEntry.TABLE_NAME, whereClause, whereArgs);</span><br><span class="line">    db.close();</span><br><span class="line">    <span class="comment">//	返回成功删除条目的数量</span></span><br><span class="line">    <span class="keyword">return</span> deletecount;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="按照学号删除学生"><a href="#按照学号删除学生" class="headerlink" title="按照学号删除学生"></a>按照学号删除学生</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  按照学号删除学生</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">deleteStudent</span><span class="params">(<span class="keyword">int</span> stunum)</span></span>&#123;</span><br><span class="line">    <span class="keyword">assert</span> (m_dbHelper!=<span class="keyword">null</span>);</span><br><span class="line">    SQLiteDatabase db = m_dbHelper.getWritableDatabase();</span><br><span class="line">    String whereClause = StudentInfoContract.StudentEntry.COLUMN_NAME_STNUMBER+<span class="string">&quot; = ?&quot;</span>;</span><br><span class="line">    String[] whereArgs = <span class="keyword">new</span> String[] &#123;String.valueOf(stunum)&#125;;</span><br><span class="line">    <span class="keyword">int</span> deletecount = db.delete(StudentInfoContract.StudentEntry.TABLE_NAME, whereClause, whereArgs);</span><br><span class="line">    db.close();</span><br><span class="line">    <span class="comment">//	返回成功删除条目的数量</span></span><br><span class="line">    <span class="keyword">return</span> deletecount;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="按照姓名-amp-学号删除学生"><a href="#按照姓名-amp-学号删除学生" class="headerlink" title="按照姓名&amp;学号删除学生"></a>按照姓名&amp;学号删除学生</h6><p>这里涉及到一个双重筛选的条件，只需要对<code>whereClause</code>和<code>whereArgs</code>进行编辑即可</p>
+<p>将我们需要匹配的两个字段名在<code>whereClause</code>中用<code>AND</code>方法连接起来，并在<code>whereArgs</code>中添加需要匹配的字符串数组即可</p>
+<p><img src="http://blog-image.pek3b.qingstor.com/201907111546_882.png" alt="查询到的写法"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  按姓名+学号双匹配方式删除学生</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">deleteStudent</span><span class="params">(String name, <span class="keyword">int</span> stunum)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">assert</span> (m_dbHelper != <span class="keyword">null</span>);</span><br><span class="line">    SQLiteDatabase db = m_dbHelper.getWritableDatabase();</span><br><span class="line">    String whereClause =</span><br><span class="line">            StudentInfoContract.StudentEntry.COLUMN_NAME_NAME + <span class="string">&quot; = ?&quot;</span> + <span class="string">&quot; AND &quot;</span> +</span><br><span class="line">            StudentInfoContract.StudentEntry.COLUMN_NAME_STNUMBER +<span class="string">&quot; = ?&quot;</span>;</span><br><span class="line">    String[] whereArgs = <span class="keyword">new</span> String[]&#123;name, String.valueOf(stunum)&#125;;</span><br><span class="line">    <span class="keyword">int</span> deletecount = db.delete(StudentInfoContract.StudentEntry.TABLE_NAME, whereClause, whereArgs);</span><br><span class="line">    db.close();</span><br><span class="line">    <span class="keyword">return</span> deletecount;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="根据学号更新姓名"><a href="#根据学号更新姓名" class="headerlink" title="根据学号更新姓名"></a>根据学号更新姓名</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  根据学号更新姓名</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">updateStudent</span><span class="params">(<span class="keyword">int</span> stunum, String newname)</span></span>&#123;</span><br><span class="line">    <span class="keyword">assert</span>(m_dbHelper != <span class="keyword">null</span>);</span><br><span class="line">    SQLiteDatabase db = m_dbHelper.getWritableDatabase();</span><br><span class="line">    ContentValues values = <span class="keyword">new</span> ContentValues();</span><br><span class="line">    values.put(StudentInfoContract.StudentEntry.COLUMN_NAME_NAME, newname);</span><br><span class="line">    String whereClause = StudentInfoContract.StudentEntry.COLUMN_NAME_STNUMBER+<span class="string">&quot; = ?&quot;</span>;</span><br><span class="line">    String[] whereArgs = <span class="keyword">new</span> String[]&#123;String.valueOf(stunum)&#125;;</span><br><span class="line">    <span class="keyword">int</span> updatecount = db.update(StudentInfoContract.StudentEntry.TABLE_NAME, values, whereClause, whereArgs);</span><br><span class="line">    db.close();</span><br><span class="line">    <span class="comment">//	返回成功更新条目的数量</span></span><br><span class="line">    <span class="keyword">return</span> updatecount;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="设置查询需要用的字段名"><a href="#设置查询需要用的字段名" class="headerlink" title="设置查询需要用的字段名"></a>设置查询需要用的字段名</h6><p>因为每次查询都需要使用，所以设置成为全局变量</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> String[] columns = <span class="keyword">new</span> String[]&#123;</span><br><span class="line">        StudentInfoContract.StudentEntry._ID,                   <span class="comment">//  第0列</span></span><br><span class="line">        StudentInfoContract.StudentEntry.COLUMN_NAME_NAME,      <span class="comment">//  第1列</span></span><br><span class="line">        StudentInfoContract.StudentEntry.COLUMN_NAME_STNUMBER   <span class="comment">//  第2列</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>后面使用的所有查询方法都可以直接使用<code>columns</code>的查询变量</p>
+<h6 id="查询所有条目"><a href="#查询所有条目" class="headerlink" title="查询所有条目"></a>查询所有条目</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;Student&gt; <span class="title">queryStudent</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">assert</span> (m_dbHelper != <span class="keyword">null</span>);</span><br><span class="line">    SQLiteDatabase db = m_dbHelper.getWritableDatabase();</span><br><span class="line">    <span class="comment">//	此处，columns后面紧跟着是要查询的列和判断条件，设置为null为全部查询</span></span><br><span class="line">    Cursor cursor = db.query(StudentInfoContract.StudentEntry.TABLE_NAME,</span><br><span class="line">                             columns, <span class="keyword">null</span>, <span class="keyword">null</span>, <span class="keyword">null</span>, <span class="keyword">null</span>, <span class="keyword">null</span>);</span><br><span class="line">    ArrayList&lt;Student&gt; stulist = <span class="keyword">new</span> ArrayList&lt;Student&gt;();</span><br><span class="line">    <span class="keyword">if</span> (cursor != <span class="keyword">null</span> &amp;&amp; cursor.getCount()&gt;<span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">while</span> (cursor.moveToNext())&#123;</span><br><span class="line">            String tmpname = cursor.getString(cursor.getColumnIndex(StudentInfoContract.StudentEntry.COLUMN_NAME_NAME));</span><br><span class="line">            <span class="keyword">int</span> tmpstunumber = cursor.getInt(cursor.getColumnIndex(StudentInfoContract.StudentEntry.COLUMN_NAME_STNUMBER));</span><br><span class="line">            <span class="keyword">int</span> tmp_id = cursor.getInt(cursor.getColumnIndex(StudentInfoContract.StudentEntry._ID));</span><br><span class="line">            Student tmpstu = <span class="keyword">new</span> Student(tmp_id,tmpname,tmpstunumber);</span><br><span class="line">            stulist.add(tmpstu);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    db.close();</span><br><span class="line">    <span class="keyword">return</span> stulist;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="按照学号查找"><a href="#按照学号查找" class="headerlink" title="按照学号查找"></a>按照学号查找</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;Student&gt; <span class="title">queryStudent</span><span class="params">(<span class="keyword">int</span> stunum)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">assert</span> (m_dbHelper != <span class="keyword">null</span>);</span><br><span class="line">    SQLiteDatabase db = m_dbHelper.getWritableDatabase();</span><br><span class="line">    String selection = StudentInfoContract.StudentEntry.COLUMN_NAME_STNUMBER + <span class="string">&quot; = ?&quot;</span>;</span><br><span class="line">    String[] selectionArgs = <span class="keyword">new</span> String[]&#123;String.valueOf(stunum)&#125;;</span><br><span class="line">    Cursor cursor = db.query(StudentInfoContract.StudentEntry.TABLE_NAME,</span><br><span class="line">            columns, selection, selectionArgs, <span class="keyword">null</span>, <span class="keyword">null</span>, <span class="keyword">null</span>);</span><br><span class="line">    ArrayList&lt;Student&gt; stulist = <span class="keyword">new</span> ArrayList&lt;Student&gt;();</span><br><span class="line">    <span class="keyword">if</span> (cursor != <span class="keyword">null</span> &amp;&amp; cursor.getCount() &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">while</span> (cursor.moveToNext()) &#123;</span><br><span class="line">            String tmpname = cursor.getString(cursor.getColumnIndex(StudentInfoContract.StudentEntry.COLUMN_NAME_NAME));</span><br><span class="line">            <span class="keyword">int</span> tmpstunumber = cursor.getInt(cursor.getColumnIndex(StudentInfoContract.StudentEntry.COLUMN_NAME_STNUMBER));</span><br><span class="line">            <span class="keyword">int</span> tmp_id = cursor.getInt(cursor.getColumnIndex(StudentInfoContract.StudentEntry._ID));</span><br><span class="line">            Student tmpstu = <span class="keyword">new</span> Student(tmp_id,tmpname,tmpstunumber);</span><br><span class="line">            stulist.add(tmpstu);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    db.close();</span><br><span class="line">    <span class="keyword">return</span> stulist;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="按照姓名查找"><a href="#按照姓名查找" class="headerlink" title="按照姓名查找"></a>按照姓名查找</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  按照姓名查找条目</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;Student&gt; <span class="title">queryStudent</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">assert</span> (m_dbHelper != <span class="keyword">null</span>);</span><br><span class="line">    SQLiteDatabase db = m_dbHelper.getWritableDatabase();</span><br><span class="line">    String selection = StudentInfoContract.StudentEntry.COLUMN_NAME_NAME + <span class="string">&quot; = ?&quot;</span>;</span><br><span class="line">    String[] selectionArgs = <span class="keyword">new</span> String[]&#123;name&#125;;</span><br><span class="line">    Cursor cursor = db.query(StudentInfoContract.StudentEntry.TABLE_NAME,</span><br><span class="line">            columns, selection, selectionArgs, <span class="keyword">null</span>, <span class="keyword">null</span>, <span class="keyword">null</span>);</span><br><span class="line">    ArrayList&lt;Student&gt; stulist = <span class="keyword">new</span> ArrayList&lt;Student&gt;();</span><br><span class="line">    <span class="keyword">if</span> (cursor != <span class="keyword">null</span> &amp;&amp; cursor.getCount() &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">while</span> (cursor.moveToNext()) &#123;</span><br><span class="line">            String tmpname = cursor.getString(cursor.getColumnIndex(StudentInfoContract.StudentEntry.COLUMN_NAME_NAME));</span><br><span class="line">            <span class="keyword">int</span> tmpstunumber = cursor.getInt(cursor.getColumnIndex(StudentInfoContract.StudentEntry.COLUMN_NAME_STNUMBER));</span><br><span class="line">            <span class="keyword">int</span> tmp_id = cursor.getInt(cursor.getColumnIndex(StudentInfoContract.StudentEntry._ID));</span><br><span class="line">            Student tmpstu = <span class="keyword">new</span> Student(tmp_id,tmpname,tmpstunumber);</span><br><span class="line">            stulist.add(tmpstu);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    db.close();</span><br><span class="line">    <span class="keyword">return</span> stulist;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="按照姓名-amp-学号查找"><a href="#按照姓名-amp-学号查找" class="headerlink" title="按照姓名&amp;学号查找"></a>按照姓名&amp;学号查找</h6><p>这里双匹配的方式跟上述删除学生的方法相同</p>
+<p>设置<code>selection</code>和<code>selectionArgs</code>即可</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  按照姓名&amp;学号双匹配方式查找条目</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;Student&gt; <span class="title">queryStudent</span><span class="params">(String name,<span class="keyword">int</span> stunum)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">assert</span> (m_dbHelper != <span class="keyword">null</span>);</span><br><span class="line">    SQLiteDatabase db = m_dbHelper.getWritableDatabase();</span><br><span class="line">    String selection =</span><br><span class="line">            StudentInfoContract.StudentEntry.COLUMN_NAME_NAME + <span class="string">&quot; = ?&quot;</span> + <span class="string">&quot; AND &quot;</span> +</span><br><span class="line">            StudentInfoContract.StudentEntry.COLUMN_NAME_STNUMBER +<span class="string">&quot; = ?&quot;</span>;</span><br><span class="line">    String[] selectionArgs = <span class="keyword">new</span> String[]&#123;name, String.valueOf(stunum)&#125;;</span><br><span class="line">    Cursor cursor = db.query(StudentInfoContract.StudentEntry.TABLE_NAME,</span><br><span class="line">            columns, selection, selectionArgs, <span class="keyword">null</span>, <span class="keyword">null</span>, <span class="keyword">null</span>);</span><br><span class="line">    ArrayList&lt;Student&gt; stulist = <span class="keyword">new</span> ArrayList&lt;Student&gt;();</span><br><span class="line">    <span class="keyword">if</span> (cursor != <span class="keyword">null</span> &amp;&amp; cursor.getCount() &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">while</span> (cursor.moveToNext()) &#123;</span><br><span class="line">            String tmpname = cursor.getString(cursor.getColumnIndex(StudentInfoContract.StudentEntry.COLUMN_NAME_NAME));</span><br><span class="line">            <span class="keyword">int</span> tmpstunumber = cursor.getInt(cursor.getColumnIndex(StudentInfoContract.StudentEntry.COLUMN_NAME_STNUMBER));</span><br><span class="line">            <span class="keyword">int</span> tmp_id = cursor.getInt(cursor.getColumnIndex(StudentInfoContract.StudentEntry._ID));</span><br><span class="line">            Student tmpstu = <span class="keyword">new</span> Student(tmp_id,tmpname,tmpstunumber);</span><br><span class="line">            stulist.add(tmpstu);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    db.close();</span><br><span class="line">    <span class="keyword">return</span> stulist;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="主程序"><a href="#主程序" class="headerlink" title="主程序"></a>主程序</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">s=&gt;start: 开始</span><br><span class="line">op1=&gt;operation: 初始化各控件（两个文本框和ListView）</span><br><span class="line">op2=&gt;operation: 设置 Utils 的上下文（设置Utils内的DBHelper的上下文）</span><br><span class="line">op3=&gt;operation: 为 ListView 编写并设置 Adapter 类</span><br><span class="line">op4=&gt;operation: 编写各按键的监听函数</span><br><span class="line">e=&gt;end: 结束</span><br><span class="line">s-&gt;op1-&gt;op2-&gt;op3-&gt;op4-&gt;e</span><br></pre></td></tr></table></figure>
+
+<h5 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> EditText et_name;</span><br><span class="line">    <span class="keyword">private</span> EditText et_stunumber;</span><br><span class="line">    <span class="keyword">private</span> ListView lv_student;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">        <span class="comment">//	设置上下文</span></span><br><span class="line">        StudentInfoUtils.setContext(<span class="keyword">this</span>);</span><br><span class="line">        <span class="comment">//	控件初始化</span></span><br><span class="line">        initView();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initView</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        et_name = (EditText) findViewById(R.id.et_name);</span><br><span class="line">        et_stunumber = (EditText) findViewById(R.id.et_stunumber);</span><br><span class="line">        lv_student = (ListView) findViewById(R.id.lv_student);</span><br><span class="line">        MyAdapter adapter = <span class="keyword">new</span> MyAdapter();</span><br><span class="line">        lv_student.setAdapter(adapter);</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="按键响应函数"><a href="#按键响应函数" class="headerlink" title="按键响应函数"></a>按键响应函数</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">s=&gt;start: 按键按下</span><br><span class="line">op1=&gt;operation: 读取 TextView 的数据</span><br><span class="line">op2=&gt;subroutine: 利用 Utils 执行对应的操作</span><br><span class="line">op3=&gt;operation: 利用 Toast 显示操作结果</span><br><span class="line">e=&gt;end: 结束</span><br><span class="line">s-&gt;op1-&gt;op2-&gt;op3-&gt;e</span><br></pre></td></tr></table></figure>
+
+<h6 id="增加"><a href="#增加" class="headerlink" title="增加"></a>增加</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">s=&gt;start: 按键按下</span><br><span class="line">op1=&gt;operation: 读取 TextView 的数据</span><br><span class="line">con1=&gt;condition: 输入框是否为空?</span><br><span class="line">con2=&gt;condition: 返回结果</span><br><span class="line">（数据库总条目）</span><br><span class="line">是否大于0?</span><br><span class="line">op3=&gt;subroutine: 利用 Utils 执行 insert()</span><br><span class="line">e1=&gt;end: Toast: 添加成功，</span><br><span class="line">返回目前的条目数量</span><br><span class="line">e2=&gt;end: Toast: 添加错误，信息不全</span><br><span class="line">e3=&gt;end: Toast: 数据库操作错误，添加失败</span><br><span class="line">s-&gt;op1-&gt;con1</span><br><span class="line">con1(yes)-&gt;op3-&gt;con2</span><br><span class="line">con1(no)-&gt;e2</span><br><span class="line">con2(yes)-&gt;e1</span><br><span class="line">con2(no)-&gt;e3</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insertStudent</span><span class="params">(View view)</span> </span>&#123;</span><br><span class="line">    String name = et_name.getText().toString().trim();</span><br><span class="line">    String stunum = et_stunumber.getText().toString().trim();</span><br><span class="line">    <span class="keyword">if</span> (name.length() &gt; <span class="number">0</span> &amp;&amp; stunum.length() &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        Student stu = <span class="keyword">new</span> Student(<span class="number">0</span>, name, Integer.valueOf(stunum));</span><br><span class="line">        <span class="keyword">long</span> count = StudentInfoUtils.insertStudent(stu);</span><br><span class="line">        <span class="keyword">if</span> (count &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">            Toast.makeText(<span class="keyword">this</span>, <span class="string">&quot;您没有添加学生&quot;</span>, Toast.LENGTH_LONG).show();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            Toast.makeText(<span class="keyword">this</span>, <span class="string">&quot;信息添加成功！目前一共添加了&quot;</span> + count + <span class="string">&quot;条学生信息&quot;</span>, Toast.LENGTH_LONG).show();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        Toast.makeText(<span class="keyword">this</span>, <span class="string">&quot;信息不全！无法添加学生信息&quot;</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">s=&gt;start: 按键按下</span><br><span class="line">op1=&gt;operation: 读取 TextView 的数据</span><br><span class="line">con1=&gt;condition: 两个输入框是否全为空?</span><br><span class="line">con2=&gt;condition: 返回删除的数量</span><br><span class="line">是否大于0？</span><br><span class="line">op2=&gt;operation: 判断执行哪一种删除方法：</span><br><span class="line">按姓名删除 or</span><br><span class="line">按学号删除 or</span><br><span class="line">按照姓名+学号删除</span><br><span class="line">op3=&gt;subroutine: 利用 Utils 执行相应的删除方法</span><br><span class="line">e1=&gt;end: Toast: 删除成功，提示删除的数量</span><br><span class="line">e2=&gt;end: Toast: 信息错误，无法删除</span><br><span class="line">e3=&gt;end: Toast: 错误，没有找到匹配的用户</span><br><span class="line">s-&gt;op1-&gt;con1</span><br><span class="line">con1(no)-&gt;op2-&gt;op3-&gt;con2</span><br><span class="line">con1(yes,right)-&gt;e2</span><br><span class="line">con2(yes)-&gt;e1</span><br><span class="line">con2(no)-&gt;e3</span><br><span class="line">con2(111)-&gt;e2</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deleteStudent</span><span class="params">(View view)</span> </span>&#123;</span><br><span class="line">    String name = et_name.getText().toString().trim();</span><br><span class="line">    String stunum = et_stunumber.getText().toString().trim();</span><br><span class="line">    <span class="keyword">if</span> (name.length() &lt;= <span class="number">0</span> &amp;&amp; stunum.length() &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="comment">//	没有输入</span></span><br><span class="line">        Toast.makeText(<span class="keyword">this</span>, <span class="string">&quot;信息错误！无法删除学生&quot;</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span> (name.length() &gt; <span class="number">0</span> &amp;&amp; stunum.length() &lt;= <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="comment">//  按姓名删除</span></span><br><span class="line">        <span class="keyword">int</span> count = StudentInfoUtils.deleteStudent(name);</span><br><span class="line">        <span class="keyword">if</span> (count &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">            Toast.makeText(<span class="keyword">this</span>, <span class="string">&quot;没有您要删除学生&quot;</span>, Toast.LENGTH_LONG).show();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            Toast.makeText(<span class="keyword">this</span>, <span class="string">&quot;成功删除了&quot;</span> + count + <span class="string">&quot;条学生信息&quot;</span>, Toast.LENGTH_LONG).show();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span> (name.length() &lt;= <span class="number">0</span> &amp;&amp; stunum.length() &gt; <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="comment">//  按学号删除</span></span><br><span class="line">        <span class="keyword">int</span> count = StudentInfoUtils.deleteStudent(Integer.valueOf(stunum));</span><br><span class="line">        <span class="keyword">if</span> (count &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">            Toast.makeText(<span class="keyword">this</span>, <span class="string">&quot;没有您要删除学生&quot;</span>, Toast.LENGTH_LONG).show();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            Toast.makeText(<span class="keyword">this</span>, <span class="string">&quot;成功删除了&quot;</span> + count + <span class="string">&quot;条学生信息&quot;</span>, Toast.LENGTH_LONG).show();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="comment">//  按姓名+学号删除</span></span><br><span class="line">        <span class="keyword">int</span> count = StudentInfoUtils.deleteStudent(name, Integer.valueOf(stunum));</span><br><span class="line">        <span class="keyword">if</span> (count &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">            Toast.makeText(<span class="keyword">this</span>, <span class="string">&quot;没有您要删除学生&quot;</span>, Toast.LENGTH_LONG).show();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            Toast.makeText(<span class="keyword">this</span>, <span class="string">&quot;成功删除了&quot;</span> + count + <span class="string">&quot;条学生信息&quot;</span>, Toast.LENGTH_LONG).show();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="修改（按学号改姓名）"><a href="#修改（按学号改姓名）" class="headerlink" title="修改（按学号改姓名）"></a>修改（按学号改姓名）</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">s=&gt;start: 按键按下</span><br><span class="line">op1=&gt;operation: 读取 TextView 的数据</span><br><span class="line">con1=&gt;condition: 学号输入框</span><br><span class="line">是否为空?</span><br><span class="line">con2=&gt;condition: 返回已更新的数量</span><br><span class="line">是否大于0？</span><br><span class="line">op3=&gt;subroutine: 利用 Utils 执行相应的更新方法</span><br><span class="line">e1=&gt;end: Toast: 更新成功，提示修改的数量</span><br><span class="line">e2=&gt;end: Toast: 信息错误，无法更新</span><br><span class="line">e3=&gt;end: Toast: 错误，没有找到匹配的用户</span><br><span class="line">s-&gt;op1-&gt;con1</span><br><span class="line">con1(no)-&gt;op3-&gt;con2</span><br><span class="line">con1(yes,right)-&gt;e2</span><br><span class="line">con2(yes)-&gt;e1</span><br><span class="line">con2(no)-&gt;e3</span><br><span class="line">con2(111)-&gt;e2</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">updateStudent</span><span class="params">(View view)</span> </span>&#123;</span><br><span class="line">    String name = et_name.getText().toString().trim();</span><br><span class="line">    String stunum = et_stunumber.getText().toString().trim();</span><br><span class="line">    <span class="keyword">if</span> (stunum.length() &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">        Toast.makeText(<span class="keyword">this</span>, <span class="string">&quot;信息错误！无法修改学生&quot;</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">int</span> count = StudentInfoUtils.updateStudent(Integer.valueOf(stunum), name);</span><br><span class="line">        <span class="keyword">if</span> (count &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">            Toast.makeText(<span class="keyword">this</span>, <span class="string">&quot;没有您要更新学生&quot;</span>, Toast.LENGTH_LONG).show();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            Toast.makeText(<span class="keyword">this</span>, <span class="string">&quot;成功更新了&quot;</span> + count + <span class="string">&quot;条学生信息&quot;</span>, Toast.LENGTH_LONG).show();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">s=&gt;start: 按键按下</span><br><span class="line">op1=&gt;operation: 读取 TextView 的数据</span><br><span class="line">con1=&gt;condition: 两个输入框是否全为空?</span><br><span class="line">op4=&gt;operation: 用 Utils 查询全部条目</span><br><span class="line">con2=&gt;condition: 返回查询的数量</span><br><span class="line">是否大于0？</span><br><span class="line">op2=&gt;operation: 判断执行哪一种查询方法</span><br><span class="line">按姓名查询 or</span><br><span class="line">按学号查询 or</span><br><span class="line">按照姓名+学号查询</span><br><span class="line">op3=&gt;subroutine: 利用 Utils 执行相应的查询方法：</span><br><span class="line">e1=&gt;operation: Toast: 查询成功，提示查询到的的数量</span><br><span class="line">e2=&gt;operation: Toast: 查询成功，提示查询到的的数量</span><br><span class="line">e3=&gt;end: Toast: 错误，没有找到匹配的用户</span><br><span class="line">end=&gt;end: 更新 Adapter 中的数据</span><br><span class="line">并刷新 TextView 控件</span><br><span class="line">s-&gt;op1-&gt;con1</span><br><span class="line">con1(no)-&gt;op2-&gt;op3-&gt;con2</span><br><span class="line">con1(yes,right)-&gt;op4-&gt;e2</span><br><span class="line">con2(yes)-&gt;e1-&gt;end</span><br><span class="line">con2(no)-&gt;e3</span><br><span class="line">con2(111)-&gt;e2-&gt;end</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">queryStudent</span><span class="params">(View view)</span> </span>&#123;</span><br><span class="line">    String name = et_name.getText().toString().trim();</span><br><span class="line">    String stunum = et_stunumber.getText().toString().trim();</span><br><span class="line">    <span class="keyword">if</span> (name.length() &lt;= <span class="number">0</span> &amp;&amp; stunum.length() &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="comment">//  查询所有的学生信息</span></span><br><span class="line">        list = StudentInfoUtils.queryStudent();</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span> (name.length() &gt; <span class="number">0</span> &amp;&amp; stunum.length() &lt;= <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="comment">//  按姓名查询</span></span><br><span class="line">        list = StudentInfoUtils.queryStudent(name);</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span> (name.length() &lt;= <span class="number">0</span> &amp;&amp; stunum.length() &gt; <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="comment">//  按学号查询</span></span><br><span class="line">        list = StudentInfoUtils.queryStudent(Integer.valueOf(stunum));</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="comment">//  按姓名+学号查询</span></span><br><span class="line">        list = StudentInfoUtils.queryStudent(name,Integer.valueOf(stunum));</span><br><span class="line">    &#125;</span><br><span class="line">    adapter.notifyDataSetChanged();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="MyAdapter类"><a href="#MyAdapter类" class="headerlink" title="MyAdapter类"></a>MyAdapter类</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">s=&gt;start: 继承自BaseAdapter</span><br><span class="line">op1=&gt;operation: 改写 getCount() 方法</span><br><span class="line">op2=&gt;operation: 改写 getView() 方法</span><br><span class="line">op3=&gt;operation: 创建 ViewHolder 类</span><br><span class="line">s-&gt;op1-&gt;op2-&gt;op3</span><br></pre></td></tr></table></figure>
+
+<h6 id="getView"><a href="#getView" class="headerlink" title="getView()"></a>getView()</h6><p><code>getView()</code>方法是更新控件的关键</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">s=&gt;start: getView()</span><br><span class="line">op2=&gt;condition: (利用View回收机制)</span><br><span class="line">判断是否存在空余的 convertView</span><br><span class="line">y1=&gt;operation: 从已有的 convertView </span><br><span class="line">中 getTag()</span><br><span class="line">y2=&gt;operation: 更新 viewHolder 的值</span><br><span class="line">e=&gt;end: 返回一个 converView</span><br><span class="line">n1=&gt;operation: 新建一个 viewHolder</span><br><span class="line">n2=&gt;operation: 给新建的 viewHolder分配内容</span><br><span class="line">n3=&gt;operation: 给 convertView setTag(viewHolder)</span><br><span class="line">s-&gt;op2</span><br><span class="line">op2(yes)-&gt;y1-&gt;y2-&gt;e</span><br><span class="line">op2(no)-&gt;n1-&gt;n2-&gt;n3-&gt;y2</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> View <span class="title">getView</span><span class="params">(<span class="keyword">int</span> position, View convertView, ViewGroup parent)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (convertView == <span class="keyword">null</span>) &#123;</span><br><span class="line">        convertView = View.inflate(MainActivity.<span class="keyword">this</span>, R.layout.student_item, <span class="keyword">null</span>);</span><br><span class="line">        viewHolder = <span class="keyword">new</span> ViewHolder();</span><br><span class="line">        viewHolder._id = convertView.findViewById(R.id._id);</span><br><span class="line">        viewHolder.name = convertView.findViewById(R.id.name);</span><br><span class="line">        viewHolder.stunumber = convertView.findViewById(R.id.stunumber);</span><br><span class="line">        convertView.setTag(viewHolder);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        viewHolder = (ViewHolder) convertView.getTag();</span><br><span class="line">    &#125;</span><br><span class="line">    Student stu = list.get(position);</span><br><span class="line">    viewHolder._id.setText(String.valueOf(stu.get_id()));</span><br><span class="line">    viewHolder.name.setText(stu.getName());</span><br><span class="line">    viewHolder.stunumber.setText(String.valueOf(stu.getStunumber()));</span><br><span class="line">    <span class="keyword">return</span> convertView;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="getCount"><a href="#getCount" class="headerlink" title="getCount()"></a>getCount()</h6><p>由于是使用<code>list</code>来更新数据，所以此处应该返回一个与<code>list</code>列表长度相同数量的<code>Item</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (list != <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> list.size();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="内置ViewHolder类"><a href="#内置ViewHolder类" class="headerlink" title="内置ViewHolder类"></a>内置ViewHolder类</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">ViewHolder</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> TextView _id;</span><br><span class="line">    <span class="keyword">public</span> TextView name;</span><br><span class="line">    <span class="keyword">public</span> TextView stunumber;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="黑盒测试结果"><a href="#黑盒测试结果" class="headerlink" title="黑盒测试结果"></a>黑盒测试结果</h3><h4 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h4><p><img src="http://blog-image.pek3b.qingstor.com/201907111751_876.gif" alt="成功插入测试"></p>
+<p><img src="http://blog-image.pek3b.qingstor.com/201907111752_124.gif" alt="信息不全，无法插入测试"></p>
+<h4 id="删除-1"><a href="#删除-1" class="headerlink" title="删除"></a>删除</h4><p><img src="http://blog-image.pek3b.qingstor.com/201907111758_125.gif" alt="按姓名删除"></p>
+<p><img src="http://blog-image.pek3b.qingstor.com/201907111800_510.gif" alt="按学号删除"></p>
+<p><img src="http://blog-image.pek3b.qingstor.com/201907111802_671.gif" alt="姓名&amp;学号删除"></p>
+<p><img src="http://blog-image.pek3b.qingstor.com/201907111803_107.gif" alt="删除错误提示"></p>
+<h4 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h4><p><img src="http://blog-image.pek3b.qingstor.com/201907111804_814.gif" alt="按照学号修改姓名"></p>
+<p><img src="http://blog-image.pek3b.qingstor.com/201907111812_467.gif" alt="错误修改测试"></p>
+<h4 id="查询-1"><a href="#查询-1" class="headerlink" title="查询"></a>查询</h4><p><img src="http://blog-image.pek3b.qingstor.com/201907111815_433.gif" alt="四种查询测试"></p>
+<hr>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：学生管理系统的实例</li>
+        <li>本文作者：Valpha</li>
+        <li>创建时间：2019-07-10 20:01:16</li>
+        <li>
+            本文链接：https://valpha.github.io/2019/07/10/学生管理系统的实例/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2019/07/13/%E5%AE%9E%E4%B9%A0Day9/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">实习Day9</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2019/07/10/%E5%AE%9E%E4%B9%A0Day8/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">实习Day8</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2019</span>&nbsp;-&nbsp;
+            
+            2021&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Valpha</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.3</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B4%E4%BD%93%E8%A7%84%E5%88%92"><span class="nav-text">整体规划</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%A6%E7%94%9F%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%A6%81%E6%B1%82"><span class="nav-text">学生管理系统的要求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E6%8A%80%E6%9C%AF%E7%82%B9"><span class="nav-text">关键技术点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E6%8E%A5%E5%8F%A3"><span class="nav-text">操作接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%80%9C%E5%AD%A6%E7%94%9F%E2%80%9D%E5%AF%B9%E8%B1%A1%E7%BB%93%E6%9E%84"><span class="nav-text">“学生”对象结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C"><span class="nav-text">数据库操作</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Android%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-text">Android数据库的使用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UI%E8%AE%BE%E8%AE%A1"><span class="nav-text">UI设计</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BB%E5%B8%83%E5%B1%80"><span class="nav-text">主布局</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ListView%E5%AD%90%E5%B8%83%E5%B1%80"><span class="nav-text">ListView子布局</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E7%A0%81%E9%80%BB%E8%BE%91"><span class="nav-text">编码逻辑</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%8A%E7%94%B5%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-text">上电初始化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%B8%E5%85%B3"><span class="nav-text">数据库相关</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A5%91%E7%BA%A6%E7%B1%BB"><span class="nav-text">契约类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#DBHelper"><span class="nav-text">DBHelper</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Utils%E5%B7%A5%E5%85%B7%E7%B1%BB"><span class="nav-text">Utils工具类</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E6%80%BB%E8%A7%88"><span class="nav-text">函数总览</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E4%B8%8A%E4%B8%8B%E6%96%87"><span class="nav-text">设置上下文</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%8C%89%E7%85%A7%E5%A7%93%E5%90%8D%E5%92%8C%E5%AD%A6%E5%8F%B7%E6%B7%BB%E5%8A%A0%E8%87%B3%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-text">按照姓名和学号添加至数据库</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%8C%89%E7%85%A7%E5%A7%93%E5%90%8D%E5%88%A0%E9%99%A4%E5%AD%A6%E7%94%9F"><span class="nav-text">按照姓名删除学生</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%8C%89%E7%85%A7%E5%AD%A6%E5%8F%B7%E5%88%A0%E9%99%A4%E5%AD%A6%E7%94%9F"><span class="nav-text">按照学号删除学生</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%8C%89%E7%85%A7%E5%A7%93%E5%90%8D-amp-%E5%AD%A6%E5%8F%B7%E5%88%A0%E9%99%A4%E5%AD%A6%E7%94%9F"><span class="nav-text">按照姓名&amp;学号删除学生</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%A0%B9%E6%8D%AE%E5%AD%A6%E5%8F%B7%E6%9B%B4%E6%96%B0%E5%A7%93%E5%90%8D"><span class="nav-text">根据学号更新姓名</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E6%9F%A5%E8%AF%A2%E9%9C%80%E8%A6%81%E7%94%A8%E7%9A%84%E5%AD%97%E6%AE%B5%E5%90%8D"><span class="nav-text">设置查询需要用的字段名</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E6%89%80%E6%9C%89%E6%9D%A1%E7%9B%AE"><span class="nav-text">查询所有条目</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%8C%89%E7%85%A7%E5%AD%A6%E5%8F%B7%E6%9F%A5%E6%89%BE"><span class="nav-text">按照学号查找</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%8C%89%E7%85%A7%E5%A7%93%E5%90%8D%E6%9F%A5%E6%89%BE"><span class="nav-text">按照姓名查找</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%8C%89%E7%85%A7%E5%A7%93%E5%90%8D-amp-%E5%AD%A6%E5%8F%B7%E6%9F%A5%E6%89%BE"><span class="nav-text">按照姓名&amp;学号查找</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BB%E7%A8%8B%E5%BA%8F"><span class="nav-text">主程序</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8C%89%E9%94%AE%E5%93%8D%E5%BA%94%E5%87%BD%E6%95%B0"><span class="nav-text">按键响应函数</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%A2%9E%E5%8A%A0"><span class="nav-text">增加</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%88%A0%E9%99%A4"><span class="nav-text">删除</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%EF%BC%88%E6%8C%89%E5%AD%A6%E5%8F%B7%E6%94%B9%E5%A7%93%E5%90%8D%EF%BC%89"><span class="nav-text">修改（按学号改姓名）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2"><span class="nav-text">查询</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#MyAdapter%E7%B1%BB"><span class="nav-text">MyAdapter类</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#getView"><span class="nav-text">getView()</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#getCount"><span class="nav-text">getCount()</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%86%85%E7%BD%AEViewHolder%E7%B1%BB"><span class="nav-text">内置ViewHolder类</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%BB%91%E7%9B%92%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9E%9C"><span class="nav-text">黑盒测试结果</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8F%92%E5%85%A5"><span class="nav-text">插入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%A0%E9%99%A4-1"><span class="nav-text">删除</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9"><span class="nav-text">修改</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2-1"><span class="nav-text">查询</span></a></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/dark-light-toggle.js"></script>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/code-copy.js"></script>
+
+
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/toc.js"></script>
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>
